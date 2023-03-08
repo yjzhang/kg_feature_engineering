@@ -1,0 +1,8 @@
+BioGrid - https://storage.googleapis.com/multiomics_provider_kp_data/drug_response/Input_tables/Biogrid_formated.csv
+
+SigNOR (protein signaling): https://storage.googleapis.com/multiomics_provider_kp_data/drug_response/Input_tables/SIGNOR_formated.tsv
+
+Protein-Protein interactions
+KEGG - https://www.genome.jp/kegg/pathway.html
+
+https://storage.googleapis.com/multiomics_provider_kp_data/drug_response/Input_tables/KEGG_signaling.tsv
