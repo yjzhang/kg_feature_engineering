@@ -2,6 +2,7 @@
 import os
 import sys
 
+import networkx as nx
 import pandas as pd
 
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -27,4 +28,22 @@ def load_graph(filename):
 
 
 def df_to_networkx(df):
-    pass
+    graph = nx.from_pandas_edgelist(df, source='subject_id', target='object_id',
+            edge_attr=['predicate',
+                       'Primary_Knowledge_Source',
+                       'Knowledge_Source',
+                       'publications'])
+    node_attributes = {}
+    for row in df.iterrows():
+        if row['subject_id'] not in node_attributes:
+            node_attributes[row['subject_id']] = {
+                    'id_prefix': row['subject_id_prefix'],
+                    'name': row['subject_name'],
+                    'category': row['subject_category']}
+        if row['object_id'] not in node_attributes:
+            node_attributes[row['object_id']] = {
+                    'id_prefix': row['object_id_prefix'],
+                    'name': row['object_name'],
+                    'category': row['object_category']}
+    nx.set_node_attributes(graph, node_attributes)
+    return graph
