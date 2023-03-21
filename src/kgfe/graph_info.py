@@ -1,11 +1,10 @@
 # TODO: get info on available graphs
 import os
-import sys
 
 import networkx as nx
 import pandas as pd
 
-PATH = os.path.dirname(os.path.abspath(__file__))
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(PATH, 'processed_graphs')
 
 def get_available_graphs():
