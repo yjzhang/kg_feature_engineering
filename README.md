@@ -26,3 +26,26 @@ BioLink format:
 "publications":[],
 "subject_category":[],
 "object_category":[]
+
+## Installation
+
+Run `pip install -e .` in this directory.
+
+
+## Usage
+
+```
+import kgfe
+
+# get available knowledge graphs
+available_graphs = kgfe.get_available_graphs()
+
+pathway_graph_df = kgfe.load_graph('kegg_pathway_data.csv')
+pathway_graph = kgfe.df_to_networkx(graph_df)
+nodes_table = kgfe.get_nodes_table(pathway_graph)
+
+# using graphs for explanation
+# pagerank results
+pr_results = kgfe.explanations.topic_pagerank(pathway_graph, query_genes, 'Genes')
+# hypergeom results
+```
