@@ -31,6 +31,7 @@ BioLink format:
 
 Run `pip install -e .` in this directory.
 
+To run tests, run `python -m unittest discover test`
 
 ## Usage
 
@@ -49,3 +50,4 @@ nodes_table = kgfe.get_nodes_table(pathway_graph)
 pr_results = kgfe.explanations.topic_pagerank(pathway_graph, query_genes, 'Genes')
 # hypergeom results
 ```
+
