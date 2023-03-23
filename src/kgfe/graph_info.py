@@ -29,16 +29,19 @@ def load_graph(filename):
     return df
 
 
-def df_to_networkx(df):
+def df_to_networkx(df, directed=False):
     """
-    Converts a panda dataframe to a networkx DiGraph, with node and edge attributes.
+    Converts a panda dataframe to a networkx Graph (or DiGraph), with node and edge attributes.
     """
+    create_using = nx.Graph
+    if directed:
+        create_using = nx.DiGraph
     graph = nx.from_pandas_edgelist(df, source='subject_id', target='object_id',
             edge_attr=['predicate',
                        'Primary_Knowledge_Source',
                        'Knowledge_Source',
                        'publications'],
-            create_using=nx.DiGraph)
+            create_using=create_using)
     node_attributes = {}
     for i, row in df.iterrows():
         if row['subject_id'] not in node_attributes:

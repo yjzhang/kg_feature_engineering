@@ -1,9 +1,12 @@
 # Graph explanations
 # how?
 import networkx as nx
+from scipy.stats import hypergeom
 
 
-def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None, topic_id_prefix=None, alpha=0.85):
+def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None,
+        topic_id_prefix=None,
+        alpha=0.85, max_iter=50, nstart=None):
     """
     Params:
         graph - a networkx graph
@@ -18,17 +21,24 @@ def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None, topic_i
         topic_weights = {i: 1 for i in topic_ids}
     topic_weights = {i: t for i, t in topic_weights.items() \
             if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
-    pr_results = nx.pagerank(graph, topic_weights, alpha=alpha)
+    pr_results = nx.pagerank(graph, alpha=alpha,
+            personalization=topic_weights, max_iter=max_iter, nstart=nstart)
     return pr_results
 
 
-def hypgergeom_test(graph, query_ids, query_category):
+def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
+    Hypergeometric test:
+    N = number of nodes in the query category (OR the number of nodes in the query universe, if that's available),
+    n = number of nodes in the query set,
+    K = number of nodes connected to each given target node in the target category
+    k = number of nodes connected to the target node that are in the query set
+
     Params:
         graph - a networkx graph
         query_ids - a list of IDs (NCBI Gene or PubChem), or a list of lists of ids
         query_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
-        query_weights - a dict of topic_id : weight
+        query_universe: 
 
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
@@ -36,12 +46,25 @@ def hypgergeom_test(graph, query_ids, query_category):
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
-    def single_hypergeom():
-        pass
-    category_nodes = [n for n in graph.nodes if graph.nodes[n]['category'] == query_category]
-    if isinstance(query_ids[0], list):
-        pass
+    if query_universe is None:
+        category_nodes = set([n for n in graph.nodes if graph.nodes[n]['category'] == query_category])
     else:
-        connected_nodes = []
-    pass
+        category_nodes = query_universe
+    def single_hypergeom(ids):
+        neighbors = set()
+        for i in ids:
+            neighbors.update([n for n in graph.neighbors(i)])
+        neighbor_vals = {}
+        for n in neighbors:
+            K = set([m for m in graph.neighbors(n) if m in category_nodes])
+            k = K.intersection(ids)
+            neighbor_vals[n] = (1 - hypergeom.cdf(len(k) - 1, len(category_nodes), len(K), len(query_ids)), k)
+        return neighbor_vals
+    if isinstance(query_ids[0], list):
+        all_results = []
+        for ids in query_ids:
+            all_results.append(single_hypergeom(ids))
+        return all_results
+    else:
+        return single_hypergeom(query_ids)
 
