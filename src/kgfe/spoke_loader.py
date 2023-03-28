@@ -315,9 +315,9 @@ def load_spoke(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=
 def load_spoke_networkx(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, **kwargs):
     import networkx as nx
     if filename.endswith('.csv') or filename.endswith('.csv.gz'):
-        nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, **kwargs)
+        nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
-        nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, **kwargs)
+        nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     edge_list = edges.keys()
     graph = nx.from_edgelist(edge_list)
     # set node attributes
