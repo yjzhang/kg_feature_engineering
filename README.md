@@ -51,3 +51,4 @@ pr_results = kgfe.explanations.topic_pagerank(pathway_graph, query_genes, 'Genes
 # hypergeom results
 ```
 
+TODO: include more graphs - MeshGeneGraph, CellMesh, MSigDB 
