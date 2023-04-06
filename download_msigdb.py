@@ -1,6 +1,5 @@
-# TODO: process msigdb into a single formatted csv (or a collection of csvs)
-
 # data source: http://www.gsea-msigdb.org/gsea/msigdb/human/collections.jsp
+# to download the file: http://www.gsea-msigdb.org/gsea/msigdb/download_file.jsp?filePath=/msigdb/release/2023.1.Hs/msigdb_v2023.1.Hs_json_files_to_download_locally.zip
 import json
 import os
 

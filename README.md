@@ -33,6 +33,8 @@ Run `pip install -e .` in this directory.
 
 To run tests, run `python -m unittest discover test`
 
+Using msigdb: download the file http://www.gsea-msigdb.org/gsea/msigdb/download_file.jsp?filePath=/msigdb/release/2023.1.Hs/msigdb_v2023.1.Hs_json_files_to_download_locally.zip in the raw_graphs directory in this folder.
+
 ## Usage
 
 ```
@@ -52,3 +54,4 @@ pr_results = kgfe.explanations.topic_pagerank(pathway_graph, query_genes, 'Genes
 ```
 
 TODO: include more graphs - MeshGeneGraph, CellMesh, MSigDB 
+
