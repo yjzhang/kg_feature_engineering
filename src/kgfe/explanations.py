@@ -26,6 +26,8 @@ def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None,
     return pr_results
 
 
+# TODO: steiner tree/subgraph, additional measures like centrality, etc?
+
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
     Hypergeometric test:
@@ -38,7 +40,7 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
         graph - a networkx graph
         query_ids - a list of IDs (NCBI Gene or PubChem), or a list of lists of ids
         query_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
-        query_universe: 
+        query_universe: either the universe of the query, or None if it's all nodes of the category in the graph. 
 
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.

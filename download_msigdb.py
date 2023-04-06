@@ -4,14 +4,13 @@
 import json
 import os
 
+import pandas as pd
+
 import gene_names
 
 BASE_PATH = '/media/yjzhang/easystore-5gb-1/research_big_data/msigdb/msigdb_v2023.1.Hs_json_files_to_download_locally'
 files = [x for x in os.listdir(BASE_PATH) if x.endswith('.json')]
-# TODO: object categories for every msigdb category, also need predicates and object_id_prefix
-files_to_object_category = {}
-for f in files:
-    pass
+
 
 def load_file(json_filename, object_category='BiologicalProcess', object_id_prefix='MSigDB',
         predicate='participates_in'):
@@ -23,7 +22,16 @@ def load_file(json_filename, object_category='BiologicalProcess', object_id_pref
         source = v['exactSource']
         ref = v['pmid']
         genes = v['geneSymbols']
-        gene_ids = gene_names.get_ids(genes)
+        try:
+            gene_ids = gene_names.get_ids(genes)
+        except:
+            gene_ids = []
+            for g in genes:
+                try:
+                    gene_id = gene_names.get_ids([g])
+                    gene_ids.append(gene_id)
+                except:
+                    continue
         for gene_id, symbol in zip(gene_ids, genes):
             entry = {}
             entry['subject_category'] = 'Gene'
@@ -41,3 +49,15 @@ def load_file(json_filename, object_category='BiologicalProcess', object_id_pref
             new_entries.append(entry)
     return new_entries
 
+# TODO: object categories for every msigdb category, also need predicates and object_id_prefix
+if __name__ == '__main__':
+    files_to_object_category = {}
+    data_files = {}
+    for f in files:
+        f_prefix = f[:-8]
+        print(f_prefix)
+        data = load_file(os.path.join(BASE_PATH, f))
+        data = pd.DataFrame(data)
+        data_files[f_prefix] = data
+        data.to_csv('processed_graphs/msigdb/'+f_prefix+'.csv', index=None)
+        
