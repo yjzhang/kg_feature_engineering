@@ -16,16 +16,20 @@ def get_feature_pairs(graph, ids, category='Gene'):
 
 def generate_pairwise_features(df, graph, is_name=True, category='Gene', mode='avg'):
     """
-    Generates a new dataframe with
+    Generates a new dataframe with pairwise features from the graph...
     """
 
 def generate_gene_set_features(df, graph, is_name=True, category='Gene',
         target_category='BiologicalProcess', mode='avg', included_gene_sets=None):
     """
     Generates a new dataframe with new features representing groups of genes (all genes connected to genes in the df)
+
+    Params:
+        df - pandas DataFrame containing the data
+        graph -  networkx graph
     """
     # 1. get all BPs
-    # 2. for all BPs in included_gene_sets, identify
+    # 2. for all BPs in included_gene_sets, identify their neighboring genes
 
 def get_repressor_features(graph, ids):
     """

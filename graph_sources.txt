@@ -2,7 +2,19 @@ BioGrid - https://storage.googleapis.com/multiomics_provider_kp_data/drug_respon
 
 SigNOR (protein signaling): https://storage.googleapis.com/multiomics_provider_kp_data/drug_response/Input_tables/SIGNOR_formated.tsv
 
-Protein-Protein interactions
+KeGG interactions
 KEGG - https://www.genome.jp/kegg/pathway.html
 
 https://storage.googleapis.com/multiomics_provider_kp_data/drug_response/Input_tables/KEGG_signaling.tsv
+
+MSigDB: http://www.gsea-msigdb.org/gsea/msigdb/download_file.jsp?filePath=/msigdb/release/2023.1.Hs/msigdb_v2023.1.Hs_json_files_to_download_locally.zip
+
+Reactome: https://reactome.org/download-data
+
+MESH: https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/
+
+Gene2pubmed: https://ftp.ncbi.nih.gov/gene/DATA/gene2pubmed.gz
+
+PubMed: 
+
+PubChem: https://ftp.ncbi.nlm.nih.gov/pubchem/RDF/reference/

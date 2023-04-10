@@ -130,6 +130,7 @@ def get_nodes_table(graph):
     return pd.DataFrame(rows)
 
 def get_names_to_ids(graph):
+    """Returns a dict mapping node names to IDs (ignoring prefixes and categories so on)"""
     names_to_ids = {}
     for n, attrs in graph.nodes.items():
         names_to_ids[attrs['name']] = n
