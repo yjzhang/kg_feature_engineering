@@ -1,5 +1,6 @@
 import networkx as nx
 import pandas as pd
+from .graph_info import get_nodes_table
 
 def get_feature_pairs(graph, ids, category='Gene'):
     """
@@ -18,6 +19,9 @@ def generate_pairwise_features(df, graph, is_name=True, category='Gene', mode='a
     """
     Generates a new dataframe with pairwise features from the graph...
     """
+    # TODO
+    genes = df.columns
+    graph_nodes = get_nodes_table(graph)
 
 def generate_gene_set_features(df, graph, is_name=True, category='Gene',
         target_category='BiologicalProcess', mode='avg', included_gene_sets=None):
@@ -27,8 +31,14 @@ def generate_gene_set_features(df, graph, is_name=True, category='Gene',
     Params:
         df - pandas DataFrame containing the data
         graph -  networkx graph
+        is_name - whether the inputs are gene names
+
+    Returns a new dataframe
     """
+    # TODO
     # 1. get all BPs
+    genes = df.columns
+    graph_nodes = get_nodes_table(graph)
     # 2. for all BPs in included_gene_sets, identify their neighboring genes
 
 def get_repressor_features(graph, ids):
