@@ -19,7 +19,7 @@ def generate_pairwise_features(df, graph, is_name=True, mode='avg'):
     """
     Generates a new dataframe with pairwise features from the graph...
 
-    mode: 'avg', 'product'
+    mode: 'avg', 'product', 'ratio'
     """
     genes = df.columns
     if is_name:
@@ -42,6 +42,9 @@ def generate_pairwise_features(df, graph, is_name=True, mode='avg'):
             df_new[str(p[0]) + '-x-' + str(p[1])] = (df[p[0]]+df[p[1]])/2
         elif mode == 'harmonic':
             df_new[str(p[0]) + '-x-' + str(p[1])] = 2/(1/df[p[0]] + 1/df[p[1]])
+        elif mode == 'ratio':
+            df_new[str(p[0]) + '-/-' + str(p[1])] = df[p[0]]/df[p[1]]
+            df_new[str(p[1]) + '-/-' + str(p[0])] = df[p[1]]/df[p[0]]
     return pairs, df_new
 
 
@@ -58,7 +61,8 @@ def generate_gene_set_features(df, graph, is_name=True,
 
     Returns a new dataframe
     """
-    # TODO
+    import numpy as np
+    import scipy.stats
     genes = df.columns
     if is_name:
         names_to_ids = get_names_to_ids(graph)
@@ -79,13 +83,12 @@ def generate_gene_set_features(df, graph, is_name=True,
                 genes_to_gene_sets[gene_id].add(n)
     df_new = df.copy()
     for gs, genes in gene_sets_to_genes.items():
-        # TODO: implement merging
         if mode == 'product':
-            df_new[gs] = df[genes]
+            df_new[gs] = np.product(df[genes].values, 1)
         elif mode == 'avg' or mode == 'average' or mode == 'mean':
-            df_new[gs] = (df[genes])/2
+            df_new[gs] = df[genes].mean(1)
         elif mode == 'harmonic':
-            df_new[gs] = df[genes]
+            df_new[gs] = scipy.stats.hmean(df[genes].values)
     return gene_sets_to_genes, df_new
 
 
