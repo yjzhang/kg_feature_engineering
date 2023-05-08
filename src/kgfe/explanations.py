@@ -27,6 +27,8 @@ def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None,
 
 
 # TODO: steiner tree/subgraph, additional measures like centrality, etc?
+def steiner_tree(graph, topic_ids):
+    pass
 
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
