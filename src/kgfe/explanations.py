@@ -1,5 +1,8 @@
 # Graph explanations
 # how?
+
+from collections import Counter
+
 import networkx as nx
 from scipy.stats import hypergeom
 
@@ -23,7 +26,17 @@ def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None,
             if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
     pr_results = nx.pagerank(graph, alpha=alpha,
             personalization=topic_weights, max_iter=max_iter, nstart=nstart)
-    return pr_results
+    top_nodes = []
+    prot_spoke_ids_set = set(graph.nodes.keys())
+    # postprocessing
+    pr_results = Counter(pr_results)
+    for node_id, score in pr_results.most_common():
+        if node_id in prot_spoke_ids_set:
+            continue
+        node = graph.nodes[node_id].copy()
+        node['score'] = score
+        top_nodes.append(node)
+    return pr_results, top_nodes
 
 
 # TODO: steiner tree/subgraph, additional measures like centrality, etc?

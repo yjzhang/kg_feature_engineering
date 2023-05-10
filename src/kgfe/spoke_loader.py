@@ -132,6 +132,9 @@ def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True
             print(i, 'nodes: ', len(node_index), 'edges: ', len(edges))
         # if this is a node
         if row['type'] == 'node':
+            row_name = ''
+            row_identifier = ''
+            row_source = ''
             if 'name' in row['properties'] and row['properties']['name'] != '':
                 row_name = row['properties']['name']
             elif 'pref_name' in row['properties'] and row['properties']['pref_name'] != '':
@@ -142,15 +145,19 @@ def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True
                 row_name = row['properties']['id']
             else:
                 row_name = ''
+            if 'identifier' in row['properties'] and row['properties']['identifier'] != '':
+                row_identifier = row['properties']['identifier']
+            if 'source' in row['properties'] and row['properties']['source'] != '':
+                row_source = row['properties']['source']
             row_label = row['labels'][0]
             if use_node_types:
                 if row_label in node_types:
-                    nodes.append((int(row['id']), row_name, node_types[row_label]))
+                    nodes.append((int(row['id']), row_name, node_types[row_label], row_identifier, row_source))
                 else:
-                    nodes.append((int(row['id']), row_name, len(node_types) + 1))
+                    nodes.append((int(row['id']), row_name, len(node_types) + 1, row_identifier, row_source))
                     node_types[row_label] = len(node_types) + 1
             else:
-                nodes.append((int(row['id']), row_name, True))
+                nodes.append((int(row['id']), row_name, True, row_identifier, row_source))
             node_index[int(row['id'])] = n_nodes 
             n_nodes += 1
         # if this row is an edge
@@ -189,6 +196,7 @@ def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True
     node_types = {v: k for k, v in node_types.items()}
     edge_types = {v: k for k, v in edge_types.items()}
     return nodes, edges, node_types, edge_types
+
 
 def import_ckg_jsonl(filename, edges_to_include=None, remove_unused_nodes=False, use_edge_types=True, use_node_types=True, n_edges=300000000, n_nodes=20000000, verbose=True):
     """
@@ -312,20 +320,26 @@ def load_spoke(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=
     return nodes, edges, node_types, edge_types, edge_matrix
 
 
-def load_spoke_networkx(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, **kwargs):
+def load_spoke_networkx(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, **kwargs):
     import networkx as nx
     if filename.endswith('.csv') or filename.endswith('.csv.gz'):
         nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
         nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     edge_list = edges.keys()
-    graph = nx.from_edgelist(edge_list)
+    if directed:
+        graph = nx.from_edgelist(edge_list, nx.DiGraph)
+    else:
+        graph = nx.from_edgelist(edge_list)
     # set node attributes
     node_attributes = {}
+    # TODO: get all IDs, not just names
     for n in nodes:
         node_attributes[n[0]] = {
                 'name':  n[1],
-                'type': node_types[n[2]]
+                'category': node_types[n[2]],
+                'identifier': n[3],
+                'source': n[4],
         }
     nx.set_node_attributes(graph, node_attributes)
     # set edge attributes
