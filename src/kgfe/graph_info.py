@@ -135,3 +135,17 @@ def get_names_to_ids(graph):
     for n, attrs in graph.nodes.items():
         names_to_ids[attrs['name']] = n
     return names_to_ids
+
+def spoke_identifiers_to_ids(graph, category, source=None):
+    """
+    Returns a mapping from SPOKE identifiers to IDs.
+
+    category: 'Protein', 'Gene', 'Compound', 'Disease', etc
+    source: 'KEGG', ...
+    """
+    identifiers_to_ids = {}
+    for n, attrs in graph.nodes.items():
+        if 'category' in attrs and attrs['category'] == category:
+            if source is None or ('source' in attrs and attrs['source'] == source):
+                identifiers_to_ids[attrs['identifier']] = n
+    return identifiers_to_ids
