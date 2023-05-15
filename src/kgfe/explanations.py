@@ -7,7 +7,7 @@ import networkx as nx
 from scipy.stats import hypergeom
 
 
-def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None,
+def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
         topic_id_prefix=None,
         alpha=0.85, max_iter=50, nstart=None):
     """
@@ -22,8 +22,9 @@ def topic_pagerank(graph, topic_ids, topic_category, topic_weights=None,
     """
     if topic_weights is None:
         topic_weights = {i: 1 for i in topic_ids}
-    topic_weights = {i: t for i, t in topic_weights.items() \
-            if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
+    if topic_weights is not None and topic_category is not None:
+        topic_weights = {i: t for i, t in topic_weights.items() \
+                if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
     pr_results = nx.pagerank(graph, alpha=alpha,
             personalization=topic_weights, max_iter=max_iter, nstart=nstart)
     top_nodes = []

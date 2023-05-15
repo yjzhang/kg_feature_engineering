@@ -136,6 +136,12 @@ def get_names_to_ids(graph):
         names_to_ids[attrs['name']] = n
     return names_to_ids
 
+def get_spoke_categories(graph):
+    return set(attrs['category'] for attrs in graph.nodes.values())
+
+def get_spoke_sources(graph):
+    return set(attrs['source'] for attrs in graph.nodes.values())
+
 def spoke_identifiers_to_ids(graph, category, source=None):
     """
     Returns a mapping from SPOKE identifiers to IDs.
