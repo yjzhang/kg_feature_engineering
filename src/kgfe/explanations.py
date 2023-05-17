@@ -27,12 +27,12 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
                 if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
     pr_results = nx.pagerank(graph, alpha=alpha,
             personalization=topic_weights, max_iter=max_iter, nstart=nstart)
-    top_nodes = []
-    prot_spoke_ids_set = set(graph.nodes.keys())
     # postprocessing
+    top_nodes = []
+    ids_set = set(graph.nodes.keys())
     pr_results = Counter(pr_results)
     for node_id, score in pr_results.most_common():
-        if node_id in prot_spoke_ids_set:
+        if node_id in ids_set:
             continue
         node = graph.nodes[node_id].copy()
         node['score'] = score
@@ -41,8 +41,17 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
 
 
 # TODO: steiner tree/subgraph, additional measures like centrality, etc?
-def steiner_tree(graph, topic_ids):
+def steiner_tree(graph, topic_ids, **params):
+    """
+    Just a thin wrapper around the steiner tree method in networkx
+    """
     pass
+
+def graph_node_stats(graph, ids, **params):
+    """
+    Gets some summary statistics for a set of nodes?
+    """
+    # TODO: what summary statistics?
 
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
