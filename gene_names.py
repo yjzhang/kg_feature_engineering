@@ -13,10 +13,10 @@ def _load_gene_info():
             row = row.split('\t')
             if row[0] == '#tax_id':
                 continue
-            row[1] = int(row[1])
-            ID_TO_SYMBOL[row[1]] = row[2]
+            gene_id = int(row[1])
+            ID_TO_SYMBOL[gene_id] = row[2]
             if row[2] not in SYMBOL_TO_ID:
-                SYMBOL_TO_ID[row[2]] = row[1]
+                SYMBOL_TO_ID[row[2]] = gene_id
 
 
 _load_gene_info()
