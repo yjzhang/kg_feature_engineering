@@ -13,6 +13,10 @@ chebi_all_levels_file = open('../reactome/ChEBI2Reactome_All_Levels.txt')
 ncbi_entries = []
 all_reactome_ids = {}
 
+# mapping of reactome reactions and pathway ids to the name
+reactome_reactions = {}
+reactome_pathways = {}
+
 def load_reactome_file(data_file, subject_category='Gene',
         subject_id_prefix='NCBIGene',
         predicate = 'participates_in',
@@ -30,7 +34,6 @@ def load_reactome_file(data_file, subject_category='Gene',
         gene_id = line_data[0]
         reactome_id = line_data[1]
         reactome_name = line_data[3]
-        all_reactome_ids[reactome_id] = reactome_name
         species = line_data[5]
         if species != 'Homo sapiens' or 'HSA' not in reactome_id:
             continue
@@ -41,6 +44,7 @@ def load_reactome_file(data_file, subject_category='Gene',
                 continue
         else:
             gene_name = gene_id
+        all_reactome_ids[reactome_id] = reactome_name
         new_entry = {}
         new_entry['subject_category'] = subject_category
         new_entry['subject_id_prefix'] = subject_id_prefix
@@ -57,11 +61,47 @@ def load_reactome_file(data_file, subject_category='Gene',
         ncbi_entries.append(new_entry)
     return ncbi_entries
 
-ncbi_entries_reactions = load_reactome_file(ncbi_reactions_file, all_reactome_ids=all_reactome_ids)
+ncbi_entries_reactions = load_reactome_file(ncbi_reactions_file, all_reactome_ids=all_reactome_ids, object_category='Pathway')
 ncbi_entries_pathways = load_reactome_file(ncbi_all_levels_file, object_category='Pathway', all_reactome_ids=all_reactome_ids)
 all_reactome_ids_chebi = {}
 chebi_entries_reactions = load_reactome_file(chebi_reactions_file, subject_category='SmallMolecule', subject_id_prefix='CHEBI',
-        all_reactome_ids=all_reactome_ids_chebi)
+        all_reactome_ids=all_reactome_ids_chebi, object_category='Pathway')
 chebi_entries_pathways = load_reactome_file(chebi_reactions_file, subject_category='SmallMolecule', subject_id_prefix='CHEBI',
         object_category='Pathway',
-        all_reactome_ids=all_reactome_ids_chebi)
+        all_reactome_ids=all_reactome_ids_chebi, use_gene_name=False)
+
+# get the pathway hierarchy
+reactome_relations = open('../reactome/ReactomePathwaysRelation.txt')
+reactome_relations_entries = []
+for line in reactome_relations.readlines():
+    line_data = line.split()
+    parent_id = line_data[0]
+    child_id = line_data[1]
+    if parent_id not in all_reactome_ids or child_id not in all_reactome_ids:
+        continue
+    parent_name = all_reactome_ids[parent_id]
+    child_name = all_reactome_ids[child_id]
+    new_entry = {}
+    new_entry['subject_category'] = 'Pathway'
+    new_entry['subject_id_prefix'] = 'REACT'
+    new_entry['subject_id'] = child_id
+    new_entry['subject_name'] = child_name
+    new_entry['predicate'] = 'subclass_of'
+    new_entry['object_category'] = 'Pathway'
+    new_entry['object_id_prefix'] = 'REACT'
+    new_entry['object_id'] = parent_id
+    new_entry['object_name'] = parent_name
+    new_entry['Primary_Knowledge_Source'] = 'Reactome'
+    new_entry['Knowledge_Source'] = 'Reactome'
+    new_entry['publications'] = 'PMID:34788843'
+    reactome_relations_entries.append(new_entry)
+
+import pandas as pd
+columns = 'subject_id  object_id   subject_id_prefix   object_id_prefix    subject_name    object_name predicate   Primary_Knowledge_Source    Knowledge_Source    publications    subject_category    object_category'.split()
+ncbi_table = pd.DataFrame(ncbi_entries_reactions + ncbi_entries_pathways, columns=columns)
+chebi_table = pd.DataFrame(chebi_entries_reactions + chebi_entries_pathways, columns=columns)
+combined_table = pd.DataFrame(ncbi_entries_reactions + ncbi_entries_pathways +
+        chebi_entries_reactions + chebi_entries_pathways + reactome_relations_entries,
+        columns=columns)
+
+combined_table.to_csv('reactome_genes_chems.csv', index=False)

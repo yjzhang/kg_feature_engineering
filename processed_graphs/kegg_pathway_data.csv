@@ -1717,124 +1717,6 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 8282,hsa00290,PubChem,KEGG,(S)-2-Acetolactate,"Valine, leucine and isoleucine biosynthesis - Homo sapiens (human)",participates_in,hsa00290,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 8304,hsa00290,PubChem,KEGG,D-erythro-3-Methylmalate,"Valine, leucine and isoleucine biosynthesis - Homo sapiens (human)",participates_in,hsa00290,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 17395463,hsa00290,PubChem,KEGG,(R)-3-Hydroxy-3-methyl-2-oxopentanoate,"Valine, leucine and isoleucine biosynthesis - Homo sapiens (human)",participates_in,hsa00290,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-10157,hsa00310,NCBIGene,KEGG,AASS,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-501,hsa00310,NCBIGene,KEGG,ALDH7A1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51166,hsa00310,NCBIGene,KEGG,AADAT,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-55526,hsa00310,NCBIGene,KEGG,DHTKD1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1743,hsa00310,NCBIGene,KEGG,DLST,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1738,hsa00310,NCBIGene,KEGG,DLD,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2639,hsa00310,NCBIGene,KEGG,GCDH,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3030,hsa00310,NCBIGene,KEGG,HADHA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1962,hsa00310,NCBIGene,KEGG,EHHADH,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1892,hsa00310,NCBIGene,KEGG,ECHS1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3033,hsa00310,NCBIGene,KEGG,HADH,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-39,hsa00310,NCBIGene,KEGG,ACAT2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-38,hsa00310,NCBIGene,KEGG,ACAT1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-123688,hsa00310,NCBIGene,KEGG,HYKK,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-85007,hsa00310,NCBIGene,KEGG,PHYKPL,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51268,hsa00310,NCBIGene,KEGG,PIPOX,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79823,hsa00310,NCBIGene,KEGG,CAMKMT,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4297,hsa00310,NCBIGene,KEGG,KMT2A,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8085,hsa00310,NCBIGene,KEGG,KMT2D,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-58508,hsa00310,NCBIGene,KEGG,KMT2C,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9757,hsa00310,NCBIGene,KEGG,KMT2B,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-55904,hsa00310,NCBIGene,KEGG,KMT2E,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-23067,hsa00310,NCBIGene,KEGG,SETD1B,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9739,hsa00310,NCBIGene,KEGG,SETD1A,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-80854,hsa00310,NCBIGene,KEGG,SETD7,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-56979,hsa00310,NCBIGene,KEGG,PRDM9,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-11105,hsa00310,NCBIGene,KEGG,PRDM7,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-55870,hsa00310,NCBIGene,KEGG,ASH1L,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-56950,hsa00310,NCBIGene,KEGG,SMYD2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-64754,hsa00310,NCBIGene,KEGG,SMYD3,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-150572,hsa00310,NCBIGene,KEGG,SMYD1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6839,hsa00310,NCBIGene,KEGG,SUV39H1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79723,hsa00310,NCBIGene,KEGG,SUV39H2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10919,hsa00310,NCBIGene,KEGG,EHMT2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79813,hsa00310,NCBIGene,KEGG,EHMT1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9869,hsa00310,NCBIGene,KEGG,SETDB1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-83852,hsa00310,NCBIGene,KEGG,SETDB2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7799,hsa00310,NCBIGene,KEGG,PRDM2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2145,hsa00310,NCBIGene,KEGG,EZH1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2146,hsa00310,NCBIGene,KEGG,EZH2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6419,hsa00310,NCBIGene,KEGG,SETMAR,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-64324,hsa00310,NCBIGene,KEGG,NSD1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7468,hsa00310,NCBIGene,KEGG,NSD2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-54904,hsa00310,NCBIGene,KEGG,NSD3,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-29072,hsa00310,NCBIGene,KEGG,SETD2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-84444,hsa00310,NCBIGene,KEGG,DOT1L,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-387893,hsa00310,NCBIGene,KEGG,KMT5A,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-93166,hsa00310,NCBIGene,KEGG,PRDM6,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-84787,hsa00310,NCBIGene,KEGG,KMT5C,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51111,hsa00310,NCBIGene,KEGG,KMT5B,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2122,hsa00310,NCBIGene,KEGG,MECOM,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-63976,hsa00310,NCBIGene,KEGG,PRDM16,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-55217,hsa00310,NCBIGene,KEGG,TMLHE,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-217,hsa00310,NCBIGene,KEGG,ALDH2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-224,hsa00310,NCBIGene,KEGG,ALDH3A2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-219,hsa00310,NCBIGene,KEGG,ALDH1B1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-223,hsa00310,NCBIGene,KEGG,ALDH9A1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8424,hsa00310,NCBIGene,KEGG,BBOX1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5351,hsa00310,NCBIGene,KEGG,PLOD1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5352,hsa00310,NCBIGene,KEGG,PLOD2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8985,hsa00310,NCBIGene,KEGG,PLOD3,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79709,hsa00310,NCBIGene,KEGG,COLGALT1,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-23127,hsa00310,NCBIGene,KEGG,COLGALT2,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3326,hsa00310,PubChem,KEGG,Acetyl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3328,hsa00310,PubChem,KEGG,2-Oxoglutarate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3339,hsa00310,PubChem,KEGG,Glycine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3344,hsa00310,PubChem,KEGG,Succinate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3349,hsa00310,PubChem,KEGG,L-Lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3436,hsa00310,PubChem,KEGG,Butanoyl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3464,hsa00310,PubChem,KEGG,Acetoacetate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3616,hsa00310,PubChem,KEGG,2-Oxoadipate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3626,hsa00310,PubChem,KEGG,Acetoacetyl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3698,hsa00310,PubChem,KEGG,L-Pipecolate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3720,hsa00310,PubChem,KEGG,5-Aminopentanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3737,hsa00310,PubChem,KEGG,"N6-(L-1,3-Dicarboxypropyl)-L-lysine",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3738,hsa00310,PubChem,KEGG,"(S)-2,3,4,5-Tetrahydropyridine-2-carboxylate",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3770,hsa00310,PubChem,KEGG,Carnitine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3772,hsa00310,PubChem,KEGG,Glutarate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-3810,hsa00310,PubChem,KEGG,Glutaryl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4002,hsa00310,PubChem,KEGG,D-Lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4133,hsa00310,PubChem,KEGG,Crotonoyl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4207,hsa00310,PubChem,KEGG,L-2-Aminoadipate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4236,hsa00310,PubChem,KEGG,5-Aminopentanamide,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4322,hsa00310,PubChem,KEGG,(R)-2-Hydroxyglutarate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4373,hsa00310,PubChem,KEGG,"(3S)-3,6-Diaminohexanoate",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4375,hsa00310,PubChem,KEGG,(S)-3-Hydroxybutanoyl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4378,hsa00310,PubChem,KEGG,4-Trimethylammoniobutanal,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4408,hsa00310,PubChem,KEGG,4-Trimethylammoniobutanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4412,hsa00310,PubChem,KEGG,"(3S,5S)-3,5-Diaminohexanoate",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4433,hsa00310,PubChem,KEGG,Procollagen 5-hydroxy-L-lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4478,hsa00310,PubChem,KEGG,"(3S)-3-Hydroxy-N6,N6,N6-trimethyl-L-lysine",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-4816,hsa00310,PubChem,KEGG,Cadaverine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-5259,hsa00310,PubChem,KEGG,Protein lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-5689,hsa00310,PubChem,KEGG,N6-Acetyl-L-lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-5985,hsa00310,PubChem,KEGG,5-Acetamidopentanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6073,hsa00310,PubChem,KEGG,(S)-2-Hydroxyglutarate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6109,hsa00310,PubChem,KEGG,6-Amino-2-oxohexanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6134,hsa00310,PubChem,KEGG,5-Oxopentanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6203,hsa00310,PubChem,KEGG,5-Phosphooxy-L-lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6434,hsa00310,PubChem,KEGG,(S)-5-Amino-3-oxohexanoic acid,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6542,hsa00310,PubChem,KEGG,"N6,N6,N6-Trimethyl-L-lysine",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6726,hsa00310,PubChem,KEGG,D-Lysopine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6771,hsa00310,PubChem,KEGG,L-2-Aminoadipate 6-semialdehyde,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-6784,hsa00310,PubChem,KEGG,Delta1-Piperideine-2-carboxylate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7106,hsa00310,PubChem,KEGG,5-(D-Galactosyloxy)-L-lysine-procollagen,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7577,hsa00310,PubChem,KEGG,"(2R,5S)-2,5-Diaminohexanoate",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7627,hsa00310,PubChem,KEGG,L-3-Aminobutyryl-CoA,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7880,hsa00310,PubChem,KEGG,Protein N6-methyl-L-lysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7881,hsa00310,PubChem,KEGG,"Protein N6,N6-dimethyl-L-lysine",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7882,hsa00310,PubChem,KEGG,"Protein N6,N6,N6-trimethyl-L-lysine",Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-7884,hsa00310,PubChem,KEGG,6-Acetamido-2-oxohexanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-8120,hsa00310,PubChem,KEGG,2-Amino-5-oxohexanoate,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-582845,hsa00310,PubChem,KEGG,5-Aminopentanal,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-96023265,hsa00310,PubChem,KEGG,L-Hydroxylysine,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-384585421,hsa00310,PubChem,KEGG,Tazemetostat (USAN/INN),Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Drug,Pathway
-384585461,hsa00310,PubChem,KEGG,Tazemetostat hydrobromide (JAN/USAN),Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Drug,Pathway
-384585527,hsa00310,PubChem,KEGG,Valemetostat,Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Drug,Pathway
-405226529,hsa00310,PubChem,KEGG,Valemetostat tosilate (JAN),Lysine degradation - Homo sapiens (human),participates_in,hsa00310,KEGG_Pathways,PMID:27899662,Drug,Pathway
 5009,hsa00220,NCBIGene,KEGG,OTC,Arginine biosynthesis - Homo sapiens (human),participates_in,hsa00220,KEGG_Pathways,PMID:27899662,Gene,Pathway
 445,hsa00220,NCBIGene,KEGG,ASS1,Arginine biosynthesis - Homo sapiens (human),participates_in,hsa00220,KEGG_Pathways,PMID:27899662,Gene,Pathway
 435,hsa00220,NCBIGene,KEGG,ASL,Arginine biosynthesis - Homo sapiens (human),participates_in,hsa00220,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -2212,6 +2094,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 3408,hsa00400,PubChem,KEGG,Anthranilate,"Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 3419,hsa00400,PubChem,KEGG,5-Phospho-alpha-D-ribose 1-diphosphate,"Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 3466,hsa00400,PubChem,KEGG,Phenylpyruvate,"Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
+3529,hsa00400,PubChem,KEGG,"3,4-Dihydroxybenzoate","Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 3550,hsa00400,PubChem,KEGG,Chorismate,"Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 3553,hsa00400,PubChem,KEGG,Prephenate,"Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 3574,hsa00400,PubChem,KEGG,D-Erythrose 4-phosphate,"Phenylalanine, tyrosine and tryptophan biosynthesis - Homo sapiens (human)",participates_in,hsa00400,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
@@ -2747,23 +2630,6 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 8228,hsa00770,PubChem,KEGG,Pantothenol,Pantothenate and CoA biosynthesis - Homo sapiens (human),participates_in,hsa00770,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 8282,hsa00770,PubChem,KEGG,(S)-2-Acetolactate,Pantothenate and CoA biosynthesis - Homo sapiens (human),participates_in,hsa00770,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 124489583,hsa00770,PubChem,KEGG,(R)-4-Phosphopantoate,Pantothenate and CoA biosynthesis - Homo sapiens (human),participates_in,hsa00770,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-387787,hsa00785,NCBIGene,KEGG,LIPT2,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,Gene,Pathway
-11019,hsa00785,NCBIGene,KEGG,LIAS,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51601,hsa00785,NCBIGene,KEGG,LIPT1,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,Gene,Pathway
-116285,hsa00785,NCBIGene,KEGG,ACSM1,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5048,hsa00785,PubChem,KEGG,Octanoyl-CoA,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-5140,hsa00785,PubChem,KEGG,Lipoylprotein,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-5225,hsa00785,PubChem,KEGG,Dihydrolipoate,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-5884,hsa00785,PubChem,KEGG,Dihydrolipoylprotein,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-8047,hsa00785,PubChem,KEGG,Octanoyl-[acp],Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-8658,hsa00785,PubChem,KEGG,Octanoic acid,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-47205285,hsa00785,PubChem,KEGG,Enzyme N6-(lipoyl)lysine,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-47205286,hsa00785,PubChem,KEGG,Enzyme N6-(dihydrolipoyl)lysine,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-47205546,hsa00785,PubChem,KEGG,Lipoyl-AMP,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-47205549,hsa00785,PubChem,KEGG,(R)-Lipoate,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-405226350,hsa00785,PubChem,KEGG,[Glycine cleavage system H]-N6-octanoyl-L-lysine,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-405226351,hsa00785,PubChem,KEGG,[Lipoyl-carrier protein E2]-N6-octanoyl-L-lysine,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
-405226352,hsa00785,PubChem,KEGG,Dihydrolipoyl-AMP,Lipoic acid metabolism - Homo sapiens (human),participates_in,hsa00785,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 1544,hsa00232,NCBIGene,KEGG,CYP1A2,Caffeine metabolism - Homo sapiens (human),participates_in,hsa00232,KEGG_Pathways,PMID:27899662,Gene,Pathway
 10,hsa00232,NCBIGene,KEGG,NAT2,Caffeine metabolism - Homo sapiens (human),participates_in,hsa00232,KEGG_Pathways,PMID:27899662,Gene,Pathway
 9,hsa00232,NCBIGene,KEGG,NAT1,Caffeine metabolism - Homo sapiens (human),participates_in,hsa00232,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -3518,7 +3384,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 51119,hsa03008,NCBIGene,KEGG,SBDS,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
 79631,hsa03008,NCBIGene,KEGG,EFL1,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
 55341,hsa03008,NCBIGene,KEGG,LSG1,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
-166378,hsa03008,NCBIGene,KEGG,SPATA5,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
+166378,hsa03008,NCBIGene,KEGG,AFG2A,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
 102157402,hsa03008,NCBIGene,KEGG,AK6,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
 83732,hsa03008,NCBIGene,KEGG,RIOK1,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
 55781,hsa03008,NCBIGene,KEGG,RIOK2,Ribosome biogenesis in eukaryotes - Homo sapiens (human),participates_in,hsa03008,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -3810,12 +3676,22 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 8930,hsa03410,NCBIGene,KEGG,MBD4,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 6996,hsa03410,NCBIGene,KEGG,TDG,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 328,hsa03410,NCBIGene,KEGG,APEX1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-27301,hsa03410,NCBIGene,KEGG,APEX2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+11284,hsa03410,NCBIGene,KEGG,PNKP,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55775,hsa03410,NCBIGene,KEGG,TDP1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 5423,hsa03410,NCBIGene,KEGG,POLB,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 27343,hsa03410,NCBIGene,KEGG,POLL,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 3146,hsa03410,NCBIGene,KEGG,HMGB1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+142,hsa03410,NCBIGene,KEGG,PARP1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10038,hsa03410,NCBIGene,KEGG,PARP2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10039,hsa03410,NCBIGene,KEGG,PARP3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+143,hsa03410,NCBIGene,KEGG,PARP4,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+8505,hsa03410,NCBIGene,KEGG,PARG,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+54936,hsa03410,NCBIGene,KEGG,ADPRS,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+54840,hsa03410,NCBIGene,KEGG,APTX,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 7515,hsa03410,NCBIGene,KEGG,XRCC1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5111,hsa03410,NCBIGene,KEGG,PCNA,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5428,hsa03410,NCBIGene,KEGG,POLG,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+11232,hsa03410,NCBIGene,KEGG,POLG2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3980,hsa03410,NCBIGene,KEGG,LIG3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 5424,hsa03410,NCBIGene,KEGG,POLD1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 5425,hsa03410,NCBIGene,KEGG,POLD2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 10714,hsa03410,NCBIGene,KEGG,POLD3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -3824,13 +3700,14 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 5427,hsa03410,NCBIGene,KEGG,POLE2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 54107,hsa03410,NCBIGene,KEGG,POLE3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 56655,hsa03410,NCBIGene,KEGG,POLE4,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3978,hsa03410,NCBIGene,KEGG,LIG1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3980,hsa03410,NCBIGene,KEGG,LIG3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-142,hsa03410,NCBIGene,KEGG,PARP1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10038,hsa03410,NCBIGene,KEGG,PARP2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10039,hsa03410,NCBIGene,KEGG,PARP3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
-143,hsa03410,NCBIGene,KEGG,PARP4,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5111,hsa03410,NCBIGene,KEGG,PCNA,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5981,hsa03410,NCBIGene,KEGG,RFC1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5984,hsa03410,NCBIGene,KEGG,RFC4,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5982,hsa03410,NCBIGene,KEGG,RFC2,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5985,hsa03410,NCBIGene,KEGG,RFC5,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5983,hsa03410,NCBIGene,KEGG,RFC3,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2237,hsa03410,NCBIGene,KEGG,FEN1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3978,hsa03410,NCBIGene,KEGG,LIG1,Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Gene,Pathway
 124490470,hsa03410,PubChem,KEGG,Olaparib (JAN/USAN/INN),Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Drug,Pathway
 135626799,hsa03410,PubChem,KEGG,Rucaparib (USAN/INN),Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Drug,Pathway
 135626875,hsa03410,PubChem,KEGG,Rucaparib phosphate (USAN),Base excision repair - Homo sapiens (human),participates_in,hsa03410,KEGG_Pathways,PMID:27899662,Drug,Pathway
@@ -3849,6 +3726,22 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 1069,hsa03420,NCBIGene,KEGG,CETN2,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1161,hsa03420,NCBIGene,KEGG,ERCC8,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2074,hsa03420,NCBIGene,KEGG,ERCC6,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+57654,hsa03420,NCBIGene,KEGG,UVSSA,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5430,hsa03420,NCBIGene,KEGG,POLR2A,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5431,hsa03420,NCBIGene,KEGG,POLR2B,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5432,hsa03420,NCBIGene,KEGG,POLR2C,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5433,hsa03420,NCBIGene,KEGG,POLR2D,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5434,hsa03420,NCBIGene,KEGG,POLR2E,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5435,hsa03420,NCBIGene,KEGG,POLR2F,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5436,hsa03420,NCBIGene,KEGG,POLR2G,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5437,hsa03420,NCBIGene,KEGG,POLR2H,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5438,hsa03420,NCBIGene,KEGG,POLR2I,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5441,hsa03420,NCBIGene,KEGG,POLR2L,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5440,hsa03420,NCBIGene,KEGG,POLR2K,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+5439,hsa03420,NCBIGene,KEGG,POLR2J,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+548644,hsa03420,NCBIGene,KEGG,POLR2J3,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+246721,hsa03420,NCBIGene,KEGG,POLR2J2,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
+81488,hsa03420,NCBIGene,KEGG,POLR2M,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1022,hsa03420,NCBIGene,KEGG,CDK7,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
 4331,hsa03420,NCBIGene,KEGG,MNAT1,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
 902,hsa03420,NCBIGene,KEGG,CCNH,Nucleotide excision repair - Homo sapiens (human),participates_in,hsa03420,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -3908,47 +3801,6 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 10714,hsa03430,NCBIGene,KEGG,POLD3,Mismatch repair - Homo sapiens (human),participates_in,hsa03430,KEGG_Pathways,PMID:27899662,Gene,Pathway
 57804,hsa03430,NCBIGene,KEGG,POLD4,Mismatch repair - Homo sapiens (human),participates_in,hsa03430,KEGG_Pathways,PMID:27899662,Gene,Pathway
 3978,hsa03430,NCBIGene,KEGG,LIG1,Mismatch repair - Homo sapiens (human),participates_in,hsa03430,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6742,hsa03440,NCBIGene,KEGG,SSBP1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10111,hsa03440,NCBIGene,KEGG,RAD50,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4361,hsa03440,NCBIGene,KEGG,MRE11,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4683,hsa03440,NCBIGene,KEGG,NBN,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-472,hsa03440,NCBIGene,KEGG,ATM,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-672,hsa03440,NCBIGene,KEGG,BRCA1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-580,hsa03440,NCBIGene,KEGG,BARD1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5932,hsa03440,NCBIGene,KEGG,RBBP8,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-83990,hsa03440,NCBIGene,KEGG,BRIP1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-11073,hsa03440,NCBIGene,KEGG,TOPBP1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-84142,hsa03440,NCBIGene,KEGG,ABRAXAS1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51720,hsa03440,NCBIGene,KEGG,UIMC1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-29086,hsa03440,NCBIGene,KEGG,BABAM1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9577,hsa03440,NCBIGene,KEGG,BABAM2,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79184,hsa03440,NCBIGene,KEGG,BRCC3,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79728,hsa03440,NCBIGene,KEGG,PALB2,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-675,hsa03440,NCBIGene,KEGG,BRCA2,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7979,hsa03440,NCBIGene,KEGG,SEM1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-50511,hsa03440,NCBIGene,KEGG,SYCP3,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6117,hsa03440,NCBIGene,KEGG,RPA1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6118,hsa03440,NCBIGene,KEGG,RPA2,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6119,hsa03440,NCBIGene,KEGG,RPA3,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-29935,hsa03440,NCBIGene,KEGG,RPA4,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5888,hsa03440,NCBIGene,KEGG,RAD51,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5893,hsa03440,NCBIGene,KEGG,RAD52,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5890,hsa03440,NCBIGene,KEGG,RAD51B,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5889,hsa03440,NCBIGene,KEGG,RAD51C,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5892,hsa03440,NCBIGene,KEGG,RAD51D,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7516,hsa03440,NCBIGene,KEGG,XRCC2,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7517,hsa03440,NCBIGene,KEGG,XRCC3,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8438,hsa03440,NCBIGene,KEGG,RAD54L,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-25788,hsa03440,NCBIGene,KEGG,RAD54B,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5424,hsa03440,NCBIGene,KEGG,POLD1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5425,hsa03440,NCBIGene,KEGG,POLD2,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10714,hsa03440,NCBIGene,KEGG,POLD3,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-57804,hsa03440,NCBIGene,KEGG,POLD4,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-641,hsa03440,NCBIGene,KEGG,BLM,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7156,hsa03440,NCBIGene,KEGG,TOP3A,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8940,hsa03440,NCBIGene,KEGG,TOP3B,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-80198,hsa03440,NCBIGene,KEGG,MUS81,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
-146956,hsa03440,NCBIGene,KEGG,EME1,Homologous recombination - Homo sapiens (human),participates_in,hsa03440,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2547,hsa03450,NCBIGene,KEGG,XRCC6,Non-homologous end-joining - Homo sapiens (human),participates_in,hsa03450,KEGG_Pathways,PMID:27899662,Gene,Pathway
 7520,hsa03450,NCBIGene,KEGG,XRCC5,Non-homologous end-joining - Homo sapiens (human),participates_in,hsa03450,KEGG_Pathways,PMID:27899662,Gene,Pathway
 64421,hsa03450,NCBIGene,KEGG,DCLRE1C,Non-homologous end-joining - Homo sapiens (human),participates_in,hsa03450,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -3962,60 +3814,6 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 10111,hsa03450,NCBIGene,KEGG,RAD50,Non-homologous end-joining - Homo sapiens (human),participates_in,hsa03450,KEGG_Pathways,PMID:27899662,Gene,Pathway
 4361,hsa03450,NCBIGene,KEGG,MRE11,Non-homologous end-joining - Homo sapiens (human),participates_in,hsa03450,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2237,hsa03450,NCBIGene,KEGG,FEN1,Non-homologous end-joining - Homo sapiens (human),participates_in,hsa03450,KEGG_Pathways,PMID:27899662,Gene,Pathway
-84126,hsa03460,NCBIGene,KEGG,ATRIP,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-545,hsa03460,NCBIGene,KEGG,ATR,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-57697,hsa03460,NCBIGene,KEGG,FANCM,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-91442,hsa03460,NCBIGene,KEGG,FAAP24,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-378708,hsa03460,NCBIGene,KEGG,CENPS,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-100526739,hsa03460,NCBIGene,KEGG,CENPS-CORT,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-201254,hsa03460,NCBIGene,KEGG,CENPX,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9894,hsa03460,NCBIGene,KEGG,TELO2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3280,hsa03460,NCBIGene,KEGG,HES1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-80233,hsa03460,NCBIGene,KEGG,FAAP100,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2175,hsa03460,NCBIGene,KEGG,FANCA,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2187,hsa03460,NCBIGene,KEGG,FANCB,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2176,hsa03460,NCBIGene,KEGG,FANCC,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2178,hsa03460,NCBIGene,KEGG,FANCE,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2188,hsa03460,NCBIGene,KEGG,FANCF,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2189,hsa03460,NCBIGene,KEGG,FANCG,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-55120,hsa03460,NCBIGene,KEGG,FANCL,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-57599,hsa03460,NCBIGene,KEGG,WDR48,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7398,hsa03460,NCBIGene,KEGG,USP1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-29089,hsa03460,NCBIGene,KEGG,UBE2T,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-55215,hsa03460,NCBIGene,KEGG,FANCI,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2177,hsa03460,NCBIGene,KEGG,FANCD2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-675,hsa03460,NCBIGene,KEGG,BRCA2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79728,hsa03460,NCBIGene,KEGG,PALB2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5889,hsa03460,NCBIGene,KEGG,RAD51C,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5888,hsa03460,NCBIGene,KEGG,RAD51,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-672,hsa03460,NCBIGene,KEGG,BRCA1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-83990,hsa03460,NCBIGene,KEGG,BRIP1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-22909,hsa03460,NCBIGene,KEGG,FAN1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4292,hsa03460,NCBIGene,KEGG,MLH1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5395,hsa03460,NCBIGene,KEGG,PMS2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51455,hsa03460,NCBIGene,KEGG,REV1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5980,hsa03460,NCBIGene,KEGG,REV3L,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5429,hsa03460,NCBIGene,KEGG,POLH,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-11201,hsa03460,NCBIGene,KEGG,POLI,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-51426,hsa03460,NCBIGene,KEGG,POLK,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-353497,hsa03460,NCBIGene,KEGG,POLN,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-80010,hsa03460,NCBIGene,KEGG,RMI1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-116028,hsa03460,NCBIGene,KEGG,RMI2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7156,hsa03460,NCBIGene,KEGG,TOP3A,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8940,hsa03460,NCBIGene,KEGG,TOP3B,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-641,hsa03460,NCBIGene,KEGG,BLM,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6117,hsa03460,NCBIGene,KEGG,RPA1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6118,hsa03460,NCBIGene,KEGG,RPA2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6119,hsa03460,NCBIGene,KEGG,RPA3,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-29935,hsa03460,NCBIGene,KEGG,RPA4,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-80198,hsa03460,NCBIGene,KEGG,MUS81,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-146956,hsa03460,NCBIGene,KEGG,EME1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-197342,hsa03460,NCBIGene,KEGG,EME2,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2072,hsa03460,NCBIGene,KEGG,ERCC4,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2067,hsa03460,NCBIGene,KEGG,ERCC1,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-548593,hsa03460,NCBIGene,KEGG,SLX1A,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79008,hsa03460,NCBIGene,KEGG,SLX1B,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
-84464,hsa03460,NCBIGene,KEGG,SLX4,Fanconi anemia pathway - Homo sapiens (human),participates_in,hsa03460,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1234,hsa03250,NCBIGene,KEGG,CCR5,Viral life cycle - HIV-1 - Homo sapiens (human),participates_in,hsa03250,KEGG_Pathways,PMID:27899662,Gene,Pathway
 7852,hsa03250,NCBIGene,KEGG,CXCR4,Viral life cycle - HIV-1 - Homo sapiens (human),participates_in,hsa03250,KEGG_Pathways,PMID:27899662,Gene,Pathway
 920,hsa03250,NCBIGene,KEGG,CD4,Viral life cycle - HIV-1 - Homo sapiens (human),participates_in,hsa03250,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -4175,7 +3973,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 3854,hsa04340,PubChem,KEGG,"3',5'-Cyclic AMP",Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 135626713,hsa04340,PubChem,KEGG,Vismodegib (USAN/INN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
 135626837,hsa04340,PubChem,KEGG,Sonidegib (USAN/INN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
-163312354,hsa04340,PubChem,KEGG,Patidegib (USAN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
+163312354,hsa04340,PubChem,KEGG,Patidegib (USAN/INN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
 163312355,hsa04340,PubChem,KEGG,Patidegib hydrochloride (USAN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
 254741597,hsa04340,PubChem,KEGG,Glasdegib (USAN/INN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
 254741632,hsa04340,PubChem,KEGG,Taladegib (USAN/INN),Hedgehog signaling pathway - Homo sapiens (human),participates_in,hsa04340,KEGG_Pathways,PMID:27899662,Drug,Pathway
@@ -5102,38 +4900,6 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 342581827,hsa04114,PubChem,KEGG,Segesterone acetate (USAN),Oocyte meiosis - Homo sapiens (human),participates_in,hsa04114,KEGG_Pathways,PMID:27899662,Drug,Pathway
 342581828,hsa04114,PubChem,KEGG,Segesterone (USAN/INN),Oocyte meiosis - Homo sapiens (human),participates_in,hsa04114,KEGG_Pathways,PMID:27899662,Drug,Pathway
 376219105,hsa04114,PubChem,KEGG,Vilaprisan (JAN/USAN/INN),Oocyte meiosis - Homo sapiens (human),participates_in,hsa04114,KEGG_Pathways,PMID:27899662,Drug,Pathway
-7132,hsa04215,NCBIGene,KEGG,TNFRSF1A,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8772,hsa04215,NCBIGene,KEGG,FADD,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-841,hsa04215,NCBIGene,KEGG,CASP8,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-840,hsa04215,NCBIGene,KEGG,CASP7,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-836,hsa04215,NCBIGene,KEGG,CASP3,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-637,hsa04215,NCBIGene,KEGG,BID,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10018,hsa04215,NCBIGene,KEGG,BCL2L11,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5366,hsa04215,NCBIGene,KEGG,PMAIP1,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-27113,hsa04215,NCBIGene,KEGG,BBC3,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-596,hsa04215,NCBIGene,KEGG,BCL2,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-598,hsa04215,NCBIGene,KEGG,BCL2L1,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-581,hsa04215,NCBIGene,KEGG,BAX,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-578,hsa04215,NCBIGene,KEGG,BAK1,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-54205,hsa04215,NCBIGene,KEGG,CYCS,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-317,hsa04215,NCBIGene,KEGG,APAF1,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-842,hsa04215,NCBIGene,KEGG,CASP9,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-56616,hsa04215,NCBIGene,KEGG,DIABLO,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-27429,hsa04215,NCBIGene,KEGG,HTRA2,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5414,hsa04215,NCBIGene,KEGG,SEPTIN4,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-329,hsa04215,NCBIGene,KEGG,BIRC2,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-330,hsa04215,NCBIGene,KEGG,BIRC3,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-331,hsa04215,NCBIGene,KEGG,XIAP,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-332,hsa04215,NCBIGene,KEGG,BIRC5,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5599,hsa04215,NCBIGene,KEGG,MAPK8,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5602,hsa04215,NCBIGene,KEGG,MAPK10,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5601,hsa04215,NCBIGene,KEGG,MAPK9,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-666,hsa04215,NCBIGene,KEGG,BOK,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-79444,hsa04215,NCBIGene,KEGG,BIRC7,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4804,hsa04215,NCBIGene,KEGG,NGFR,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8678,hsa04215,NCBIGene,KEGG,BECN1,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-441925,hsa04215,NCBIGene,KEGG,BECN2,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
-57448,hsa04215,NCBIGene,KEGG,BIRC6,Apoptosis - multiple species - Homo sapiens (human),participates_in,hsa04215,KEGG_Pathways,PMID:27899662,Gene,Pathway
 92359,hsa04530,NCBIGene,KEGG,CRB3,Tight junction - Homo sapiens (human),participates_in,hsa04530,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1364,hsa04530,NCBIGene,KEGG,CLDN4,Tight junction - Homo sapiens (human),participates_in,hsa04530,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1365,hsa04530,NCBIGene,KEGG,CLDN3,Tight junction - Homo sapiens (human),participates_in,hsa04530,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -5305,6 +5071,199 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 79861,hsa04530,NCBIGene,KEGG,TUBAL3,Tight junction - Homo sapiens (human),participates_in,hsa04530,KEGG_Pathways,PMID:27899662,Gene,Pathway
 3376,hsa04530,PubChem,KEGG,Calcium cation,Tight junction - Homo sapiens (human),participates_in,hsa04530,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 384585503,hsa04530,PubChem,KEGG,Zolbetuximab (USAN/INN),Tight junction - Homo sapiens (human),participates_in,hsa04530,KEGG_Pathways,PMID:27899662,Drug,Pathway
+1778,hsa04814,NCBIGene,KEGG,DYNC1H1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+79659,hsa04814,NCBIGene,KEGG,DYNC2H1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1780,hsa04814,NCBIGene,KEGG,DYNC1I1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1781,hsa04814,NCBIGene,KEGG,DYNC1I2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1783,hsa04814,NCBIGene,KEGG,DYNC1LI2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51143,hsa04814,NCBIGene,KEGG,DYNC1LI1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51626,hsa04814,NCBIGene,KEGG,DYNC2LI1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+8655,hsa04814,NCBIGene,KEGG,DYNLL1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+140735,hsa04814,NCBIGene,KEGG,DYNLL2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+83658,hsa04814,NCBIGene,KEGG,DYNLRB1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+83657,hsa04814,NCBIGene,KEGG,DYNLRB2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+6993,hsa04814,NCBIGene,KEGG,DYNLT1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+6990,hsa04814,NCBIGene,KEGG,DYNLT3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+6991,hsa04814,NCBIGene,KEGG,DYNLT2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+343521,hsa04814,NCBIGene,KEGG,DYNLT4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+200132,hsa04814,NCBIGene,KEGG,DYNLT5,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+25981,hsa04814,NCBIGene,KEGG,DNAH1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55567,hsa04814,NCBIGene,KEGG,DNAH3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+146754,hsa04814,NCBIGene,KEGG,DNAH2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+56171,hsa04814,NCBIGene,KEGG,DNAH7,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1767,hsa04814,NCBIGene,KEGG,DNAH5,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1768,hsa04814,NCBIGene,KEGG,DNAH6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1770,hsa04814,NCBIGene,KEGG,DNAH9,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+8701,hsa04814,NCBIGene,KEGG,DNAH11,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+201625,hsa04814,NCBIGene,KEGG,DNAH12,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+127602,hsa04814,NCBIGene,KEGG,DNAH14,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1769,hsa04814,NCBIGene,KEGG,DNAH8,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+196385,hsa04814,NCBIGene,KEGG,DNAH10,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+8632,hsa04814,NCBIGene,KEGG,DNAH17,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+27019,hsa04814,NCBIGene,KEGG,DNAI1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+64446,hsa04814,NCBIGene,KEGG,DNAI2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+126820,hsa04814,NCBIGene,KEGG,DNAI3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+79819,hsa04814,NCBIGene,KEGG,DNAI4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7802,hsa04814,NCBIGene,KEGG,DNALI1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+83544,hsa04814,NCBIGene,KEGG,DNAL1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10126,hsa04814,NCBIGene,KEGG,DNAL4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1639,hsa04814,NCBIGene,KEGG,DCTN1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10540,hsa04814,NCBIGene,KEGG,DCTN2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+11258,hsa04814,NCBIGene,KEGG,DCTN3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51164,hsa04814,NCBIGene,KEGG,DCTN4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+84516,hsa04814,NCBIGene,KEGG,DCTN5,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10671,hsa04814,NCBIGene,KEGG,DCTN6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10121,hsa04814,NCBIGene,KEGG,ACTR1A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10120,hsa04814,NCBIGene,KEGG,ACTR1B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55860,hsa04814,NCBIGene,KEGG,ACTR10,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+829,hsa04814,NCBIGene,KEGG,CAPZA1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+830,hsa04814,NCBIGene,KEGG,CAPZA2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+93661,hsa04814,NCBIGene,KEGG,CAPZA3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+832,hsa04814,NCBIGene,KEGG,CAPZB,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+92558,hsa04814,NCBIGene,KEGG,BICDL1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+146439,hsa04814,NCBIGene,KEGG,BICDL2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+84376,hsa04814,NCBIGene,KEGG,HOOK3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10376,hsa04814,NCBIGene,KEGG,TUBA1B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7277,hsa04814,NCBIGene,KEGG,TUBA4A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7278,hsa04814,NCBIGene,KEGG,TUBA3C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7846,hsa04814,NCBIGene,KEGG,TUBA1A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+84790,hsa04814,NCBIGene,KEGG,TUBA1C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51807,hsa04814,NCBIGene,KEGG,TUBA8,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+112714,hsa04814,NCBIGene,KEGG,TUBA3E,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+113457,hsa04814,NCBIGene,KEGG,TUBA3D,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+79861,hsa04814,NCBIGene,KEGG,TUBAL3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+84617,hsa04814,NCBIGene,KEGG,TUBB6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+203068,hsa04814,NCBIGene,KEGG,TUBB,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+81027,hsa04814,NCBIGene,KEGG,TUBB1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7280,hsa04814,NCBIGene,KEGG,TUBB2A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10381,hsa04814,NCBIGene,KEGG,TUBB3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10382,hsa04814,NCBIGene,KEGG,TUBB4A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+347688,hsa04814,NCBIGene,KEGG,TUBB8,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+347733,hsa04814,NCBIGene,KEGG,TUBB2B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10383,hsa04814,NCBIGene,KEGG,TUBB4B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+27175,hsa04814,NCBIGene,KEGG,TUBG2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7283,hsa04814,NCBIGene,KEGG,TUBG1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51174,hsa04814,NCBIGene,KEGG,TUBD1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51175,hsa04814,NCBIGene,KEGG,TUBE1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3798,hsa04814,NCBIGene,KEGG,KIF5A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3799,hsa04814,NCBIGene,KEGG,KIF5B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3800,hsa04814,NCBIGene,KEGG,KIF5C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+147700,hsa04814,NCBIGene,KEGG,KLC3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3831,hsa04814,NCBIGene,KEGG,KLC1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+64837,hsa04814,NCBIGene,KEGG,KLC2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+89953,hsa04814,NCBIGene,KEGG,KLC4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+11127,hsa04814,NCBIGene,KEGG,KIF3A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+9371,hsa04814,NCBIGene,KEGG,KIF3B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+22920,hsa04814,NCBIGene,KEGG,KIFAP3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3797,hsa04814,NCBIGene,KEGG,KIF3C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+57576,hsa04814,NCBIGene,KEGG,KIF17,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+23095,hsa04814,NCBIGene,KEGG,KIF1B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+547,hsa04814,NCBIGene,KEGG,KIF1A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10749,hsa04814,NCBIGene,KEGG,KIF1C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+23303,hsa04814,NCBIGene,KEGG,KIF13B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+63971,hsa04814,NCBIGene,KEGG,KIF13A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+9928,hsa04814,NCBIGene,KEGG,KIF14,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55614,hsa04814,NCBIGene,KEGG,KIF16B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+57519,hsa04814,NCBIGene,KEGG,STARD9,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+24137,hsa04814,NCBIGene,KEGG,KIF4A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+285643,hsa04814,NCBIGene,KEGG,KIF4B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+374654,hsa04814,NCBIGene,KEGG,KIF7,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+23046,hsa04814,NCBIGene,KEGG,KIF21B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55605,hsa04814,NCBIGene,KEGG,KIF21A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55582,hsa04814,NCBIGene,KEGG,KIF27,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3832,hsa04814,NCBIGene,KEGG,KIF11,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10112,hsa04814,NCBIGene,KEGG,KIF20A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+9585,hsa04814,NCBIGene,KEGG,KIF20B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+9493,hsa04814,NCBIGene,KEGG,KIF23,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+1062,hsa04814,NCBIGene,KEGG,CENPE,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+81930,hsa04814,NCBIGene,KEGG,KIF18A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+146909,hsa04814,NCBIGene,KEGG,KIF18B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+124602,hsa04814,NCBIGene,KEGG,KIF19,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+221458,hsa04814,NCBIGene,KEGG,KIF6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+64147,hsa04814,NCBIGene,KEGG,KIF9,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3835,hsa04814,NCBIGene,KEGG,KIF22,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+26153,hsa04814,NCBIGene,KEGG,KIF26A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55083,hsa04814,NCBIGene,KEGG,KIF26B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+113220,hsa04814,NCBIGene,KEGG,KIF12,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+56992,hsa04814,NCBIGene,KEGG,KIF15,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+84643,hsa04814,NCBIGene,KEGG,KIF2B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+11004,hsa04814,NCBIGene,KEGG,KIF2C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+347240,hsa04814,NCBIGene,KEGG,KIF24,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3796,hsa04814,NCBIGene,KEGG,KIF2A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3833,hsa04814,NCBIGene,KEGG,KIFC1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3801,hsa04814,NCBIGene,KEGG,KIFC3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+90990,hsa04814,NCBIGene,KEGG,KIFC2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+3834,hsa04814,NCBIGene,KEGG,KIF25,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+283446,hsa04814,NCBIGene,KEGG,MYO1H,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4430,hsa04814,NCBIGene,KEGG,MYO1B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4542,hsa04814,NCBIGene,KEGG,MYO1F,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4640,hsa04814,NCBIGene,KEGG,MYO1A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4641,hsa04814,NCBIGene,KEGG,MYO1C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4642,hsa04814,NCBIGene,KEGG,MYO1D,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4643,hsa04814,NCBIGene,KEGG,MYO1E,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+64005,hsa04814,NCBIGene,KEGG,MYO1G,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+140469,hsa04814,NCBIGene,KEGG,MYO3B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+53904,hsa04814,NCBIGene,KEGG,MYO3A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4644,hsa04814,NCBIGene,KEGG,MYO5A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4645,hsa04814,NCBIGene,KEGG,MYO5B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+55930,hsa04814,NCBIGene,KEGG,MYO5C,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4646,hsa04814,NCBIGene,KEGG,MYO6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4647,hsa04814,NCBIGene,KEGG,MYO7A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4648,hsa04814,NCBIGene,KEGG,MYO7B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4649,hsa04814,NCBIGene,KEGG,MYO9A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4650,hsa04814,NCBIGene,KEGG,MYO9B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4651,hsa04814,NCBIGene,KEGG,MYO10,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+51168,hsa04814,NCBIGene,KEGG,MYO15A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+80022,hsa04814,NCBIGene,KEGG,MYO15B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+23026,hsa04814,NCBIGene,KEGG,MYO16,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+399687,hsa04814,NCBIGene,KEGG,MYO18A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+84700,hsa04814,NCBIGene,KEGG,MYO18B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+80179,hsa04814,NCBIGene,KEGG,MYO19,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4619,hsa04814,NCBIGene,KEGG,MYH1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4622,hsa04814,NCBIGene,KEGG,MYH4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4626,hsa04814,NCBIGene,KEGG,MYH8,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4620,hsa04814,NCBIGene,KEGG,MYH2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4621,hsa04814,NCBIGene,KEGG,MYH3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+57644,hsa04814,NCBIGene,KEGG,MYH7B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+22989,hsa04814,NCBIGene,KEGG,MYH15,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+8735,hsa04814,NCBIGene,KEGG,MYH13,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4625,hsa04814,NCBIGene,KEGG,MYH7,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4624,hsa04814,NCBIGene,KEGG,MYH6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4627,hsa04814,NCBIGene,KEGG,MYH9,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4628,hsa04814,NCBIGene,KEGG,MYH10,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4629,hsa04814,NCBIGene,KEGG,MYH11,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+79784,hsa04814,NCBIGene,KEGG,MYH14,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4632,hsa04814,NCBIGene,KEGG,MYL1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4634,hsa04814,NCBIGene,KEGG,MYL3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4635,hsa04814,NCBIGene,KEGG,MYL4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+140465,hsa04814,NCBIGene,KEGG,MYL6B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4637,hsa04814,NCBIGene,KEGG,MYL6,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4633,hsa04814,NCBIGene,KEGG,MYL2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4636,hsa04814,NCBIGene,KEGG,MYL5,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+58498,hsa04814,NCBIGene,KEGG,MYL7,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10398,hsa04814,NCBIGene,KEGG,MYL9,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+93408,hsa04814,NCBIGene,KEGG,MYL10,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+103910,hsa04814,NCBIGene,KEGG,MYL12B,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+10627,hsa04814,NCBIGene,KEGG,MYL12A,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+29895,hsa04814,NCBIGene,KEGG,MYL11,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+58,hsa04814,NCBIGene,KEGG,ACTA1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+59,hsa04814,NCBIGene,KEGG,ACTA2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+70,hsa04814,NCBIGene,KEGG,ACTC1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+72,hsa04814,NCBIGene,KEGG,ACTG2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+71,hsa04814,NCBIGene,KEGG,ACTG1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+60,hsa04814,NCBIGene,KEGG,ACTB,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7134,hsa04814,NCBIGene,KEGG,TNNC1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7135,hsa04814,NCBIGene,KEGG,TNNI1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7138,hsa04814,NCBIGene,KEGG,TNNT1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7125,hsa04814,NCBIGene,KEGG,TNNC2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7136,hsa04814,NCBIGene,KEGG,TNNI2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7140,hsa04814,NCBIGene,KEGG,TNNT3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7137,hsa04814,NCBIGene,KEGG,TNNI3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7139,hsa04814,NCBIGene,KEGG,TNNT2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7168,hsa04814,NCBIGene,KEGG,TPM1,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7169,hsa04814,NCBIGene,KEGG,TPM2,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7170,hsa04814,NCBIGene,KEGG,TPM3,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
+7171,hsa04814,NCBIGene,KEGG,TPM4,Motor proteins - Homo sapiens (human),participates_in,hsa04814,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1902,hsa04810,NCBIGene,KEGG,LPAR1,Regulation of actin cytoskeleton - Homo sapiens (human),participates_in,hsa04810,KEGG_Pathways,PMID:27899662,Gene,Pathway
 9170,hsa04810,NCBIGene,KEGG,LPAR2,Regulation of actin cytoskeleton - Homo sapiens (human),participates_in,hsa04810,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2846,hsa04810,NCBIGene,KEGG,LPAR4,Regulation of actin cytoskeleton - Homo sapiens (human),participates_in,hsa04810,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -6782,7 +6741,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 47207479,hsa04924,PubChem,KEGG,Selodenoson (USAN/INN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
 47207540,hsa04924,PubChem,KEGG,Solabegron hydrochloride (USAN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
 47207734,hsa04924,PubChem,KEGG,Teprotide (USAN/INN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
-96024458,hsa04924,PubChem,KEGG,Clazosentan sodium (JAN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
+96024458,hsa04924,PubChem,KEGG,Clazosentan sodium (JAN/USAN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
 376219066,hsa04924,PubChem,KEGG,Angiotensin II acetate (USAN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
 384585555,hsa04924,PubChem,KEGG,Perindopril arginine,Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
 405226531,hsa04924,PubChem,KEGG,Clazosentan (USAN/INN),Renin secretion - Homo sapiens (human),participates_in,hsa04924,KEGG_Pathways,PMID:27899662,Drug,Pathway
@@ -7191,6 +7150,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 6548,hsa04970,NCBIGene,KEGG,SLC9A1,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
 55503,hsa04970,NCBIGene,KEGG,TRPV6,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
 727897,hsa04970,NCBIGene,KEGG,MUC5B,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
+4586,hsa04970,NCBIGene,KEGG,MUC5AC,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
 4589,hsa04970,NCBIGene,KEGG,MUC7,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
 278,hsa04970,NCBIGene,KEGG,AMY1C,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
 279,hsa04970,NCBIGene,KEGG,AMY2A,Salivary secretion - Homo sapiens (human),participates_in,hsa04970,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -7693,7 +7653,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 2978,hsa04744,NCBIGene,KEGG,GUCA1A,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2979,hsa04744,NCBIGene,KEGG,GUCA1B,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
 9626,hsa04744,NCBIGene,KEGG,GUCA1C,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
-118142757,hsa04744,NCBIGene,KEGG,GUCA1A,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
+118142757,hsa04744,NCBIGene,KEGG,GUCA1ANB-GUCA1A,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
 9187,hsa04744,NCBIGene,KEGG,SLC24A1,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
 810,hsa04744,NCBIGene,KEGG,CALML3,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
 805,hsa04744,NCBIGene,KEGG,CALM2,Phototransduction - Homo sapiens (human),participates_in,hsa04744,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -8407,7 +8367,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 124490577,hsa04750,PubChem,KEGG,Broizine (JAN),Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
 163312261,hsa04750,PubChem,KEGG,Quifenadine (INN),Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
 172232603,hsa04750,PubChem,KEGG,Sequifenadine,Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
-342581809,hsa04750,PubChem,KEGG,Neflamapimod (USAN),Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
+342581809,hsa04750,PubChem,KEGG,Neflamapimod (USAN/INN),Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
 384585460,hsa04750,PubChem,KEGG,Pegcantratinib (USAN/INN),Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
 405226625,hsa04750,PubChem,KEGG,Isunakinra (USAN/INN),Inflammatory mediator regulation of TRP channels - Homo sapiens (human),participates_in,hsa04750,KEGG_Pathways,PMID:27899662,Drug,Pathway
 3630,hsa04213,NCBIGene,KEGG,INS,Longevity regulating pathway - multiple species - Homo sapiens (human),participates_in,hsa04213,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -8474,6 +8434,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 81570,hsa04213,NCBIGene,KEGG,CLPB,Longevity regulating pathway - multiple species - Homo sapiens (human),participates_in,hsa04213,KEGG_Pathways,PMID:27899662,Gene,Pathway
 3854,hsa04213,PubChem,KEGG,"3',5'-Cyclic AMP",Longevity regulating pathway - multiple species - Homo sapiens (human),participates_in,hsa04213,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 8260,hsa04213,PubChem,KEGG,"Phosphatidylinositol-3,4,5-trisphosphate",Longevity regulating pathway - multiple species - Homo sapiens (human),participates_in,hsa04213,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
+405226676,hsa04213,PubChem,KEGG,Tofersen (JAN/USAN/INN),Longevity regulating pathway - multiple species - Homo sapiens (human),participates_in,hsa04213,KEGG_Pathways,PMID:27899662,Drug,Pathway
 6095,hsa04710,NCBIGene,KEGG,RORA,Circadian rhythm - Homo sapiens (human),participates_in,hsa04710,KEGG_Pathways,PMID:27899662,Gene,Pathway
 6096,hsa04710,NCBIGene,KEGG,RORB,Circadian rhythm - Homo sapiens (human),participates_in,hsa04710,KEGG_Pathways,PMID:27899662,Gene,Pathway
 6097,hsa04710,NCBIGene,KEGG,RORC,Circadian rhythm - Homo sapiens (human),participates_in,hsa04710,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -8620,325 +8581,6 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 17396858,hsa04713,PubChem,KEGG,Ramelteon (JAN/USAN/INN),Circadian entrainment - Homo sapiens (human),participates_in,hsa04713,KEGG_Pathways,PMID:27899662,Drug,Pathway
 96024860,hsa04713,PubChem,KEGG,Melatonin (JAN),Circadian entrainment - Homo sapiens (human),participates_in,hsa04713,KEGG_Pathways,PMID:27899662,Drug,Pathway
 96026068,hsa04713,PubChem,KEGG,Tasimelteon (USAN/INN),Circadian entrainment - Homo sapiens (human),participates_in,hsa04713,KEGG_Pathways,PMID:27899662,Drug,Pathway
-406952,hsa05206,NCBIGene,KEGG,MIR17,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406953,hsa05206,NCBIGene,KEGG,MIR18A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406979,hsa05206,NCBIGene,KEGG,MIR19A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406981,hsa05206,NCBIGene,KEGG,MIR19B2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406980,hsa05206,NCBIGene,KEGG,MIR19B1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406982,hsa05206,NCBIGene,KEGG,MIR20A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407048,hsa05206,NCBIGene,KEGG,MIR92A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407049,hsa05206,NCBIGene,KEGG,MIR92A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5728,hsa05206,NCBIGene,KEGG,PTEN,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407006,hsa05206,NCBIGene,KEGG,MIR221,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407007,hsa05206,NCBIGene,KEGG,MIR222,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1027,hsa05206,NCBIGene,KEGG,CDKN1B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406991,hsa05206,NCBIGene,KEGG,MIR21,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7078,hsa05206,NCBIGene,KEGG,TIMP3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406881,hsa05206,NCBIGene,KEGG,MIRLET7A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406882,hsa05206,NCBIGene,KEGG,MIRLET7A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406883,hsa05206,NCBIGene,KEGG,MIRLET7A3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406884,hsa05206,NCBIGene,KEGG,MIRLET7B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406886,hsa05206,NCBIGene,KEGG,MIRLET7D,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406887,hsa05206,NCBIGene,KEGG,MIRLET7E,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406888,hsa05206,NCBIGene,KEGG,MIRLET7F1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406889,hsa05206,NCBIGene,KEGG,MIRLET7F2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406890,hsa05206,NCBIGene,KEGG,MIRLET7G,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406891,hsa05206,NCBIGene,KEGG,MIRLET7I,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406885,hsa05206,NCBIGene,KEGG,MIRLET7C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3845,hsa05206,NCBIGene,KEGG,KRAS,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1021,hsa05206,NCBIGene,KEGG,CDK6,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-993,hsa05206,NCBIGene,KEGG,CDC25A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-994,hsa05206,NCBIGene,KEGG,CDC25B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-995,hsa05206,NCBIGene,KEGG,CDC25C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8091,hsa05206,NCBIGene,KEGG,HMGA2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406901,hsa05206,NCBIGene,KEGG,MIR107,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406948,hsa05206,NCBIGene,KEGG,MIR15A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406949,hsa05206,NCBIGene,KEGG,MIR15B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406950,hsa05206,NCBIGene,KEGG,MIR16-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406951,hsa05206,NCBIGene,KEGG,MIR16-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-595,hsa05206,NCBIGene,KEGG,CCND1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-894,hsa05206,NCBIGene,KEGG,CCND2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-898,hsa05206,NCBIGene,KEGG,CCNE1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9134,hsa05206,NCBIGene,KEGG,CCNE2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406913,hsa05206,NCBIGene,KEGG,MIR126,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1398,hsa05206,NCBIGene,KEGG,CRK,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1399,hsa05206,NCBIGene,KEGG,CRKL,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406904,hsa05206,NCBIGene,KEGG,MIR1-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406905,hsa05206,NCBIGene,KEGG,MIR1-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9759,hsa05206,NCBIGene,KEGG,HDAC4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10014,hsa05206,NCBIGene,KEGG,HDAC5,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-27086,hsa05206,NCBIGene,KEGG,FOXP1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5292,hsa05206,NCBIGene,KEGG,PIM1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4233,hsa05206,NCBIGene,KEGG,MET,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407021,hsa05206,NCBIGene,KEGG,MIR29A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407024,hsa05206,NCBIGene,KEGG,MIR29B1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407025,hsa05206,NCBIGene,KEGG,MIR29B2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407026,hsa05206,NCBIGene,KEGG,MIR29C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1788,hsa05206,NCBIGene,KEGG,DNMT3A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1789,hsa05206,NCBIGene,KEGG,DNMT3B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406922,hsa05206,NCBIGene,KEGG,MIR133A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406923,hsa05206,NCBIGene,KEGG,MIR133A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442890,hsa05206,NCBIGene,KEGG,MIR133B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4170,hsa05206,NCBIGene,KEGG,MCL1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-599,hsa05206,NCBIGene,KEGG,BCL2L2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406937,hsa05206,NCBIGene,KEGG,MIR145,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1956,hsa05206,NCBIGene,KEGG,EGFR,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7422,hsa05206,NCBIGene,KEGG,VEGFA,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406985,hsa05206,NCBIGene,KEGG,MIR200C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6935,hsa05206,NCBIGene,KEGG,ZEB1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406933,hsa05206,NCBIGene,KEGG,MIR141,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7042,hsa05206,NCBIGene,KEGG,TGFB2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406959,hsa05206,NCBIGene,KEGG,MIR183,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7430,hsa05206,NCBIGene,KEGG,EZR,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406910,hsa05206,NCBIGene,KEGG,MIR125A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406911,hsa05206,NCBIGene,KEGG,MIR125B1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406912,hsa05206,NCBIGene,KEGG,MIR125B2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-27250,hsa05206,NCBIGene,KEGG,PDCD4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406935,hsa05206,NCBIGene,KEGG,MIR143,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406967,hsa05206,NCBIGene,KEGG,MIR192,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406969,hsa05206,NCBIGene,KEGG,MIR194-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406970,hsa05206,NCBIGene,KEGG,MIR194-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1387,hsa05206,NCBIGene,KEGG,CREBBP,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2033,hsa05206,NCBIGene,KEGG,EP300,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406997,hsa05206,NCBIGene,KEGG,MIR215,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407020,hsa05206,NCBIGene,KEGG,MIR28,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407034,hsa05206,NCBIGene,KEGG,MIR30E,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407033,hsa05206,NCBIGene,KEGG,MIR30D,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407029,hsa05206,NCBIGene,KEGG,MIR30A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407030,hsa05206,NCBIGene,KEGG,MIR30B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407031,hsa05206,NCBIGene,KEGG,MIR30C1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407032,hsa05206,NCBIGene,KEGG,MIR30C2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7168,hsa05206,NCBIGene,KEGG,TPM1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10253,hsa05206,NCBIGene,KEGG,SPRY2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-596,hsa05206,NCBIGene,KEGG,BCL2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5268,hsa05206,NCBIGene,KEGG,SERPINB5,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406947,hsa05206,NCBIGene,KEGG,MIR155,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406986,hsa05206,NCBIGene,KEGG,MIR203A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-100616173,hsa05206,NCBIGene,KEGG,MIR203B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406988,hsa05206,NCBIGene,KEGG,MIR205,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407018,hsa05206,NCBIGene,KEGG,MIR27A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407019,hsa05206,NCBIGene,KEGG,MIR27B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6768,hsa05206,NCBIGene,KEGG,ST14,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1545,hsa05206,NCBIGene,KEGG,CYP1B1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407035,hsa05206,NCBIGene,KEGG,MIR31,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407055,hsa05206,NCBIGene,KEGG,MIR99A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406892,hsa05206,NCBIGene,KEGG,MIR100,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2475,hsa05206,NCBIGene,KEGG,MTOR,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-57521,hsa05206,NCBIGene,KEGG,RPTOR,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1591,hsa05206,NCBIGene,KEGG,CYP24A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2064,hsa05206,NCBIGene,KEGG,ERBB2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2065,hsa05206,NCBIGene,KEGG,ERBB3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-25,hsa05206,NCBIGene,KEGG,ABL1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8626,hsa05206,NCBIGene,KEGG,TP63,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9839,hsa05206,NCBIGene,KEGG,ZEB2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6624,hsa05206,NCBIGene,KEGG,FSCN1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-494324,hsa05206,NCBIGene,KEGG,MIR375,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-693187,hsa05206,NCBIGene,KEGG,MIR602,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-11186,hsa05206,NCBIGene,KEGG,RASSF1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406903,hsa05206,NCBIGene,KEGG,MIR10B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3236,hsa05206,NCBIGene,KEGG,HOXD10,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-54541,hsa05206,NCBIGene,KEGG,DDIT4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-90427,hsa05206,NCBIGene,KEGG,BMF,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407009,hsa05206,NCBIGene,KEGG,MIR224,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10298,hsa05206,NCBIGene,KEGG,PAK4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4318,hsa05206,NCBIGene,KEGG,MMP9,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574031,hsa05206,NCBIGene,KEGG,MIR363,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574452,hsa05206,NCBIGene,KEGG,MIR494,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-693200,hsa05206,NCBIGene,KEGG,MIR615,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-693210,hsa05206,NCBIGene,KEGG,MIR625,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407014,hsa05206,NCBIGene,KEGG,MIR25,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407040,hsa05206,NCBIGene,KEGG,MIR34A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407053,hsa05206,NCBIGene,KEGG,MIR96,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406902,hsa05206,NCBIGene,KEGG,MIR10A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407010,hsa05206,NCBIGene,KEGG,MIR23A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407011,hsa05206,NCBIGene,KEGG,MIR23B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-100500809,hsa05206,NCBIGene,KEGG,MIR23C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406906,hsa05206,NCBIGene,KEGG,MIR122,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6541,hsa05206,NCBIGene,KEGG,SLC7A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-900,hsa05206,NCBIGene,KEGG,CCNG1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3162,hsa05206,NCBIGene,KEGG,HMOX1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406942,hsa05206,NCBIGene,KEGG,MIR150,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407008,hsa05206,NCBIGene,KEGG,MIR223,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3925,hsa05206,NCBIGene,KEGG,STMN1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442909,hsa05206,NCBIGene,KEGG,MIR342,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-494335,hsa05206,NCBIGene,KEGG,MIR423,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6774,hsa05206,NCBIGene,KEGG,STAT3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4609,hsa05206,NCBIGene,KEGG,MYC,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-836,hsa05206,NCBIGene,KEGG,CASP3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3265,hsa05206,NCBIGene,KEGG,HRAS,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4893,hsa05206,NCBIGene,KEGG,NRAS,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406978,hsa05206,NCBIGene,KEGG,MIR199B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442898,hsa05206,NCBIGene,KEGG,MIR324,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-619552,hsa05206,NCBIGene,KEGG,MIR483,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407015,hsa05206,NCBIGene,KEGG,MIR26A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407016,hsa05206,NCBIGene,KEGG,MIR26A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407017,hsa05206,NCBIGene,KEGG,MIR26B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406943,hsa05206,NCBIGene,KEGG,MIR152,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1786,hsa05206,NCBIGene,KEGG,DNMT1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442891,hsa05206,NCBIGene,KEGG,MIR135B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406926,hsa05206,NCBIGene,KEGG,MIR135A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406925,hsa05206,NCBIGene,KEGG,MIR135A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-324,hsa05206,NCBIGene,KEGG,APC,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10297,hsa05206,NCBIGene,KEGG,APC2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3667,hsa05206,NCBIGene,KEGG,IRS1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5295,hsa05206,NCBIGene,KEGG,PIK3R1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5296,hsa05206,NCBIGene,KEGG,PIK3R2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8503,hsa05206,NCBIGene,KEGG,PIK3R3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5598,hsa05206,NCBIGene,KEGG,MAPK7,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5290,hsa05206,NCBIGene,KEGG,PIK3CA,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5293,hsa05206,NCBIGene,KEGG,PIK3CD,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5291,hsa05206,NCBIGene,KEGG,PIK3CB,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406983,hsa05206,NCBIGene,KEGG,MIR200A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406984,hsa05206,NCBIGene,KEGG,MIR200B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3190,hsa05206,NCBIGene,KEGG,HNRNPK,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8434,hsa05206,NCBIGene,KEGG,RECK,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406907,hsa05206,NCBIGene,KEGG,MIR124-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406909,hsa05206,NCBIGene,KEGG,MIR124-3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406908,hsa05206,NCBIGene,KEGG,MIR124-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406928,hsa05206,NCBIGene,KEGG,MIR137,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406915,hsa05206,NCBIGene,KEGG,MIR128-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406916,hsa05206,NCBIGene,KEGG,MIR128-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1871,hsa05206,NCBIGene,KEGG,E2F3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407043,hsa05206,NCBIGene,KEGG,MIR7-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407044,hsa05206,NCBIGene,KEGG,MIR7-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407045,hsa05206,NCBIGene,KEGG,MIR7-3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8660,hsa05206,NCBIGene,KEGG,IRS2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442900,hsa05206,NCBIGene,KEGG,MIR326,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4851,hsa05206,NCBIGene,KEGG,NOTCH1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4853,hsa05206,NCBIGene,KEGG,NOTCH2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4854,hsa05206,NCBIGene,KEGG,NOTCH3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4855,hsa05206,NCBIGene,KEGG,NOTCH4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-648,hsa05206,NCBIGene,KEGG,BMI1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-100532731,hsa05206,NCBIGene,KEGG,COMMD3-BMI1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406938,hsa05206,NCBIGene,KEGG,MIR146A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4325,hsa05206,NCBIGene,KEGG,MMP16,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406954,hsa05206,NCBIGene,KEGG,MIR181A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406995,hsa05206,NCBIGene,KEGG,MIR181A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406955,hsa05206,NCBIGene,KEGG,MIR181B1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406956,hsa05206,NCBIGene,KEGG,MIR181B2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406957,hsa05206,NCBIGene,KEGG,MIR181C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574457,hsa05206,NCBIGene,KEGG,MIR181D,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-472,hsa05206,NCBIGene,KEGG,ATM,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-8651,hsa05206,NCBIGene,KEGG,SOCS1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442918,hsa05206,NCBIGene,KEGG,MIR373,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574467,hsa05206,NCBIGene,KEGG,MIR520A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574484,hsa05206,NCBIGene,KEGG,MIR520G,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574493,hsa05206,NCBIGene,KEGG,MIR520H,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574473,hsa05206,NCBIGene,KEGG,MIR520B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574461,hsa05206,NCBIGene,KEGG,MIR520E,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-960,hsa05206,NCBIGene,KEGG,CD44,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406895,hsa05206,NCBIGene,KEGG,MIR103A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-100302282,hsa05206,NCBIGene,KEGG,MIR103B2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406896,hsa05206,NCBIGene,KEGG,MIR103A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-100302238,hsa05206,NCBIGene,KEGG,MIR103B1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-23405,hsa05206,NCBIGene,KEGG,DICER1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7976,hsa05206,NCBIGene,KEGG,FZD3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3678,hsa05206,NCBIGene,KEGG,ITGA5,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5962,hsa05206,NCBIGene,KEGG,RDX,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-387,hsa05206,NCBIGene,KEGG,RHOA,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574455,hsa05206,NCBIGene,KEGG,MIR193B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5328,hsa05206,NCBIGene,KEGG,PLAU,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-578,hsa05206,NCBIGene,KEGG,BAK1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-23414,hsa05206,NCBIGene,KEGG,ZFPM2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3690,hsa05206,NCBIGene,KEGG,ITGB3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7329,hsa05206,NCBIGene,KEGG,UBE2I,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442904,hsa05206,NCBIGene,KEGG,MIR335,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6659,hsa05206,NCBIGene,KEGG,SOX4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3371,hsa05206,NCBIGene,KEGG,TNC,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-63923,hsa05206,NCBIGene,KEGG,TNN,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7143,hsa05206,NCBIGene,KEGG,TNR,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7148,hsa05206,NCBIGene,KEGG,TNXB,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406989,hsa05206,NCBIGene,KEGG,MIR206,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574411,hsa05206,NCBIGene,KEGG,MIR451A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5243,hsa05206,NCBIGene,KEGG,ABCB1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442910,hsa05206,NCBIGene,KEGG,MIR345,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4363,hsa05206,NCBIGene,KEGG,ABCC1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406996,hsa05206,NCBIGene,KEGG,MIR214,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-672,hsa05206,NCBIGene,KEGG,BRCA1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406900,hsa05206,NCBIGene,KEGG,MIR106B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1026,hsa05206,NCBIGene,KEGG,CDKN1A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406992,hsa05206,NCBIGene,KEGG,MIR210,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1942,hsa05206,NCBIGene,KEGG,EFNA1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1943,hsa05206,NCBIGene,KEGG,EFNA2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1944,hsa05206,NCBIGene,KEGG,EFNA3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1945,hsa05206,NCBIGene,KEGG,EFNA4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1946,hsa05206,NCBIGene,KEGG,EFNA5,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7057,hsa05206,NCBIGene,KEGG,THBS1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10642,hsa05206,NCBIGene,KEGG,IGF2BP1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-131405,hsa05206,NCBIGene,KEGG,TRIM71,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407041,hsa05206,NCBIGene,KEGG,MIR34B,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407042,hsa05206,NCBIGene,KEGG,MIR34C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407046,hsa05206,NCBIGene,KEGG,MIR9-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407047,hsa05206,NCBIGene,KEGG,MIR9-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407051,hsa05206,NCBIGene,KEGG,MIR9-3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4790,hsa05206,NCBIGene,KEGG,NFKB1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406976,hsa05206,NCBIGene,KEGG,MIR199A1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406977,hsa05206,NCBIGene,KEGG,MIR199A2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3551,hsa05206,NCBIGene,KEGG,IKBKB,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5743,hsa05206,NCBIGene,KEGG,PTGS2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5594,hsa05206,NCBIGene,KEGG,MAPK1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5595,hsa05206,NCBIGene,KEGG,MAPK3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5578,hsa05206,NCBIGene,KEGG,PRKCA,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5579,hsa05206,NCBIGene,KEGG,PRKCB,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5582,hsa05206,NCBIGene,KEGG,PRKCG,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2885,hsa05206,NCBIGene,KEGG,GRB2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2261,hsa05206,NCBIGene,KEGG,FGFR3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9252,hsa05206,NCBIGene,KEGG,RPS6KA5,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7157,hsa05206,NCBIGene,KEGG,TP53,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4193,hsa05206,NCBIGene,KEGG,MDM2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4194,hsa05206,NCBIGene,KEGG,MDM4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5156,hsa05206,NCBIGene,KEGG,PDGFRA,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5335,hsa05206,NCBIGene,KEGG,PLCG1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5336,hsa05206,NCBIGene,KEGG,PLCG2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406893,hsa05206,NCBIGene,KEGG,MIR101-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406894,hsa05206,NCBIGene,KEGG,MIR101-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5894,hsa05206,NCBIGene,KEGG,RAF1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406971,hsa05206,NCBIGene,KEGG,MIR195,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5604,hsa05206,NCBIGene,KEGG,MAP2K1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5605,hsa05206,NCBIGene,KEGG,MAP2K2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6654,hsa05206,NCBIGene,KEGG,SOS1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6655,hsa05206,NCBIGene,KEGG,SOS2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6464,hsa05206,NCBIGene,KEGG,SHC1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5154,hsa05206,NCBIGene,KEGG,PDGFA,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406917,hsa05206,NCBIGene,KEGG,MIR129-1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-406918,hsa05206,NCBIGene,KEGG,MIR129-2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-399694,hsa05206,NCBIGene,KEGG,SHC4,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5155,hsa05206,NCBIGene,KEGG,PDGFB,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5159,hsa05206,NCBIGene,KEGG,PDGFRB,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1029,hsa05206,NCBIGene,KEGG,CDKN2A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1869,hsa05206,NCBIGene,KEGG,E2F1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-1870,hsa05206,NCBIGene,KEGG,E2F2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-407036,hsa05206,NCBIGene,KEGG,MIR32,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-10018,hsa05206,NCBIGene,KEGG,BCL2L11,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-4082,hsa05206,NCBIGene,KEGG,MARCKS,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-659,hsa05206,NCBIGene,KEGG,BMPR2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-554213,hsa05206,NCBIGene,KEGG,MIR449A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3065,hsa05206,NCBIGene,KEGG,HDAC1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-3066,hsa05206,NCBIGene,KEGG,HDAC2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2146,hsa05206,NCBIGene,KEGG,EZH2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-27165,hsa05206,NCBIGene,KEGG,GLS2,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-2744,hsa05206,NCBIGene,KEGG,GLS,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-23411,hsa05206,NCBIGene,KEGG,SIRT1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7473,hsa05206,NCBIGene,KEGG,WNT3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-89780,hsa05206,NCBIGene,KEGG,WNT3A,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442902,hsa05206,NCBIGene,KEGG,MIR330,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-442903,hsa05206,NCBIGene,KEGG,MIR331,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-113130,hsa05206,NCBIGene,KEGG,CDCA5,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-9493,hsa05206,NCBIGene,KEGG,KIF23,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-574476,hsa05206,NCBIGene,KEGG,MIR520C,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-6093,hsa05206,NCBIGene,KEGG,ROCK1,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-5581,hsa05206,NCBIGene,KEGG,PRKCE,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-85414,hsa05206,NCBIGene,KEGG,SLC45A3,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-7431,hsa05206,NCBIGene,KEGG,VIM,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Gene,Pathway
-17397176,hsa05206,PubChem,KEGG,Azacitidine (JAN/USAN/INN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-17397761,hsa05206,PubChem,KEGG,Decitabine (USAN/INN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-376219087,hsa05206,PubChem,KEGG,Cobomarsen (USAN/INN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-376219088,hsa05206,PubChem,KEGG,Cobomarsen sodium (USAN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-384585421,hsa05206,PubChem,KEGG,Tazemetostat (USAN/INN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-384585461,hsa05206,PubChem,KEGG,Tazemetostat hydrobromide (JAN/USAN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-384585527,hsa05206,PubChem,KEGG,Valemetostat,MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-405226529,hsa05206,PubChem,KEGG,Valemetostat tosilate (JAN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
-405226606,hsa05206,PubChem,KEGG,Roducitabine (USAN),MicroRNAs in cancer - Homo sapiens (human),participates_in,hsa05206,KEGG_Pathways,PMID:27899662,Drug,Pathway
 10,hsa05204,NCBIGene,KEGG,NAT2,Chemical carcinogenesis - DNA adducts - Homo sapiens (human),participates_in,hsa05204,KEGG_Pathways,PMID:27899662,Gene,Pathway
 9,hsa05204,NCBIGene,KEGG,NAT1,Chemical carcinogenesis - DNA adducts - Homo sapiens (human),participates_in,hsa05204,KEGG_Pathways,PMID:27899662,Gene,Pathway
 1544,hsa05204,NCBIGene,KEGG,CYP1A2,Chemical carcinogenesis - DNA adducts - Homo sapiens (human),participates_in,hsa05204,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -10506,7 +10148,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 135626893,hsa05218,PubChem,KEGG,Trametinib (USAN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
 135626894,hsa05218,PubChem,KEGG,Trametinib dimethyl sulfoxide (JAN/USAN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
 172232498,hsa05218,PubChem,KEGG,Cobimetinib (USAN/INN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
-254741566,hsa05218,PubChem,KEGG,Binimetinib (JAN/USAN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
+254741566,hsa05218,PubChem,KEGG,Binimetinib (JAN/USAN/INN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
 254741576,hsa05218,PubChem,KEGG,Cobimetinib fumarate (USAN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
 363669766,hsa05218,PubChem,KEGG,Encorafenib (JAN/USAN/INN),Melanoma - Homo sapiens (human),participates_in,hsa05218,KEGG_Pathways,PMID:27899662,Drug,Pathway
 2261,hsa05219,NCBIGene,KEGG,FGFR3,Bladder cancer - Homo sapiens (human),participates_in,hsa05219,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -14900,6 +14542,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 8331,hsa05322,NCBIGene,KEGG,H2AC14,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8332,hsa05322,NCBIGene,KEGG,H2AC16,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
 474381,hsa05322,NCBIGene,KEGG,H2AB2,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
+115482686,hsa05322,NCBIGene,KEGG,H2AL3,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8341,hsa05322,NCBIGene,KEGG,H2BC15,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8345,hsa05322,NCBIGene,KEGG,H2BC9,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8342,hsa05322,NCBIGene,KEGG,H2BC14,Systemic lupus erythematosus - Homo sapiens (human),participates_in,hsa05322,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -15689,7 +15332,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 96023368,hsa05014,PubChem,KEGG,Hydroxyl radical,Amyotrophic lateral sclerosis - Homo sapiens (human),participates_in,hsa05014,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 96023369,hsa05014,PubChem,KEGG,Peroxynitrite,Amyotrophic lateral sclerosis - Homo sapiens (human),participates_in,hsa05014,KEGG_Pathways,PMID:27899662,SmallMolecule,Pathway
 7847840,hsa05014,PubChem,KEGG,Riluzole (JAN/USP/INN),Amyotrophic lateral sclerosis - Homo sapiens (human),participates_in,hsa05014,KEGG_Pathways,PMID:27899662,Drug,Pathway
-172232509,hsa05014,PubChem,KEGG,Belnacasan (USAN),Amyotrophic lateral sclerosis - Homo sapiens (human),participates_in,hsa05014,KEGG_Pathways,PMID:27899662,Drug,Pathway
+172232509,hsa05014,PubChem,KEGG,Belnacasan (USAN/INN),Amyotrophic lateral sclerosis - Homo sapiens (human),participates_in,hsa05014,KEGG_Pathways,PMID:27899662,Drug,Pathway
 405226676,hsa05014,PubChem,KEGG,Tofersen (JAN/USAN/INN),Amyotrophic lateral sclerosis - Homo sapiens (human),participates_in,hsa05014,KEGG_Pathways,PMID:27899662,Drug,Pathway
 7222,hsa05017,NCBIGene,KEGG,TRPC3,Spinocerebellar ataxia - Homo sapiens (human),participates_in,hsa05017,KEGG_Pathways,PMID:27899662,Gene,Pathway
 2911,hsa05017,NCBIGene,KEGG,GRM1,Spinocerebellar ataxia - Homo sapiens (human),participates_in,hsa05017,KEGG_Pathways,PMID:27899662,Gene,Pathway
@@ -16222,6 +15865,7 @@ subject_id,object_id,subject_id_prefix,object_id_prefix,subject_name,object_name
 8331,hsa05034,NCBIGene,KEGG,H2AC14,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8332,hsa05034,NCBIGene,KEGG,H2AC16,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
 474381,hsa05034,NCBIGene,KEGG,H2AB2,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
+115482686,hsa05034,NCBIGene,KEGG,H2AL3,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8341,hsa05034,NCBIGene,KEGG,H2BC15,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8345,hsa05034,NCBIGene,KEGG,H2BC9,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
 8342,hsa05034,NCBIGene,KEGG,H2BC14,Alcoholism - Homo sapiens (human),participates_in,hsa05034,KEGG_Pathways,PMID:27899662,Gene,Pathway
