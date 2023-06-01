@@ -5,8 +5,8 @@ import gene_names
 # files: ChEBI2Reactome.txt - ChEBI IDs to reactome lowest-level pathways
 # NCBI2ReactomeReactions.txt - NCBI gene IDs to reactions only
 
-ncbi_reactions_file = open('../reactome/NCBI2ReactomeReactions.txt')
-chebi_reactions_file = open('../reactome/ChEBI2ReactomeReactions.txt')
+#ncbi_reactions_file = open('../reactome/NCBI2ReactomeReactions.txt')
+#chebi_reactions_file = open('../reactome/ChEBI2ReactomeReactions.txt')
 ncbi_all_levels_file = open('../reactome/NCBI2Reactome_All_Levels.txt')
 chebi_all_levels_file = open('../reactome/ChEBI2Reactome_All_Levels.txt')
 
@@ -61,12 +61,12 @@ def load_reactome_file(data_file, subject_category='Gene',
         ncbi_entries.append(new_entry)
     return ncbi_entries
 
-ncbi_entries_reactions = load_reactome_file(ncbi_reactions_file, all_reactome_ids=all_reactome_ids, object_category='Pathway')
+#ncbi_entries_reactions = load_reactome_file(ncbi_reactions_file, all_reactome_ids=all_reactome_ids, object_category='Pathway')
 ncbi_entries_pathways = load_reactome_file(ncbi_all_levels_file, object_category='Pathway', all_reactome_ids=all_reactome_ids)
 all_reactome_ids_chebi = {}
-chebi_entries_reactions = load_reactome_file(chebi_reactions_file, subject_category='SmallMolecule', subject_id_prefix='CHEBI',
-        all_reactome_ids=all_reactome_ids_chebi, object_category='Pathway')
-chebi_entries_pathways = load_reactome_file(chebi_reactions_file, subject_category='SmallMolecule', subject_id_prefix='CHEBI',
+#chebi_entries_reactions = load_reactome_file(chebi_reactions_file, subject_category='SmallMolecule', subject_id_prefix='CHEBI',
+#        all_reactome_ids=all_reactome_ids_chebi, object_category='Pathway')
+chebi_entries_pathways = load_reactome_file(chebi_all_levels_file, subject_category='SmallMolecule', subject_id_prefix='CHEBI',
         object_category='Pathway',
         all_reactome_ids=all_reactome_ids_chebi, use_gene_name=False)
 
@@ -98,10 +98,10 @@ for line in reactome_relations.readlines():
 
 import pandas as pd
 columns = 'subject_id  object_id   subject_id_prefix   object_id_prefix    subject_name    object_name predicate   Primary_Knowledge_Source    Knowledge_Source    publications    subject_category    object_category'.split()
-ncbi_table = pd.DataFrame(ncbi_entries_reactions + ncbi_entries_pathways, columns=columns)
-chebi_table = pd.DataFrame(chebi_entries_reactions + chebi_entries_pathways, columns=columns)
-combined_table = pd.DataFrame(ncbi_entries_reactions + ncbi_entries_pathways +
-        chebi_entries_reactions + chebi_entries_pathways + reactome_relations_entries,
+ncbi_table = pd.DataFrame(ncbi_entries_pathways, columns=columns)
+chebi_table = pd.DataFrame(chebi_entries_pathways, columns=columns)
+combined_table = pd.DataFrame(ncbi_entries_pathways +
+        chebi_entries_pathways + reactome_relations_entries,
         columns=columns)
 
 combined_table.to_csv('reactome_genes_chems.csv', index=False)
