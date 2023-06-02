@@ -96,26 +96,32 @@ def df_to_networkx(df, directed=False):
     create_using = nx.Graph
     if directed:
         create_using = nx.DiGraph
-    graph = nx.from_pandas_edgelist(df, source='subject_id', target='object_id',
+    df['subject_id_full'] = df['subject_id_prefix'] + df['subject_id'].astype(str)
+    df['object_id_full'] = df['object_id_prefix'] + df['object_id'].astype(str)
+    graph = nx.from_pandas_edgelist(df, source='subject_id_full', target='object_id_full',
             edge_attr=['predicate',
                        'Primary_Knowledge_Source',
                        'Knowledge_Source',
                        'publications'],
             create_using=create_using)
     node_attributes = {}
-    for i, row in df.iterrows():
+    for row in df.rows():
         if row['subject_id'] not in node_attributes:
-            node_attributes[row['subject_id']] = {
+            node_attributes[row['subject_id_full']] = {
+                    'id': row['subject_id'],
                     'id_prefix': row['subject_id_prefix'],
                     'name': row['subject_name'],
                     'category': row['subject_category']}
         if row['object_id'] not in node_attributes:
-            node_attributes[row['object_id']] = {
+            node_attributes[row['object_id_full']] = {
+                    'id': row['object_id'],
                     'id_prefix': row['object_id_prefix'],
                     'name': row['object_name'],
                     'category': row['object_category']}
     nx.set_node_attributes(graph, node_attributes)
     return graph
+
+# TODO: create a new class for graphs? subclass of networkx graphs?
 
 
 def get_nodes_table(graph):

@@ -1,6 +1,9 @@
 # API for https://academic.oup.com/bioinformatics/article/38/17/4194/6633929, https://togoid.dbcls.jp/apidoc/
+import functools
+import urllib.request
 
 # TODO: make this cached?
+@functools.cache
 def convert_ids(ids, source, dest):
     """
     List of databases for source/dest: https://academic.oup.com/view-large/401921930
@@ -12,3 +15,9 @@ def convert_ids(ids, source, dest):
         source (database)
         dest (database)
     """
+    # URL: https://api.togoid.dbcls.jp
+    # /convert
+    url = 'https://api.togoid.dbcls.jp/convert'
+    values = {'ids': ','.join(str(i) for i in ids),
+              'route': source + ',' + dest,
+              'report': 'pair'}

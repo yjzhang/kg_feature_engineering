@@ -96,12 +96,13 @@ for line in reactome_relations.readlines():
     new_entry['publications'] = 'PMID:34788843'
     reactome_relations_entries.append(new_entry)
 
+# TODO: add PPIs?
+
 import pandas as pd
 columns = 'subject_id  object_id   subject_id_prefix   object_id_prefix    subject_name    object_name predicate   Primary_Knowledge_Source    Knowledge_Source    publications    subject_category    object_category'.split()
 ncbi_table = pd.DataFrame(ncbi_entries_pathways, columns=columns)
 chebi_table = pd.DataFrame(chebi_entries_pathways, columns=columns)
-combined_table = pd.DataFrame(ncbi_entries_pathways +
-        chebi_entries_pathways + reactome_relations_entries,
+combined_table = pd.DataFrame(ncbi_entries_pathways + chebi_entries_pathways + reactome_relations_entries,
         columns=columns)
 
 combined_table.to_csv('reactome_genes_chems.csv', index=False)
