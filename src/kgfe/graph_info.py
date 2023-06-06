@@ -96,8 +96,8 @@ def df_to_networkx(df, directed=False):
     create_using = nx.Graph
     if directed:
         create_using = nx.DiGraph
-    df['subject_id_full'] = df['subject_id_prefix'] + df['subject_id'].astype(str)
-    df['object_id_full'] = df['object_id_prefix'] + df['object_id'].astype(str)
+    df['subject_id_full'] = df['subject_id_prefix'] + '::' + df['subject_id'].astype(str)
+    df['object_id_full'] = df['object_id_prefix'] + '::' + df['object_id'].astype(str)
     graph = nx.from_pandas_edgelist(df, source='subject_id_full', target='object_id_full',
             edge_attr=['predicate',
                        'Primary_Knowledge_Source',
@@ -161,3 +161,6 @@ def spoke_identifiers_to_ids(graph, category, source=None):
             if source is None or ('source' in attrs and attrs['source'] == source):
                 identifiers_to_ids[attrs['identifier']] = n
     return identifiers_to_ids
+
+def get_category_ids_to_nodes(graph, category):
+    pass

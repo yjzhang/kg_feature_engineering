@@ -1,5 +1,6 @@
 # API for https://academic.oup.com/bioinformatics/article/38/17/4194/6633929, https://togoid.dbcls.jp/apidoc/
 import functools
+import urllib.parse
 import urllib.request
 
 # TODO: make this cached?
@@ -21,3 +22,8 @@ def convert_ids(ids, source, dest):
     values = {'ids': ','.join(str(i) for i in ids),
               'route': source + ',' + dest,
               'report': 'pair'}
+    url_values = urllib.parse.urlencode(values)
+    full_url = url + '?' + url_values
+    data = urllib.request.urlopen(full_url)
+    print(data)
+    return data
