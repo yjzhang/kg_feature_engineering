@@ -29,7 +29,7 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
             personalization=topic_weights, max_iter=max_iter, nstart=nstart)
     # postprocessing
     top_nodes = []
-    ids_set = set(graph.nodes.keys())
+    ids_set = set(topic_ids)
     pr_results = Counter(pr_results)
     for node_id, score in pr_results.most_common():
         if node_id in ids_set:
