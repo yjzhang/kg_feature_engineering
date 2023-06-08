@@ -163,4 +163,9 @@ def spoke_identifiers_to_ids(graph, category, source=None):
     return identifiers_to_ids
 
 def get_category_ids_to_nodes(graph, category):
-    pass
+    """
+    Returns a dict that maps from identifiers in the specified category to graph node IDs.
+    """
+    # TODO
+    identifiers_to_ids = {}
+    return identifiers_to_ids
