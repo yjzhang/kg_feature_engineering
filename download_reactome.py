@@ -97,6 +97,8 @@ for line in reactome_relations.readlines():
     reactome_relations_entries.append(new_entry)
 
 # TODO: add PPIs?
+ppi_filename = 'reactome.homo_sapiens.interactions.psi-mitab.txt'
+ppi_file = open(ppi_filename)
 
 import pandas as pd
 columns = 'subject_id  object_id   subject_id_prefix   object_id_prefix    subject_name    object_name predicate   Primary_Knowledge_Source    Knowledge_Source    publications    subject_category    object_category'.split()
