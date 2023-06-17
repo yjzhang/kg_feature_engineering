@@ -39,19 +39,41 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
         top_nodes.append(node)
     return pr_results, top_nodes
 
-
-# TODO: steiner tree/subgraph, additional measures like centrality, etc?
-def steiner_tree(graph, topic_ids, **params):
+def steiner_tree_subgraph(graph, ids, method='mehlhorn', **params):
     """
-    Just a thin wrapper around the steiner tree method in networkx
+    Just a thin wrapper around the steiner tree method in networkx.
+    Returns both the generated tree and a subgraph.
     """
-    pass
+    # TODO: get a connected subgraph with the given ids?
+    steiner_tree = nx.approximation.steiner_tree(graph, ids, method=method, **params)
+    subgraph = nx.subgraph(graph, steiner_tree)
+    return steiner_tree, subgraph
 
-def graph_node_stats(graph, ids, **params):
+def graph_node_stats(graph, ids):
     """
     Gets some summary statistics for a set of nodes?
+    - average pairwise distance
+    - average clustering score
+    - average jaccard score
     """
-    # TODO: what summary statistics?
+    # cliquishness - clustering score
+    clustering = nx.average_clustering(graph, ids)
+    # average pairwise distance
+    all_path_lengths = []
+    all_pairs = []
+    for i, n1 in ids[:-1]:
+        for j in range(i+1, len(ids)):
+            n2 = ids[j]
+            all_pairs.append((n1, n2))
+            all_path_lengths.append(nx.shortest_path_length(graph, n1, n2))
+    average_pairwise_distance = sum(all_path_lengths)/len(all_path_lengths)
+    # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
+    jaccard_coefficients = [x[2] for x in nx.jaccard_coefficients(all_pairs)]
+    average_jaccard = sum(jaccard_coefficients)/len(jaccard_coefficients)
+    return {'average_pairwise_distance': average_pairwise_distance,
+            'clustering': clustering,
+            'average_jaccard': average_jaccard,
+            }
 
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
