@@ -49,12 +49,13 @@ def steiner_tree_subgraph(graph, ids, method='mehlhorn', **params):
     subgraph = nx.subgraph(graph, steiner_tree)
     return steiner_tree, subgraph
 
-def graph_node_stats(graph, ids):
+def graph_node_stats(graph, ids, target_nodes=None):
     """
     Gets some summary statistics for a set of nodes?
     - average pairwise distance
     - average clustering score
     - average jaccard score
+    - average distance to target node(s)
     """
     # cliquishness - clustering score
     clustering = nx.average_clustering(graph, ids)

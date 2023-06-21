@@ -1,4 +1,5 @@
 import gene_names
+import pandas as pd
 # TODO: load reactome data
 # download links: https://reactome.org/download-data
 # files: NCBI2Reactome.txt - NCBI gene IDs to reactome lowest-level pathways (which are usually but not always reactions)
@@ -96,15 +97,40 @@ for line in reactome_relations.readlines():
     new_entry['publications'] = 'PMID:34788843'
     reactome_relations_entries.append(new_entry)
 
-# TODO: add PPIs?
-ppi_filename = 'reactome.homo_sapiens.interactions.psi-mitab.txt'
-ppi_file = open(ppi_filename)
-
-import pandas as pd
 columns = 'subject_id  object_id   subject_id_prefix   object_id_prefix    subject_name    object_name predicate   Primary_Knowledge_Source    Knowledge_Source    publications    subject_category    object_category'.split()
+
+# TODO: add PPIs?
+ppi_filename = '../reactome/reactome.homo_sapiens.interactions.psi-mitab.txt'
+data_ppi = pd.read_csv(ppi_filename, sep='\t')
+ppi_entries = []
+id_prefix_map = {'uniprotkb': 'UNIPROT', 'ChEBI': 'CHEBI', 'reactome': 'REACT'}
+id_prefix_to_category = {'uniprotkb': 'Protein', 'ChEBI': 'SmallMolecule', 'reactome': 'Pathway'}
+for i, row in data_ppi.iterrows():
+    new_entry = {}
+    new_entry['subject_category'] = id_prefix_to_category[row['#ID(s) interactor A'].split(':')[0]]
+    new_entry['subject_id_prefix'] = id_prefix_map[row['#ID(s) interactor A'].split(':')[0]]
+    if new_entry['subject_id_prefix'] != 'UNIPROT':
+        print(new_entry['subject_id_prefix'])
+    new_entry['subject_id'] = row['#ID(s) interactor A'].split(':')[1]
+    new_entry['subject_name'] = row['#ID(s) interactor A'].split(':')[1]
+    new_entry['predicate'] = row['Interaction type(s)']
+    new_entry['object_category'] = id_prefix_to_category[row['ID(s) interactor B'].split(':')[0]]
+    new_entry['object_id_prefix'] = id_prefix_map[row['ID(s) interactor B'].split(':')[0]]
+    new_entry['object_id'] = row['ID(s) interactor B'].split(':')[1]
+    new_entry['object_name'] = row['ID(s) interactor B'].split(':')[1]
+    new_entry['Primary_Knowledge_Source'] = row['Interaction annotation(s)']
+    new_entry['Knowledge_Source'] = 'Reactome'
+    new_entry['publications'] = row['Publication Identifier(s)']
+    ppi_entries.append(new_entry)
+
+
+
 ncbi_table = pd.DataFrame(ncbi_entries_pathways, columns=columns)
 chebi_table = pd.DataFrame(chebi_entries_pathways, columns=columns)
 combined_table = pd.DataFrame(ncbi_entries_pathways + chebi_entries_pathways + reactome_relations_entries,
         columns=columns)
 
 combined_table.to_csv('reactome_genes_chems.csv', index=False)
+
+ppi_table = pd.DataFrame(ppi_entries, columns=columns)
+ppi_table.to_csv('reactome_ppis.csv', index=False)
