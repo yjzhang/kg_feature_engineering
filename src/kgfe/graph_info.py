@@ -169,3 +169,14 @@ def get_category_ids_to_nodes(graph, category):
     # TODO
     identifiers_to_ids = {}
     return identifiers_to_ids
+
+def random_nodes_in_category(graph, category, n_nodes):
+    """
+    Returns a list of random spoke ids in the given category.
+    """
+    import random
+    nodes_in_category = []
+    for n, attrs in graph.nodes.items():
+        if 'category' in attrs and attrs['category'] == category:
+            nodes_in_category.append((n, attrs['identifier']))
+    return random.sample(nodes_in_category, n_nodes)

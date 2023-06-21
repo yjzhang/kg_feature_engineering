@@ -61,14 +61,14 @@ def graph_node_stats(graph, ids):
     # average pairwise distance
     all_path_lengths = []
     all_pairs = []
-    for i, n1 in ids[:-1]:
+    for i, n1 in enumerate(ids[:-1]):
         for j in range(i+1, len(ids)):
             n2 = ids[j]
             all_pairs.append((n1, n2))
             all_path_lengths.append(nx.shortest_path_length(graph, n1, n2))
     average_pairwise_distance = sum(all_path_lengths)/len(all_path_lengths)
     # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
-    jaccard_coefficients = [x[2] for x in nx.jaccard_coefficients(all_pairs)]
+    jaccard_coefficients = [x[2] for x in nx.jaccard_coefficient(graph, all_pairs)]
     average_jaccard = sum(jaccard_coefficients)/len(jaccard_coefficients)
     return {'average_pairwise_distance': average_pairwise_distance,
             'clustering': clustering,
