@@ -9,17 +9,19 @@ from scipy.stats import hypergeom
 
 def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
         topic_id_prefix=None,
-        alpha=0.85, max_iter=50, nstart=None):
+        alpha=0.7, max_iter=50, nstart=None):
     """
     Params:
         graph - a networkx graph
-        topic_ids - a list of topics
+        topic_ids - a list of topics for personalization (random restart in pagerank)
         topic_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
         topic_weights - a dict of topic_id : weight
 
     Returns:
         dict of node id : pagerank score
     """
+    # alpha is set to 0.7 based on https://academic.oup.com/bioinformatics/article/35/3/497/5055408
+    # all random restarts go to the topic nodes.
     if topic_weights is None:
         topic_weights = {i: 1 for i in topic_ids}
     if topic_weights is not None and topic_category is not None:

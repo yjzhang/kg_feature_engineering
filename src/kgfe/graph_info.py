@@ -180,3 +180,30 @@ def random_nodes_in_category(graph, category, n_nodes):
         if 'category' in attrs and attrs['category'] == category:
             nodes_in_category.append((n, attrs['identifier']))
     return random.sample(nodes_in_category, n_nodes)
+
+# TODO: random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
+# subgraph
+# randomize the graph... randomly shuffle the nodes/edges?
+# shuffle the edges in the network, look at the set again and again. preserve the degree...
+
+# TODO: estimate from whole graph
+def randomize_graph(G):
+    """
+    Randomizes the given graph using edge swapping while preserving the degree distribution.
+
+    Args:
+    G (networkx.Graph): Input graph.
+
+    Returns:
+    networkx.Graph: Randomized graph.
+    """
+    import random
+    G_rand = G.copy()
+    edges = list(G_rand.edges)
+    nodes = list(G_rand.nodes)
+    n = len(edges)
+
+    for _ in range(n):
+        # Pick two edges and swap
+        edge1 = random.choice(edges)
+        edge2 = random.choice(edges)
