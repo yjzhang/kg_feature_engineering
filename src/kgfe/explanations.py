@@ -51,32 +51,63 @@ def steiner_tree_subgraph(graph, ids, method='mehlhorn', **params):
     subgraph = nx.subgraph(graph, steiner_tree)
     return steiner_tree, subgraph
 
-def graph_node_stats(graph, ids, target_nodes=None):
+def create_shortest_paths_cached(graph):
+    import functools
+    @functools.cache
+    def shortest_paths(n1, n2):
+        return nx.shortest_path_length(graph, n1, n2)
+    return shortest_paths
+
+def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
     """
+    Args:
+        - graph - a networkx graph
+        - ids - a list of graph node ids
+        - target_nodes - a list of nodes of interest that we want to find the distances to.
+        - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
+
     Gets some summary statistics for a set of nodes?
     - average pairwise distance
     - average clustering score
     - average jaccard score
-    - average distance to target node(s)
+    - average distance from a node in the set to target node(s)
     """
     # cliquishness - clustering score
     clustering = nx.average_clustering(graph, ids)
     # average pairwise distance
     all_path_lengths = []
     all_pairs = []
+    if not shortest_paths_cached_function:
+        shortest_paths_cached_function = create_shortest_paths_cached(graph)
     for i, n1 in enumerate(ids[:-1]):
         for j in range(i+1, len(ids)):
             n2 = ids[j]
             all_pairs.append((n1, n2))
-            all_path_lengths.append(nx.shortest_path_length(graph, n1, n2))
+            all_path_lengths.append(shortest_paths_cached_function(n1, n2))
     average_pairwise_distance = sum(all_path_lengths)/len(all_path_lengths)
     # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
     jaccard_coefficients = [x[2] for x in nx.jaccard_coefficient(graph, all_pairs)]
     average_jaccard = sum(jaccard_coefficients)/len(jaccard_coefficients)
+    if target_nodes is not None:
+        target_node_distances = []
+        for n1 in ids:
+            for n2 in target_nodes:
+                target_node_distances.append(shortest_paths_cached_function(n1, n2))
+        average_target_distance = sum(target_node_distances)/len(target_node_distances)
+        return {'average_pairwise_distance': average_pairwise_distance,
+                'clustering': clustering,
+                'average_jaccard': average_jaccard,
+                'average_target_distance': average_target_distance,
+                }
     return {'average_pairwise_distance': average_pairwise_distance,
             'clustering': clustering,
             'average_jaccard': average_jaccard,
             }
+
+def null_graph_stats(graph, n_samples=100):
+    """
+    """
+    # TODO: function for null model tests
 
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """

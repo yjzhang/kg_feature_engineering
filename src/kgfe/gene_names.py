@@ -24,13 +24,18 @@ _load_gene_info()
 
 def get_symbols(gene_ids):
     """
-    Get symbols given a single gene id or a list of gene ids.
+    Get symbols given a list of gene ids.
     """
     return [ID_TO_SYMBOL[x] for x in gene_ids]
 
+def get_symbol(gene_id):
+    return ID_TO_SYMBOL[gene_id]
 
 def get_ids(gene_symbols):
     """
     Get ids given a list of gene symbols.
     """
     return [SYMBOL_TO_ID[x] for x in gene_symbols]
+
+def get_id(gene_symbol):
+    return SYMBOL_TO_ID[gene_symbol]
