@@ -108,6 +108,8 @@ def null_graph_stats(graph, n_samples=100):
     """
     """
     # TODO: function for null model tests
+    for i in range(n_samples):
+        pass
 
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
