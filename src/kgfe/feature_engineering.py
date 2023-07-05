@@ -1,4 +1,4 @@
-import networkx as nx
+import igraph as ig
 import pandas as pd
 from .graph_info import get_names_to_ids
 

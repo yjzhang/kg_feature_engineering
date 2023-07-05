@@ -3,7 +3,7 @@
 
 from collections import Counter
 
-import networkx as nx
+import igraph as ig
 from scipy.stats import hypergeom
 
 
@@ -27,7 +27,8 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
     if topic_weights is not None and topic_category is not None:
         topic_weights = {i: t for i, t in topic_weights.items() \
                 if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
-    pr_results = nx.pagerank(graph, alpha=alpha,
+    # TODO: igraph pagerank
+    pr_results = ig.pagerank(graph, alpha=alpha,
             personalization=topic_weights, max_iter=max_iter, nstart=nstart)
     # postprocessing
     top_nodes = []
@@ -46,7 +47,7 @@ def steiner_tree_subgraph(graph, ids, method='mehlhorn', **params):
     Just a thin wrapper around the steiner tree method in networkx.
     Returns both the generated tree and a subgraph.
     """
-    # TODO: get a connected subgraph with the given ids?
+    # TODO: implement steiner tree method in igraph
     steiner_tree = nx.approximation.steiner_tree(graph, ids, method=method, **params)
     subgraph = nx.subgraph(graph, steiner_tree)
     return steiner_tree, subgraph
@@ -131,6 +132,7 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
+    # TODO: change nodes to igraph stuff
     if query_universe is None:
         category_nodes = set([n for n in graph.nodes if graph.nodes[n]['category'] == query_category])
     else:

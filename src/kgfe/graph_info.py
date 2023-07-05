@@ -2,7 +2,7 @@
 import os
 import zipfile
 
-import networkx as nx
+import igraph as ig
 import pandas as pd
 
 PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -89,39 +89,34 @@ def load_msigdb(name):
     return df
 
 
-def df_to_networkx(df, directed=False):
+def df_to_graph(df, directed=False):
     """
-    Converts a panda dataframe to a networkx Graph (or DiGraph), with node and edge attributes.
+    Converts a panda dataframe to an igraph.Graph (or DiGraph), with node and edge attributes.
     """
-    create_using = nx.Graph
-    if directed:
-        create_using = nx.DiGraph
     df['subject_id_full'] = df['subject_id_prefix'] + '::' + df['subject_id'].astype(str)
     df['object_id_full'] = df['object_id_prefix'] + '::' + df['object_id'].astype(str)
-    graph = nx.from_pandas_edgelist(df, source='subject_id_full', target='object_id_full',
-            edge_attr=['predicate',
-                       'Primary_Knowledge_Source',
-                       'Knowledge_Source',
-                       'publications'],
-            create_using=create_using)
+    # reorder?
+    edges_df = df[['subject_id_full', 'object_id_full', 'predicate', 'Primary_Knowledge_Source', 'Knowledge_Source', 'publications']]
+    graph = ig.Graph.DataFrame(edges_df, directed=directed, use_vids=False)
+
     node_attributes = {}
-    for row in df.rows():
+    for i, row in df.iterrows():
         if row['subject_id'] not in node_attributes:
             node_attributes[row['subject_id_full']] = {
                     'id': row['subject_id'],
                     'id_prefix': row['subject_id_prefix'],
-                    'name': row['subject_name'],
+                    'feature_name': row['subject_name'],
                     'category': row['subject_category']}
         if row['object_id'] not in node_attributes:
             node_attributes[row['object_id_full']] = {
                     'id': row['object_id'],
                     'id_prefix': row['object_id_prefix'],
-                    'name': row['object_name'],
+                    'feature_name': row['object_name'],
                     'category': row['object_category']}
-    nx.set_node_attributes(graph, node_attributes)
+    for v in graph.vs:
+        attributes = node_attributes[v['name']]
+        v.update_attributes(attributes)
     return graph
-
-# TODO: create a new class for graphs? subclass of networkx graphs?
 
 
 def get_nodes_table(graph):
@@ -129,24 +124,24 @@ def get_nodes_table(graph):
     Returns a Pandas DataFrame of the nodes.
     """
     rows = []
-    for n, attrs in graph.nodes.items():
-        row = {'id': n}
-        row.update(attrs)
+    for v in graph.vs:
+        row = {'id': v['name']}
+        row.update(v.attributes())
         rows.append(row)
     return pd.DataFrame(rows)
 
 def get_names_to_ids(graph):
     """Returns a dict mapping node names to IDs (ignoring prefixes and categories so on)"""
     names_to_ids = {}
-    for n, attrs in graph.nodes.items():
-        names_to_ids[attrs['name']] = n
+    for v in graph.vs:
+        names_to_ids[v['feature_name']] = v['name']
     return names_to_ids
 
 def get_spoke_categories(graph):
-    return set(attrs['category'] for attrs in graph.nodes.values())
+    return set(attrs['category'] for attrs in graph.vs)
 
 def get_spoke_sources(graph):
-    return set(attrs['source'] for attrs in graph.nodes.values())
+    return set(attrs['source'] for attrs in graph.vs)
 
 def spoke_identifiers_to_ids(graph, category, source=None):
     """
@@ -156,10 +151,11 @@ def spoke_identifiers_to_ids(graph, category, source=None):
     source: 'KEGG', ...
     """
     identifiers_to_ids = {}
-    for n, attrs in graph.nodes.items():
+    for v in graph.vs:
+        attrs = v.attributes()
         if 'category' in attrs and attrs['category'] == category:
             if source is None or ('source' in attrs and attrs['source'] == source):
-                identifiers_to_ids[attrs['identifier']] = n
+                identifiers_to_ids[attrs['identifier']] = v['name']
     return identifiers_to_ids
 
 def get_category_ids_to_nodes(graph, category):
@@ -176,9 +172,10 @@ def random_nodes_in_category(graph, category, n_nodes):
     """
     import random
     nodes_in_category = []
-    for n, attrs in graph.nodes.items():
+    for v in graph.vs:
+        attrs = v.attributes()
         if 'category' in attrs and attrs['category'] == category:
-            nodes_in_category.append((n, attrs['identifier']))
+            nodes_in_category.append((v, attrs['identifier']))
     return random.sample(nodes_in_category, n_nodes)
 
 # TODO: random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...

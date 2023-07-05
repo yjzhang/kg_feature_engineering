@@ -347,6 +347,28 @@ def load_spoke_networkx(filename='spoke.csv', edges_to_include=None, remove_unus
     nx.set_edge_attributes(graph, edge_attributes)
     return graph
 
+def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, **kwargs):
+    import igraph as ig
+    if filename.endswith('.csv') or filename.endswith('.csv.gz'):
+        nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+    elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
+        nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+    # use igraph.graph.DictList
+    edge_list = [{'source': v[0], 'target': v[1], 'type': e} for v, e in edges.items()]
+    # set node attributes
+    node_list = []
+    for n in nodes:
+        node_list.append({
+                'name': n[0],
+                'feature_name':  n[1],
+                'category': node_types[n[2]],
+                'identifier': n[3],
+                'source': n[4],
+        })
+    graph = ig.Graph.DictList(node_list, edge_list, directed=directed)
+    return graph
+
+
 
 
 def symmetrize_matrix(matrix):
