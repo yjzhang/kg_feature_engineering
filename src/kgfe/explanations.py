@@ -26,10 +26,9 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
         topic_weights = {i: 1 for i in topic_ids}
     if topic_weights is not None and topic_category is not None:
         topic_weights = {i: t for i, t in topic_weights.items() \
-                if i in graph.nodes and graph.nodes[i]['category'] == topic_category}
+                if i in graph.vs and graph.vs[i]['category'] == topic_category}
     # TODO: igraph pagerank
-    pr_results = ig.pagerank(graph, alpha=alpha,
-            personalization=topic_weights, max_iter=max_iter, nstart=nstart)
+    pr_results = graph.pagerank(graph, vertices=topic_ids, damping=alpha)
     # postprocessing
     top_nodes = []
     ids_set = set(topic_ids)
@@ -105,10 +104,16 @@ def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_functi
             'average_jaccard': average_jaccard,
             }
 
-def null_graph_stats(graph, n_samples=100):
+def null_graph_stats(graph, category, n_samples=100, ids_subset=None):
     """
+    graph: an igraph object
     """
     # TODO: function for null model tests
+    from .graph_info import nodes_in_category
+    if ids_subset is None:
+        ids_subset = nodes_in_category(graph, category)
+    all_stats = []
+    shortest_paths_cached_function = create_shortest_paths_cached(graph)
     for i in range(n_samples):
         pass
 

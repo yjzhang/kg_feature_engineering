@@ -98,7 +98,6 @@ def df_to_graph(df, directed=False):
     # reorder?
     edges_df = df[['subject_id_full', 'object_id_full', 'predicate', 'Primary_Knowledge_Source', 'Knowledge_Source', 'publications']]
     graph = ig.Graph.DataFrame(edges_df, directed=directed, use_vids=False)
-
     node_attributes = {}
     for i, row in df.iterrows():
         if row['subject_id'] not in node_attributes:
@@ -165,6 +164,14 @@ def get_category_ids_to_nodes(graph, category):
     # TODO
     identifiers_to_ids = {}
     return identifiers_to_ids
+
+def nodes_in_category(graph, category, attr_name='category'):
+    nodes_in_category = []
+    for v in graph.vs:
+        attrs = v.attributes()
+        if 'category' in attrs and attrs[attr_name] == category:
+            nodes_in_category.append((v, attrs[attr_name]))
+    return nodes_in_category
 
 def random_nodes_in_category(graph, category, n_nodes):
     """
