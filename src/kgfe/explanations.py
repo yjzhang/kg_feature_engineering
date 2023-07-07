@@ -13,30 +13,26 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
     """
     Params:
         graph - a networkx graph
-        topic_ids - a list of topics for personalization (random restart in pagerank)
+        topic_ids - a list of topics for personalization (random restart in pagerank) - use None for regular PR
         topic_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
-        topic_weights - a dict of topic_id : weight
+        topic_weights - a dict of topic_id : weight TODO: not implemented
 
     Returns:
         dict of node id : pagerank score
     """
     # alpha is set to 0.7 based on https://academic.oup.com/bioinformatics/article/35/3/497/5055408
     # all random restarts go to the topic nodes.
-    if topic_weights is None:
-        topic_weights = {i: 1 for i in topic_ids}
-    if topic_weights is not None and topic_category is not None:
-        topic_weights = {i: t for i, t in topic_weights.items() \
-                if i in graph.vs and graph.vs[i]['category'] == topic_category}
     # TODO: igraph pagerank
-    pr_results = graph.pagerank(graph, vertices=topic_ids, damping=alpha)
+    graph_ids = [graph.vs.find(name=t).index for t in topic_ids]
+    pr_results = graph.personalized_pagerank(reset_vertices=graph_ids, damping=alpha)
     # postprocessing
     top_nodes = []
     ids_set = set(topic_ids)
-    pr_results = Counter(pr_results)
+    pr_results = Counter({v['name']: pr_results[v.index] for v in graph.vs})
     for node_id, score in pr_results.most_common():
         if node_id in ids_set:
             continue
-        node = graph.nodes[node_id].copy()
+        node = graph.vs.find(name=node_id).attributes().copy()
         node['score'] = score
         top_nodes.append(node)
     return pr_results, top_nodes
@@ -129,7 +125,7 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
         graph - a networkx graph
         query_ids - a list of IDs (NCBI Gene or PubChem), or a list of lists of ids
         query_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
-        query_universe: either the universe of the query, or None if it's all nodes of the category in the graph. 
+        query_universe: either the universe of the query, or None if it's all nodes of the category in the graph.
 
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
@@ -139,7 +135,7 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     # 2. compute the overlaps and the hypergeometric score
     # TODO: change nodes to igraph stuff
     if query_universe is None:
-        category_nodes = set([n for n in graph.nodes if graph.nodes[n]['category'] == query_category])
+        category_nodes = set([n['name'] for n in graph.vs if graph.vs.find(name=n)['category'] == query_category])
     else:
         category_nodes = query_universe
     def single_hypergeom(ids):

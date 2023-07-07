@@ -15,17 +15,25 @@ class GraphTest(unittest.TestCase):
         graph = kgfe.df_to_graph(df)
         self.assertIsNotNone(graph)
 
+    def test_pagerank(self):
+        df = kgfe.load_graph('reactome_genes_chems.csv.gz')
+        graph = kgfe.df_to_graph(df)
+        topic_ids = ['NCBIGene::5972',
+                'NCBIGene::958',
+                'NCBIGene::100', 'NCBIGene::8797', 'NCBIGene::26762']
+        pr_results, top_nodes = kgfe.explanations.topic_pagerank(graph, topic_ids)
+        self.assertTrue(len(pr_results) > 0 and len(top_nodes) > 0)
+        self.assertTrue(len(top_nodes) == len(pr_results))
+        self.assertTrue(top_nodes[0]['score'] > 0 and top_nodes[0]['score'] < 1)
+
     def test_hypergeom(self):
         df = kgfe.load_graph('kegg_pathway_data.csv')
         graph = kgfe.df_to_graph(df)
-        hg_results = kgfe.explanations.hypgergeom_test(graph, [7124, 3667, 3630], 'Gene')
-        self.assertTrue(len(hg_results) > 0)
-
-    def test_pagerank(self):
-        df = kgfe.load_graph('kegg_pathway_data.csv')
-        graph = kgfe.df_to_graph(df)
-        pr_results = kgfe.explanations.topic_pagerank(graph, [6504, 5972, 958, 100, 8797, 26762], 'Gene')
-        self.assertTrue(len(pr_results) == len(graph.nodes))
+        topic_ids = ['NCBIGene::5972',
+                'NCBIGene::958',
+                'NCBIGene::100', 'NCBIGene::8797', 'NCBIGene::26762']
+        hypergeom_results = kgfe.explanations.hypgergeom_test(graph, topic_ids, 'Gene')
+        self.assertTrue(len(hypergeom_results) > 0)
 
 if __name__ == '__main__':
     unittest.main()
