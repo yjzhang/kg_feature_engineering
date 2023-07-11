@@ -37,11 +37,12 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
         top_nodes.append(node)
     return pr_results, top_nodes
 
-def steiner_tree_subgraph(graph, ids, method='mehlhorn', **params):
+def steiner_tree_subgraph_networkx(graph, ids, method='mehlhorn', **params):
     """
     Just a thin wrapper around the steiner tree method in networkx.
     Returns both the generated tree and a subgraph.
     """
+    import networkx as nx
     # TODO: implement steiner tree method in igraph
     steiner_tree = nx.approximation.steiner_tree(graph, ids, method=method, **params)
     subgraph = nx.subgraph(graph, steiner_tree)
@@ -51,10 +52,18 @@ def create_shortest_paths_cached(graph):
     import functools
     @functools.cache
     def shortest_paths(n1, n2):
+        return graph.distance(n1, n2)
+    return shortest_paths
+
+def create_shortest_paths_cached_networkx(graph):
+    import functools
+    import networkx as nx
+    @functools.cache
+    def shortest_paths(n1, n2):
         return nx.shortest_path_length(graph, n1, n2)
     return shortest_paths
 
-def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
+def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
     """
     Args:
         - graph - a networkx graph
@@ -68,7 +77,9 @@ def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_functi
     - average jaccard score
     - average distance from a node in the set to target node(s)
     """
+    import networkx as nx
     # cliquishness - clustering score
+    # TODO: change to igraph
     clustering = nx.average_clustering(graph, ids)
     # average pairwise distance
     all_path_lengths = []

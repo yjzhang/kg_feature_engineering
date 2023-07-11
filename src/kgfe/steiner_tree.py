@@ -48,7 +48,11 @@ def mehlhorn_steiner_tree(G, terminal_nodes):
     paths = []
     for t in terminal_nodes:
         paths.append(G.get_shortest_paths(t))
-    # 2. G1 - complete graph
+    # 2. G1 - construct a complete graph
+    shortest_terminals = {}
+    distances_1 = {}
+    for v in G.vs:
+        pass
 
    
 
