@@ -42,24 +42,72 @@ def metric_closure(G, weight="weight"):
 
     return M
 
+# TODO: cached shortest paths?
+
+
+def multi_source_shortest_paths(G, source_nodes, shortest_paths_cache=None):
+    """
+    Returns the shortest paths from any of the nodes in source_nodes to every node in G, keyed by the destination (nodes in G).
+
+    Assumes that everything in source_nodes is an index into G.
+
+    shortest_paths_cache is a dict containing the results of G.get_shortest_paths(n) - all-dest shortest paths for node n.
+    """
+    if shortest_paths_cache is None:
+        shortest_paths_cache = {}
+    shortest_paths = {}
+    for n in source_nodes:
+        if n in shortest_paths_cache:
+            paths = shortest_paths_cache[n]
+        else:
+            paths = G.get_shortest_paths(n)
+            shortest_paths_cache[n] = paths
+        for i, path in enumerate(paths):
+            if i in shortest_paths:
+                if len(path) < len(shortest_paths[i]):
+                    shortest_paths[i] = path
+            else:
+                shortest_paths[i] = path
+    return shortest_paths
+
 
 def mehlhorn_steiner_tree(G, terminal_nodes):
+    """
+    Mehlhorn algorithm:
+
+    1. Construct graph G1, where the nodes are terminal nodes and the distances between the nodes are the shortest path in G.
+    2. Find a minimum spanning tree G2 of G1.
+    3. Construct a subgraph G3 of G by replacing each edge in G2 by the corresponding minimal path.
+    4. Find a minimum spanning tree G4 of G3.
+    5. Construct a Steiner tree G5 from G4 by deleting edges and nodes from G4, if necessary, so that no leaves in G5 are steiner vertices (that is, remove all leaf nodes that aren't part of the terminal nodes).
+    """
     # 1. find all source shortest paths from the terminal nodes
-    paths = []
-    for t in terminal_nodes:
-        paths.append(G.get_shortest_paths(t))
+    paths = multi_source_shortest_path(G, terminal_nodes)
     # 2. G1 - construct a complete graph
     shortest_terminals = {}
     distances_1 = {}
     for v in G.vs:
+        index = v.index
+        shortest_terminals[index] = paths[index][]
         pass
 
    
+def takahashi_matsuyama_steiner_tree(G, terminal_nodes):
+    """
+    Takahashi and Matsuyama algorithm: I can't find the paper so I'm working off the wikipedia description
 
+    1. start with one arbitrary terminal t
+    2. find the terminal s closest to t, add the shortest path to the subgraph G'
+    3. Find the closest terminal to any node in G', add that path to G'
+    Continue until all nodes in G' have been added to the graph.
+    Then return the minimum spanning tree of G', and remove all non-terminals with only one edge.
+
+    According to https://arxiv.org/pdf/1409.8318v1.pdf, it produces smaller steiner trees (better approximation factor) than the Mehlhorn algorithm.
+    """
 
 
 def _mehlhorn_steiner_tree(G, terminal_nodes, weight):
-    paths = ig.multi_source_dijkstra_path(terminal_nodes)
+    paths = nx.multi_source_dijkstra_path(G, terminal_nodes)
     d_1 = {}
     s = {}
     for v in G.nodes():
