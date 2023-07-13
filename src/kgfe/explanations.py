@@ -63,6 +63,55 @@ def create_shortest_paths_cached_networkx(graph):
         return nx.shortest_path_length(graph, n1, n2)
     return shortest_paths
 
+def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
+    """
+    This works with igraph graphs.
+    Args:
+        - graph - a networkx graph
+        - ids - a list of graph node ids
+        - target_nodes - a list of nodes of interest that we want to find the distances to.
+        - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
+
+    Gets some summary statistics for a set of nodes?
+    - average pairwise distance
+    - average clustering score
+    - average jaccard score
+    - average distance from a node in the set to target node(s)
+    """
+    # cliquishness - clustering score
+    # TODO: change to igraph
+    clustering = nx.average_clustering(graph, ids)
+    # average pairwise distance
+    all_path_lengths = []
+    all_pairs = []
+    if not shortest_paths_cached_function:
+        shortest_paths_cached_function = create_shortest_paths_cached(graph)
+    for i, n1 in enumerate(ids[:-1]):
+        for j in range(i+1, len(ids)):
+            n2 = ids[j]
+            all_pairs.append((n1, n2))
+            all_path_lengths.append(shortest_paths_cached_function(n1, n2))
+    average_pairwise_distance = sum(all_path_lengths)/len(all_path_lengths)
+    # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
+    jaccard_coefficients = [x[2] for x in nx.jaccard_coefficient(graph, all_pairs)]
+    average_jaccard = sum(jaccard_coefficients)/len(jaccard_coefficients)
+    if target_nodes is not None:
+        target_node_distances = []
+        for n1 in ids:
+            for n2 in target_nodes:
+                target_node_distances.append(shortest_paths_cached_function(n1, n2))
+        average_target_distance = sum(target_node_distances)/len(target_node_distances)
+        return {'average_pairwise_distance': average_pairwise_distance,
+                'clustering': clustering,
+                'average_jaccard': average_jaccard,
+                'average_target_distance': average_target_distance,
+                }
+    return {'average_pairwise_distance': average_pairwise_distance,
+            'clustering': clustering,
+            'average_jaccard': average_jaccard,
+            }
+
+
 def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
     """
     Args:
@@ -79,7 +128,6 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
     """
     import networkx as nx
     # cliquishness - clustering score
-    # TODO: change to igraph
     clustering = nx.average_clustering(graph, ids)
     # average pairwise distance
     all_path_lengths = []
@@ -124,6 +172,20 @@ def null_graph_stats(graph, category, n_samples=100, ids_subset=None):
     for i in range(n_samples):
         pass
 
+def null_graph_stats_networkx(graph, category, n_samples=100, ids_subset=None):
+    """
+    graph: an igraph object
+    """
+    # TODO: function for null model tests
+    from .graph_info import nodes_in_category
+    if ids_subset is None:
+        ids_subset = nodes_in_category(graph, category)
+    all_stats = []
+    shortest_paths_cached_function = create_shortest_paths_cached_networkx(graph)
+    for i in range(n_samples):
+        pass
+
+
 def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     """
     Hypergeometric test:
@@ -145,17 +207,24 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
     # TODO: change nodes to igraph stuff
+    ids_to_indices = {}
     if query_universe is None:
         category_nodes = set([n['name'] for n in graph.vs if graph.vs.find(name=n)['category'] == query_category])
     else:
         category_nodes = query_universe
+        # TODO
     def single_hypergeom(ids):
         neighbors = set()
+        # TODO: convert to igraph indices
         for i in ids:
-            neighbors.update([n for n in graph.neighbors(i)])
+            if i in ids_to_indices:
+                pass
+            else:
+                pass
+            neighbors.update([n for n in graph.es[i]])
         neighbor_vals = {}
         for n in neighbors:
-            K = set([m for m in graph.neighbors(n) if m in category_nodes])
+            K = set([m for m in graph.es[n] if m in category_nodes])
             k = K.intersection(ids)
             neighbor_vals[n] = (1 - hypergeom.cdf(len(k) - 1, len(category_nodes), len(K), len(query_ids)), k)
         return neighbor_vals
