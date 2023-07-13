@@ -32,7 +32,7 @@ class GraphTest(unittest.TestCase):
         topic_ids = ['NCBIGene::5972',
                 'NCBIGene::958',
                 'NCBIGene::100', 'NCBIGene::8797', 'NCBIGene::26762']
-        hypergeom_results = kgfe.explanations.hypgergeom_test(graph, topic_ids, 'Gene')
+        hypergeom_results = kgfe.explanations.hypergeom_test(graph, topic_ids, 'Gene')
         self.assertTrue(len(hypergeom_results) > 0)
 
 if __name__ == '__main__':

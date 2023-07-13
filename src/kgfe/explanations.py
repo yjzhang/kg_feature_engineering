@@ -180,7 +180,7 @@ def null_graph_stats_networkx(graph, category, n_samples=100, ids_subset=None):
         pass
 
 
-def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
+def hypergeom_test(graph, query_ids, query_category, query_universe=None):
     """
     Hypergeometric test:
     N = number of nodes in the query category (OR the number of nodes in the query universe, if that's available),
@@ -200,25 +200,61 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
-    # TODO: change nodes to igraph stuff
-    ids_to_indices = {}
     if query_universe is None:
-        category_nodes = set([n['name'] for n in graph.vs if graph.vs.find(name=n)['category'] == query_category])
+        category_nodes = set([n.index for n in graph.vs if n['category'] == query_category])
     else:
-        category_nodes = query_universe
-        # TODO
+        category_nodes = set([graph.vs.find(name=n).index for n in query_universe])
     def single_hypergeom(ids):
+        indices = [graph.vs.find(name=i).index for i in ids]
         neighbors = set()
-        # TODO: convert to igraph indices
-        for i in ids:
-            if i in ids_to_indices:
-                pass
-            else:
-                pass
-            neighbors.update([n for n in graph.es[i]])
+        for i in indices:
+            neighbors.update(graph.neighbors(i))
         neighbor_vals = {}
         for n in neighbors:
-            K = set([m for m in graph.es[n] if m in category_nodes])
+            K = set([m for m in graph.neighbors(n) if m in category_nodes])
+            k = K.intersection(indices)
+            neighbor_vals[graph.vs[n]['name']] = (1 - hypergeom.cdf(len(k) - 1, len(category_nodes), len(K), len(query_ids)), {graph.vs[k1]['name'] for k1 in k})
+        return neighbor_vals
+    if isinstance(query_ids[0], list):
+        all_results = []
+        for ids in query_ids:
+            all_results.append(single_hypergeom(ids))
+        return all_results
+    else:
+        return single_hypergeom(query_ids)
+
+
+def hypergeom_test_networkx(graph, query_ids, query_category, query_universe=None):
+    """
+    Hypergeometric test:
+    N = number of nodes in the query category (OR the number of nodes in the query universe, if that's available),
+    n = number of nodes in the query set,
+    K = number of nodes connected to each given target node in the target category
+    k = number of nodes connected to the target node that are in the query set
+
+    Params:
+        graph - a networkx graph
+        query_ids - a list of IDs (NCBI Gene or PubChem), or a list of lists of ids
+        query_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
+        query_universe: either the universe of the query, or None if it's all nodes of the category in the graph. 
+
+    Returns:
+        either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
+    """
+    # 1. get all nodes of the query category in the graph
+    # 2. get all nodes in the graph that are connected to nodes in the query set
+    # 2. compute the overlaps and the hypergeometric score
+    if query_universe is None:
+        category_nodes = set([n for n in graph.nodes if graph.nodes[n]['category'] == query_category])
+    else:
+        category_nodes = query_universe
+    def single_hypergeom(ids):
+        neighbors = set()
+        for i in ids:
+            neighbors.update([n for n in graph.neighbors(i)])
+        neighbor_vals = {}
+        for n in neighbors:
+            K = set([m for m in graph.neighbors(n) if m in category_nodes])
             k = K.intersection(ids)
             neighbor_vals[n] = (1 - hypergeom.cdf(len(k) - 1, len(category_nodes), len(K), len(query_ids)), k)
         return neighbor_vals
@@ -229,4 +265,3 @@ def hypgergeom_test(graph, query_ids, query_category, query_universe=None):
         return all_results
     else:
         return single_hypergeom(query_ids)
-
