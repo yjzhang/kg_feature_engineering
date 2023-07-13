@@ -42,16 +42,31 @@ def metric_closure(G, weight="weight"):
 
     return M
 
-# TODO: cached shortest paths?
+def steiner_tree(G, source_nodes, method='takahashi'):
+    """
+    Args:
+        G - an igraph graph
+        source_nodes - a list of node names (IDs)
+        method - one of 'takahashi', 'mehlhorn'
+
+    Returns: a subgraph
+    """
+    source_indices = [G.find(name=n).index for n in source_nodes]
 
 
 def multi_source_shortest_paths(G, source_nodes, shortest_paths_cache=None):
     """
     Returns the shortest paths from any of the nodes in source_nodes to every node in G, keyed by the destination (nodes in G).
 
+
     Assumes that everything in source_nodes is an index into G.
 
+    source_nodes are graph node indices.
+
     shortest_paths_cache is a dict containing the results of G.get_shortest_paths(n) - all-dest shortest paths for node n.
+
+    Output:
+        shortest-paths - dict of {node_index: [nodes from a source node]}
     """
     if shortest_paths_cache is None:
         shortest_paths_cache = {}
@@ -88,7 +103,8 @@ def mehlhorn_steiner_tree(G, terminal_nodes):
     distances_1 = {}
     for v in G.vs:
         index = v.index
-        shortest_terminals[index] = paths[index][]
+        # TODO
+        shortest_terminals[index] = paths[index]
         pass
 
    
@@ -104,6 +120,13 @@ def takahashi_matsuyama_steiner_tree(G, terminal_nodes):
 
     According to https://arxiv.org/pdf/1409.8318v1.pdf, it produces smaller steiner trees (better approximation factor) than the Mehlhorn algorithm.
     """
+    # TODO
+    t = terminal_nodes[0]
+    # get multi-destinations from t
+    subgraph = ig.Graph()
+    paths = G.get_shortest_paths(t, terminal_nodes)
+    while terminal_nodes:
+        pass
 
 
 def _mehlhorn_steiner_tree(G, terminal_nodes, weight):

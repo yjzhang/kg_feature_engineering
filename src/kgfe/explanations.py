@@ -63,7 +63,9 @@ def create_shortest_paths_cached_networkx(graph):
         return nx.shortest_path_length(graph, n1, n2)
     return shortest_paths
 
-def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
+def graph_node_stats(graph, ids, target_nodes=None,
+        shortest_paths_cached_function=None,
+        metrics=None):
     """
     This works with igraph graphs.
     Args:
@@ -71,6 +73,7 @@ def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_functi
         - ids - a list of graph node ids
         - target_nodes - a list of nodes of interest that we want to find the distances to.
         - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
+        - metrics - default: pairwise only
 
     Gets some summary statistics for a set of nodes?
     - average pairwise distance
@@ -78,9 +81,6 @@ def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_functi
     - average jaccard score
     - average distance from a node in the set to target node(s)
     """
-    # cliquishness - clustering score
-    # TODO: change to igraph
-    clustering = nx.average_clustering(graph, ids)
     # average pairwise distance
     all_path_lengths = []
     all_pairs = []
@@ -93,8 +93,6 @@ def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_functi
             all_path_lengths.append(shortest_paths_cached_function(n1, n2))
     average_pairwise_distance = sum(all_path_lengths)/len(all_path_lengths)
     # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
-    jaccard_coefficients = [x[2] for x in nx.jaccard_coefficient(graph, all_pairs)]
-    average_jaccard = sum(jaccard_coefficients)/len(jaccard_coefficients)
     if target_nodes is not None:
         target_node_distances = []
         for n1 in ids:
@@ -102,13 +100,9 @@ def graph_node_stats(graph, ids, target_nodes=None, shortest_paths_cached_functi
                 target_node_distances.append(shortest_paths_cached_function(n1, n2))
         average_target_distance = sum(target_node_distances)/len(target_node_distances)
         return {'average_pairwise_distance': average_pairwise_distance,
-                'clustering': clustering,
-                'average_jaccard': average_jaccard,
                 'average_target_distance': average_target_distance,
                 }
     return {'average_pairwise_distance': average_pairwise_distance,
-            'clustering': clustering,
-            'average_jaccard': average_jaccard,
             }
 
 
