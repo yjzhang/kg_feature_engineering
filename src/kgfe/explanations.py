@@ -37,16 +37,22 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
         top_nodes.append(node)
     return pr_results, top_nodes
 
-def steiner_tree_subgraph_networkx(graph, ids, method='mehlhorn', **params):
+def steiner_tree(graph, ids, method='takahashi', **params):
     """
-    Just a thin wrapper around the steiner tree method in networkx.
-    Returns both the generated tree and a subgraph.
+    A thin wrapper around steiner_tree.
+
+    Methods to implement:
+    - Kou
+    - Takahashi
+    - Wang
+    - Mehlhorn
     """
-    import networkx as nx
+    from . import steiner_tree
     # TODO: implement steiner tree method in igraph
-    steiner_tree = nx.approximation.steiner_tree(graph, ids, method=method, **params)
-    subgraph = nx.subgraph(graph, steiner_tree)
-    return steiner_tree, subgraph
+    indices = [graph.vs.find(name=i).index for i in ids]
+    if method == 'takahashi':
+        tree = steiner_tree.takahashi_matsuyama_steiner_tree(graph, indices)
+    return tree
 
 def create_shortest_path_lengths_cached(graph):
     import functools
@@ -74,7 +80,8 @@ def graph_node_stats(graph, ids, target_nodes=None,
         shortest_paths_cached_function=None,
         metrics=None):
     """
-    This works with igraph graphs.
+    This works with igraph graphs. Currently, this only gets average pairwise distance (I wasn't really using any of the other statistics.)
+
     Args:
         - graph - a networkx graph
         - ids - a list of graph node ids
@@ -82,23 +89,19 @@ def graph_node_stats(graph, ids, target_nodes=None,
         - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
         - metrics - default: pairwise only
 
-    Gets some summary statistics for a set of nodes?
+    Gets some summary statistics for a set of nodes:
     - average pairwise distance
-    - average clustering score
-    - average jaccard score
     - average distance from a node in the set to target node(s)
     """
     # average pairwise distance
     all_path_lengths = []
-    all_pairs = []
     if not shortest_paths_cached_function:
         shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
-    # TODO: igraph can simplify this
     for i, n1 in enumerate(ids[:-1]):
         paths = graph.get_shortest_paths(n1, ids[i+1:])
         all_path_lengths.extend(len(x) - 1 for x in paths)
     average_pairwise_distance = sum(all_path_lengths)/(len(all_path_lengths))
-    # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
+    # should jaccard similarity or clustering coefficient be included?
     if target_nodes is not None:
         target_node_distances = []
         for n1 in ids:
@@ -161,9 +164,18 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
 
 def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None):
     """
-    graph: an igraph object
+    This generates node set statistics for n_samples random sets of nodes of size n_ids, where all nodes are either belonging to category, or are part of the ids_subset (if provided)
+
+    Args:
+        graph: an igraph graph
+        category: a category of nodes - e.g. 'Gene', 'Protein', etc.
+        n_ids: the number of nodes to be selected in each sample.
+        n_samples: the number of random samples.
+        ids_subset: If this is not None, then category will not be used.
+
+    Returns:
+        all_stats - a list of dicts as returned by graph_node_stats
     """
-    # TODO: function for null model tests
     import random
     from .graph_info import nodes_in_category
     if ids_subset is None:
@@ -178,9 +190,18 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None):
 
 def null_graph_stats_networkx(graph, category, n_ids, n_samples=100, ids_subset=None):
     """
-    graph: an igraph object
+    This generates node set statistics for n_samples random sets of nodes of size n_ids, where all nodes are either belonging to category, or are part of the ids_subset (if provided)
+
+    Args:
+        graph: a networkx graph
+        category: a category of nodes - e.g. 'Gene', 'Protein', etc.
+        n_ids: the number of nodes to be selected in each sample.
+        n_samples: the number of random samples.
+        ids_subset: If this is not None, then category will not be used.
+
+    Returns:
+        all_stats - a list of dicts as returned by graph_node_stats
     """
-    # TODO: function for null model tests
     import random
     from .graph_info import nodes_in_category_networkx
     if ids_subset is None:

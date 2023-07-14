@@ -51,7 +51,10 @@ def steiner_tree(G, source_nodes, method='takahashi'):
 
     Returns: a subgraph
     """
-    source_indices = [G.find(name=n).index for n in source_nodes]
+    indices = [G.vs.find(name=i).index for i in source_nodes]
+    if method == 'takahashi':
+        tree = takahashi_matsuyama_steiner_tree(G, indices)
+    return tree
 
 
 def multi_source_shortest_paths(G, source_nodes, shortest_paths_cache=None):
@@ -97,7 +100,7 @@ def mehlhorn_steiner_tree(G, terminal_nodes):
     5. Construct a Steiner tree G5 from G4 by deleting edges and nodes from G4, if necessary, so that no leaves in G5 are steiner vertices (that is, remove all leaf nodes that aren't part of the terminal nodes).
     """
     # 1. find all source shortest paths from the terminal nodes
-    paths = multi_source_shortest_path(G, terminal_nodes)
+    paths = multi_source_shortest_paths(G, terminal_nodes)
     # 2. G1 - construct a complete graph
     shortest_terminals = {}
     distances_1 = {}
@@ -108,7 +111,7 @@ def mehlhorn_steiner_tree(G, terminal_nodes):
         pass
 
    
-def takahashi_matsuyama_steiner_tree(G, terminal_nodes):
+def takahashi_matsuyama_steiner_tree(G, terminal_nodes, initial_terminal=0):
     """
     Takahashi and Matsuyama algorithm: I can't find the paper so I'm working off the wikipedia description
 
@@ -120,13 +123,61 @@ def takahashi_matsuyama_steiner_tree(G, terminal_nodes):
 
     According to https://arxiv.org/pdf/1409.8318v1.pdf, it produces smaller steiner trees (better approximation factor) than the Mehlhorn algorithm.
     """
-    # TODO
-    t = terminal_nodes[0]
-    # get multi-destinations from t
-    subgraph = ig.Graph()
+    all_terminals = set([G.vs[n]['name'] for n in terminal_nodes])
+    terminal_nodes = terminal_nodes.copy()
+    t = terminal_nodes[initial_terminal]
+    terminal_nodes.pop(initial_terminal)
+    # get the nearest node from the initial terminal
+    subgraph_nodes = set()
     paths = G.get_shortest_paths(t, terminal_nodes)
+    shortest_length = -1
+    shortest_path = None
+    nearest_terminal = 0
+    terminal_paths_to_subgraph = {}
+    for i, path in enumerate(paths):
+        terminal_paths_to_subgraph[terminal_nodes[i]] = path
+        length = len(path) - 1
+        if length < shortest_length or shortest_length < 0:
+            shortest_length = length
+            nearest_terminal = i
+            shortest_path = path
+    terminal_nodes.pop(nearest_terminal)
+    subgraph_nodes.update(shortest_path)
+    new_subgraph_nodes = set(shortest_path[1:])
+    # add path to G'
     while terminal_nodes:
-        pass
+        # get distances from terminal nodes to new_subgraph_nodes, store the shortest path from each terminal to the subgraph
+        shortest_length = -1
+        shortest_path = None
+        nearest_terminal = 0
+        for i, t in enumerate(terminal_nodes):
+            paths = G.get_shortest_paths(t, new_subgraph_nodes)
+            for j, path in enumerate(paths):
+                length = len(path) - 1
+                if length < len(terminal_paths_to_subgraph[t]):
+                    terminal_paths_to_subgraph[t] = path
+                if shortest_length < 0 or len(terminal_paths_to_subgraph[t]) < shortest_length:
+                    shortest_length = len(terminal_paths_to_subgraph[t])
+                    shortest_path = terminal_paths_to_subgraph[t]
+                    nearest_terminal = i
+        terminal_nodes.pop(nearest_terminal)
+        subgraph_nodes.update(shortest_path)
+        new_subgraph_nodes = set(shortest_path)
+    subgraph = G.induced_subgraph(subgraph_nodes)
+    # calculate minimal spanning tree from induced subgraph
+    spanning_tree = subgraph.spanning_tree()
+    # prune leaves that don't belong to the terminal nodes
+    has_nonterminal_leaf = True
+    while has_nonterminal_leaf:
+        has_nonterminal_leaf = False
+        to_prune = []
+        for v in spanning_tree.vs:
+            if len(spanning_tree.neighbors(v.index))==1 and v['name'] not in all_terminals:
+                to_prune.append(v.index)
+                has_nonterminal_leaf = True
+        if has_nonterminal_leaf:
+            spanning_tree.delete_vertices(to_prune)
+    return spanning_tree
 
 
 def _mehlhorn_steiner_tree(G, terminal_nodes, weight):
@@ -199,6 +250,3 @@ def _remove_nonterminal_leaves(G, terminals):
         if n not in terminals_set and G.degree(n) == 1:
             G.remove_node(n)
 
-
-def steiner_tree(graph, node_ids):
-    pass

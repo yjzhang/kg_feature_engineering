@@ -28,8 +28,19 @@ print('time for node stats:', time.time() - t)
 
 # null graph statistics
 t = time.time()
-null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 10, 100)
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100)
 print('time for null stats:', time.time() - t)
+
+# steiner tree
+t = time.time()
+st = kgfe.explanations.steiner_tree(graph, topic_ids)
+print('time for steiner tree:', time.time() - t)
+
+for node in topic_ids:
+    assert(st.vs.find(name=node))
+assert(st.is_tree())
+
+print()
 
 import networkx as nx
 t = time.time()
@@ -64,8 +75,18 @@ print('ig pairwise distance:', node_stats['average_pairwise_distance'], 'nx pair
 print('difference in pairwise distances:', node_stats['average_pairwise_distance'] - nx_node_stats['average_pairwise_distance'])
 
 t = time.time()
-nx_null_stats = kgfe.explanations.null_graph_stats_networkx(nx_graph, 'Gene', 10, 100)
+nx_null_stats = kgfe.explanations.null_graph_stats_networkx(nx_graph, 'Gene', 20, 100)
 print('time for null stats networkx:', time.time() - t)
+
+import pandas as pd
+null_stats = pd.DataFrame(null_stats)
+nx_null_stats = pd.DataFrame(nx_null_stats)
+print('ig average pairwise distance for random genes:', null_stats.average_pairwise_distance.mean())
+print('nx average pairwise distance for random genes:', nx_null_stats.average_pairwise_distance.mean())
+
+t = time.time()
+nx_steiner_tree = nx.approximation.steiner_tree(nx_graph, topic_ids, method='mehlhorn')
+print('nx steiner tree time:', time.time() - t)
 
 # this graph has 158959 edges (possibly removing duplicate edges between nodes?)
 # note: networkx by default does not have duplicate edges between nodes (requres nx.MultiGraph class to have that)
