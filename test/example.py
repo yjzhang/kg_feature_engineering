@@ -22,6 +22,14 @@ print('igraph pagerank time:', time.time() - t)
 t = time.time()
 hypergeom_scores = kgfe.explanations.hypergeom_test(graph, topic_ids, query_category='Gene')
 print('time for hypergeom:', time.time() - t)
+t = time.time()
+node_stats = kgfe.explanations.graph_node_stats(graph, topic_ids)
+print('time for node stats:', time.time() - t)
+
+# null graph statistics
+t = time.time()
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 10, 100)
+print('time for null stats:', time.time() - t)
 
 import networkx as nx
 t = time.time()
@@ -46,6 +54,18 @@ for k, v in hypergeom_scores.items():
     diff = v[0] - nx_hypergeom_scores[k][0]
     hg_diff_sum += diff**2
 print('sum of squared differences in hypergeom results between networkx and igraph:', hg_diff_sum)
+
+# get node stats
+t = time.time()
+nx_node_stats = kgfe.explanations.graph_node_stats_networkx(nx_graph, topic_ids)
+print('time for node stats networkx:', time.time() - t)
+
+print('ig pairwise distance:', node_stats['average_pairwise_distance'], 'nx pairwise distance:', nx_node_stats['average_pairwise_distance'])
+print('difference in pairwise distances:', node_stats['average_pairwise_distance'] - nx_node_stats['average_pairwise_distance'])
+
+t = time.time()
+nx_null_stats = kgfe.explanations.null_graph_stats_networkx(nx_graph, 'Gene', 10, 100)
+print('time for null stats networkx:', time.time() - t)
 
 # this graph has 158959 edges (possibly removing duplicate edges between nodes?)
 # note: networkx by default does not have duplicate edges between nodes (requres nx.MultiGraph class to have that)

@@ -199,8 +199,16 @@ def nodes_in_category(graph, category, attr_name='category'):
     nodes_in_category = []
     for v in graph.vs:
         attrs = v.attributes()
-        if 'category' in attrs and attrs[attr_name] == category:
-            nodes_in_category.append((v, attrs[attr_name]))
+        if attr_name in attrs and attrs[attr_name] == category:
+            nodes_in_category.append(v)
+    return nodes_in_category
+
+
+def nodes_in_category_networkx(graph, category, attr_name='category'):
+    nodes_in_category = []
+    for n, attrs in graph.nodes.items():
+        if attr_name in attrs and attrs[attr_name] == category:
+            nodes_in_category.append(n)
     return nodes_in_category
 
 def random_nodes_in_category(graph, category, n_nodes):
@@ -214,6 +222,18 @@ def random_nodes_in_category(graph, category, n_nodes):
         if 'category' in attrs and attrs['category'] == category:
             nodes_in_category.append((v, attrs['identifier']))
     return random.sample(nodes_in_category, n_nodes)
+
+def random_nodes_in_category_networkx(graph, category, n_nodes):
+    """
+    Returns a list of random spoke ids in the given category.
+    """
+    import random
+    nodes_in_category = []
+    for n, attrs in graph.nodes.items():
+        if 'category' in attrs and attrs['category'] == category:
+            nodes_in_category.append((n, attrs['identifier']))
+    return random.sample(nodes_in_category, n_nodes)
+
 
 # TODO: random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
 # subgraph

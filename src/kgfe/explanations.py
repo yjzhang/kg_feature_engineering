@@ -48,11 +48,18 @@ def steiner_tree_subgraph_networkx(graph, ids, method='mehlhorn', **params):
     subgraph = nx.subgraph(graph, steiner_tree)
     return steiner_tree, subgraph
 
+def create_shortest_path_lengths_cached(graph):
+    import functools
+    @functools.cache
+    def shortest_paths(n1, n2):
+        return len(graph.get_shortest_paths(n1, n2)[0]) - 1
+    return shortest_paths
+
 def create_shortest_paths_cached(graph):
     import functools
     @functools.cache
     def shortest_paths(n1, n2):
-        return graph.distance(n1, n2)
+        return graph.get_shortest_paths(n1, n2)
     return shortest_paths
 
 def create_shortest_paths_cached_networkx(graph):
@@ -85,13 +92,12 @@ def graph_node_stats(graph, ids, target_nodes=None,
     all_path_lengths = []
     all_pairs = []
     if not shortest_paths_cached_function:
-        shortest_paths_cached_function = create_shortest_paths_cached(graph)
+        shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
+    # TODO: igraph can simplify this
     for i, n1 in enumerate(ids[:-1]):
-        for j in range(i+1, len(ids)):
-            n2 = ids[j]
-            all_pairs.append((n1, n2))
-            all_path_lengths.append(shortest_paths_cached_function(n1, n2))
-    average_pairwise_distance = sum(all_path_lengths)/len(all_path_lengths)
+        paths = graph.get_shortest_paths(n1, ids[i+1:])
+        all_path_lengths.extend(len(x) - 1 for x in paths)
+    average_pairwise_distance = sum(all_path_lengths)/(len(all_path_lengths))
     # jaccard similarity coefficient of all pairs in ids - average fraction of neighbors shared among pairs of nodes in the set.
     if target_nodes is not None:
         target_node_distances = []
@@ -127,7 +133,7 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
     all_path_lengths = []
     all_pairs = []
     if not shortest_paths_cached_function:
-        shortest_paths_cached_function = create_shortest_paths_cached(graph)
+        shortest_paths_cached_function = create_shortest_paths_cached_networkx(graph)
     for i, n1 in enumerate(ids[:-1]):
         for j in range(i+1, len(ids)):
             n2 = ids[j]
@@ -153,31 +159,39 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
             'average_jaccard': average_jaccard,
             }
 
-def null_graph_stats(graph, category, n_samples=100, ids_subset=None):
+def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None):
     """
     graph: an igraph object
     """
     # TODO: function for null model tests
+    import random
     from .graph_info import nodes_in_category
     if ids_subset is None:
-        ids_subset = nodes_in_category(graph, category)
+        ids_subset = [x['name'] for x in nodes_in_category(graph, category)]
     all_stats = []
-    shortest_paths_cached_function = create_shortest_paths_cached(graph)
-    for i in range(n_samples):
-        pass
+    shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
+    for _ in range(n_samples):
+        id_sample = random.sample(ids_subset, n_ids)
+        stats = graph_node_stats(graph, id_sample, shortest_paths_cached_function=shortest_paths_cached_function)
+        all_stats.append(stats)
+    return all_stats
 
-def null_graph_stats_networkx(graph, category, n_samples=100, ids_subset=None):
+def null_graph_stats_networkx(graph, category, n_ids, n_samples=100, ids_subset=None):
     """
     graph: an igraph object
     """
     # TODO: function for null model tests
-    from .graph_info import nodes_in_category
+    import random
+    from .graph_info import nodes_in_category_networkx
     if ids_subset is None:
-        ids_subset = nodes_in_category(graph, category)
+        ids_subset = nodes_in_category_networkx(graph, category)
     all_stats = []
     shortest_paths_cached_function = create_shortest_paths_cached_networkx(graph)
-    for i in range(n_samples):
-        pass
+    for _ in range(n_samples):
+        id_sample = random.sample(ids_subset, n_ids)
+        stats = graph_node_stats_networkx(graph, id_sample, shortest_paths_cached_function=shortest_paths_cached_function)
+        all_stats.append(stats)
+    return all_stats
 
 
 def hypergeom_test(graph, query_ids, query_category, query_universe=None):
