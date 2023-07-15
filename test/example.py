@@ -33,12 +33,24 @@ print('time for null stats:', time.time() - t)
 
 # steiner tree
 t = time.time()
-st = kgfe.explanations.steiner_tree(graph, topic_ids)
-print('time for steiner tree:', time.time() - t)
+st = kgfe.explanations.steiner_tree(graph, topic_ids, method='takahashi')
+print('time for steiner tree (Takahashi method):', time.time() - t)
+print('nodes in steiner tree (Takahashi method):', len(st.vs))
 
 for node in topic_ids:
     assert(st.vs.find(name=node))
+    assert(len(st.vs.find(name=node).neighbors()) == 1)
 assert(st.is_tree())
+
+t = time.time()
+st_mehlhorn = kgfe.explanations.steiner_tree(graph, topic_ids, method='mehlhorn')
+print('time for steiner tree (Mehlhorn method):', time.time() - t)
+print('nodes in steiner tree (Mehlhorn method):', len(st.vs))
+
+for node in topic_ids:
+    assert(st_mehlhorn.vs.find(name=node))
+    assert(len(st_mehlhorn.vs.find(name=node).neighbors()) == 1)
+assert(st_mehlhorn.is_tree())
 
 print()
 
@@ -86,7 +98,8 @@ print('nx average pairwise distance for random genes:', nx_null_stats.average_pa
 
 t = time.time()
 nx_steiner_tree = nx.approximation.steiner_tree(nx_graph, topic_ids, method='mehlhorn')
-print('nx steiner tree time:', time.time() - t)
+print('nx steiner tree time (mehlhorn):', time.time() - t)
+print('size of nx steiner tree (mehlhorn):', len(nx_steiner_tree.nodes))
 
 # this graph has 158959 edges (possibly removing duplicate edges between nodes?)
 # note: networkx by default does not have duplicate edges between nodes (requres nx.MultiGraph class to have that)

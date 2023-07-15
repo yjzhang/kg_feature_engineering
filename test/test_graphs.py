@@ -43,8 +43,10 @@ class GraphTest(unittest.TestCase):
         st = kgfe.explanations.steiner_tree(self.graph, self.topic_ids)
         self.assertTrue(st.is_connected())
         self.assertTrue(st.is_tree())
-        for node in self.topic_ids:
-            self.assertIsNotNone(st.vs.find(name=node))
+        for topic_id in self.topic_ids:
+            self.assertIsNotNone(st.vs.find(name=topic_id))
+            node = st.vs.find(name=topic_id)
+            self.assertEqual(len(node.neighbors()), 1)
 
 
 if __name__ == '__main__':

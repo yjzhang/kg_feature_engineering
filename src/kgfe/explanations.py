@@ -39,19 +39,24 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
 
 def steiner_tree(graph, ids, method='takahashi', **params):
     """
-    A thin wrapper around steiner_tree.
+    A thin wrapper around a couple of approximate steiner tree algorithms.
 
-    Methods to implement:
-    - Kou
-    - Takahashi
-    - Wang
-    - Mehlhorn
+    Args:
+        graph - an igraph.Graph
+        ids - a list of node names
+        method - one of 'takahashi', 'mehlhorn'
+
+    Returns:
+        tree that contains all nodes in ids as leaves.
     """
     from . import steiner_tree
-    # TODO: implement steiner tree method in igraph
     indices = [graph.vs.find(name=i).index for i in ids]
     if method == 'takahashi':
         tree = steiner_tree.takahashi_matsuyama_steiner_tree(graph, indices)
+    elif method == 'shortest_paths':
+        tree = steiner_tree.shortest_paths_steiner_tree(graph, indices)
+    elif method == 'mehlhorn':
+        tree = steiner_tree.mehlhorn_steiner_tree(graph, indices)
     return tree
 
 def create_shortest_path_lengths_cached(graph):
