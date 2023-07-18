@@ -348,18 +348,22 @@ def load_spoke_networkx(filename='spoke.csv', edges_to_include=None, remove_unus
     return graph
 
 def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, **kwargs):
+    """
+    Imports the spoke file as an igraph. The file can be a csv or json/jsonl export from neo4j, and it can be gzipped. The spoke IDs are converted to strings because igraph is very slow if the ids are ints.
+    """
     import igraph as ig
     if filename.endswith('.csv') or filename.endswith('.csv.gz'):
         nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
         nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     # use igraph.graph.DictList
-    edge_list = [{'source': v[0], 'target': v[1], 'type': e} for v, e in edges.items()]
+    edge_list = [{'source': str(v[0]), 'target': str(v[1]), 'type': e} for v, e in edges.items()]
     # set node attributes
     node_list = []
+    # convert the node id to a string, bc
     for n in nodes:
         node_list.append({
-                'name': n[0],
+                'name': str(n[0]),
                 'feature_name':  n[1],
                 'category': node_types[n[2]],
                 'identifier': n[3],

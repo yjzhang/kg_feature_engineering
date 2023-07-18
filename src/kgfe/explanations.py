@@ -22,7 +22,6 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
     """
     # alpha is set to 0.7 based on https://academic.oup.com/bioinformatics/article/35/3/497/5055408
     # all random restarts go to the topic nodes.
-    # TODO: igraph pagerank
     graph_ids = [graph.vs.find(name=t).index for t in topic_ids]
     pr_results = graph.personalized_pagerank(reset_vertices=graph_ids, damping=alpha)
     # postprocessing
@@ -88,7 +87,7 @@ def graph_node_stats(graph, ids, target_nodes=None,
     This works with igraph graphs. Currently, this only gets average pairwise distance (I wasn't really using any of the other statistics.)
 
     Args:
-        - graph - a networkx graph
+        - graph - an igraph.Graph
         - ids - a list of graph node ids
         - target_nodes - a list of nodes of interest that we want to find the distances to.
         - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
