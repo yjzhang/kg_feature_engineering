@@ -213,15 +213,23 @@ def nodes_in_category_networkx(graph, category, attr_name='category'):
 
 def random_nodes_in_category(graph, category, n_nodes):
     """
-    Returns a list of random spoke ids in the given category.
+    Returns a list of random node ids in the given category.
     """
     import random
     nodes_in_category = []
     for v in graph.vs:
         attrs = v.attributes()
         if 'category' in attrs and attrs['category'] == category:
-            nodes_in_category.append((v, attrs['identifier']))
+            nodes_in_category.append(attrs['name'])
     return random.sample(nodes_in_category, n_nodes)
+
+def random_nodes(graph, n_nodes):
+    """
+    Returns a list of random node ids.
+    """
+    import random
+    return random.sample([v['name'] for v in graph.vs], n_nodes)
+
 
 def random_nodes_in_category_networkx(graph, category, n_nodes):
     """

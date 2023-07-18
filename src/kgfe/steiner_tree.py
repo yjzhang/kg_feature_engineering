@@ -127,7 +127,7 @@ def takahashi_matsuyama_steiner_tree(G, terminal_nodes, initial_terminal=0):
     According to https://arxiv.org/pdf/1409.8318v1.pdf, it produces smaller steiner trees (better approximation factor) than the Mehlhorn algorithm.
     """
     all_terminals = set([G.vs[n]['name'] for n in terminal_nodes])
-    terminal_nodes = terminal_nodes.copy()
+    terminal_nodes = list(set(terminal_nodes.copy()))
     t = terminal_nodes[initial_terminal]
     terminal_nodes.pop(initial_terminal)
     # get the nearest node from the initial terminal
@@ -163,6 +163,10 @@ def takahashi_matsuyama_steiner_tree(G, terminal_nodes, initial_terminal=0):
                     shortest_length = len(terminal_paths_to_subgraph[t])
                     shortest_path = terminal_paths_to_subgraph[t]
                     nearest_terminal = i
+        if (shortest_length < 0):
+            print('Steiner tree approximation algorithm warning: no path from terminals found?')
+            print('terminal_nodes:', terminal_nodes)
+            print('new_subgraph_nodes:', new_subgraph_nodes)
         terminal_nodes.pop(nearest_terminal)
         subgraph_nodes.update(shortest_path)
         new_subgraph_nodes = set(shortest_path)

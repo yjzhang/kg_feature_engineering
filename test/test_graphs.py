@@ -48,6 +48,31 @@ class GraphTest(unittest.TestCase):
             node = st.vs.find(name=topic_id)
             self.assertEqual(len(node.neighbors()), 1)
 
+    def test_steiner_tree_2(self):
+        for i in range(50):
+            topic_ids = kgfe.graph_info.random_nodes(self.graph, 10)
+            st = kgfe.explanations.steiner_tree(self.graph, topic_ids, method='takahashi')
+            self.assertTrue(st.is_connected())
+            self.assertTrue(st.is_tree())
+            for topic_id in topic_ids:
+                self.assertIsNotNone(st.vs.find(name=topic_id))
+        for i in range(50):
+            topic_ids = kgfe.graph_info.random_nodes(self.graph, 10)
+            st = kgfe.explanations.steiner_tree(self.graph, topic_ids, method='shortest_paths')
+            self.assertTrue(st.is_connected())
+            self.assertTrue(st.is_tree())
+            for topic_id in topic_ids:
+                self.assertIsNotNone(st.vs.find(name=topic_id))
+        for i in range(50):
+            topic_ids = kgfe.graph_info.random_nodes(self.graph, 10)
+            st = kgfe.explanations.steiner_tree(self.graph, topic_ids, method='mehlhorn')
+            self.assertTrue(st.is_connected())
+            self.assertTrue(st.is_tree())
+            for topic_id in topic_ids:
+                self.assertIsNotNone(st.vs.find(name=topic_id))
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
