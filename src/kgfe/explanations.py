@@ -56,7 +56,18 @@ def steiner_tree(graph, ids, method='takahashi', **params):
         tree = steiner_tree.shortest_paths_steiner_tree(graph, indices)
     elif method == 'mehlhorn':
         tree = steiner_tree.mehlhorn_steiner_tree(graph, indices)
+    else:
+        raise ValueError('Error: method must be one of "takahashi", "mehlhorn", or "shortest_paths"')
     return tree
+
+def steiner_tree_subgraph(graph, ids, method='takahashi'):
+    """
+    Returns a steiner tree as well as a subgraph.
+    """
+    tree = steiner_tree(graph, ids, method)
+    # TODO: get the induced subgraph
+    return tree
+
 
 def create_shortest_path_lengths_cached(graph):
     import functools

@@ -72,6 +72,15 @@ for node in topic_ids:
     assert(len(st_mehlhorn.vs.find(name=node).neighbors()) == 1)
 assert(st_mehlhorn.is_tree())
 
+# TODO: compare the size of different steiner tree methods
+# takahashi, mehlhorn, shortest paths
+for i in range(50):
+    topic_ids = kgfe.graph_info.random_nodes(graph, 10)
+    # TODO: compare
+    st1 = kgfe.explanations.steiner_tree(graph, topic_ids, method='takahashi')
+    st2 = kgfe.explanations.steiner_tree(graph, topic_ids, method='shortest_paths')
+    st3 = kgfe.explanations.steiner_tree(graph, topic_ids, method='mehlhorn')
+
 print()
 
 import networkx as nx

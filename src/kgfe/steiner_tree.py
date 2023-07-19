@@ -1,5 +1,6 @@
 # steiner tree implementation in graph, mehlhorn approximation
 # based on the networkx implementation at https://networkx.org/documentation/stable/_modules/networkx/algorithms/approximation/steinertree.html#steiner_tree
+import igraph as ig
 
 
 def steiner_tree(G, source_nodes, method='takahashi'):
@@ -7,7 +8,7 @@ def steiner_tree(G, source_nodes, method='takahashi'):
     Args:
         G - an igraph graph
         source_nodes - a list of node names (IDs)
-        method - one of 'takahashi', 'mehlhorn'
+        method - one of 'takahashi', 'mehlhorn', 'shortest_paths'
 
     Returns: a subgraph
     """
@@ -18,6 +19,8 @@ def steiner_tree(G, source_nodes, method='takahashi'):
         tree = shortest_paths_steiner_tree(G, indices)
     elif method == 'mehlhorn':
         tree = mehlhorn_steiner_tree(G, indices)
+    else:
+        raise ValueError('Error: method must be one of "takahashi", "mehlhorn", or "shortest_paths"')
     return tree
 
 
@@ -60,10 +63,25 @@ def mehlhorn_steiner_tree(G, terminal_nodes):
     all_terminals = set([G.vs[n]['name'] for n in terminal_nodes])
     # 1. find all source shortest paths from the terminal nodes
     paths = multi_source_shortest_paths(G, terminal_nodes, terminal_nodes)
-    # 2. G1 - construct a complete graph
+    # 2. G1 - construct a complete graph containing all terminal nodes, with the edges as distances
     all_path_nodes = set()
+    G1 = ig.Graph.Full(len(terminal_nodes))
+    for v in G1.vs:
+        v['name'] = G.vs[terminal_nodes[v.index]]['name']
+    weights = []
+    for edge in G1.es:
+        path = paths[edge.source][edge.target]
+        weights.append(len(path) - 1)
+        edge['weight'] = len(path) - 1
+        edge['path'] = path
+    G2 = G1.spanning_tree(weights)
+    G3 = ig.Graph(len(G2.vs))
+    for edge in G2.es:
+        # remove the edge, add the path
+        G3.add_vertex()
+        pass
     for start, shortest_paths in paths.items():
-        for path in shortest_paths:
+        for end, path in enumerate(shortest_paths):
             all_path_nodes.update(path)
     subgraph = G.induced_subgraph(all_path_nodes)
     spanning_tree = subgraph.spanning_tree()
@@ -92,9 +110,9 @@ def shortest_paths_steiner_tree(G, terminal_nodes):
     all_terminals = set([G.vs[n]['name'] for n in terminal_nodes])
     # 1. find all source shortest paths from the terminal nodes
     paths = multi_source_shortest_paths(G, terminal_nodes, terminal_nodes)
-    # 2. G1 - construct a complete graph
+    # create a MST on the subgraph containing all nodes on the shortest paths
     all_path_nodes = set()
-    for start, shortest_paths in paths.items():
+    for _, shortest_paths in paths.items():
         for path in shortest_paths:
             all_path_nodes.update(path)
     subgraph = G.induced_subgraph(all_path_nodes)
@@ -134,7 +152,7 @@ def takahashi_matsuyama_steiner_tree(G, terminal_nodes, initial_terminal=0):
     subgraph_nodes = set()
     paths = G.get_shortest_paths(t, terminal_nodes)
     shortest_length = -1
-    shortest_path = None
+    shortest_path = []
     nearest_terminal = 0
     terminal_paths_to_subgraph = {}
     for i, path in enumerate(paths):
@@ -151,11 +169,11 @@ def takahashi_matsuyama_steiner_tree(G, terminal_nodes, initial_terminal=0):
     while terminal_nodes:
         # get distances from terminal nodes to new_subgraph_nodes, store the shortest path from each terminal to the subgraph
         shortest_length = -1
-        shortest_path = None
+        shortest_path = []
         nearest_terminal = 0
         for i, t in enumerate(terminal_nodes):
             paths = G.get_shortest_paths(t, new_subgraph_nodes)
-            for j, path in enumerate(paths):
+            for _, path in enumerate(paths):
                 length = len(path) - 1
                 if length < len(terminal_paths_to_subgraph[t]):
                     terminal_paths_to_subgraph[t] = path
