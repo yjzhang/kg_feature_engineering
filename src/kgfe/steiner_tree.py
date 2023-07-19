@@ -64,39 +64,44 @@ def mehlhorn_steiner_tree(G, terminal_nodes):
     # 1. find all source shortest paths from the terminal nodes
     paths = multi_source_shortest_paths(G, terminal_nodes, terminal_nodes)
     # 2. G1 - construct a complete graph containing all terminal nodes, with the edges as distances
-    all_path_nodes = set()
     G1 = ig.Graph.Full(len(terminal_nodes))
     for v in G1.vs:
         v['name'] = G.vs[terminal_nodes[v.index]]['name']
     weights = []
     for edge in G1.es:
-        path = paths[edge.source][edge.target]
+        path = paths[terminal_nodes[edge.source]][edge.target]
         weights.append(len(path) - 1)
         edge['weight'] = len(path) - 1
         edge['path'] = path
+    # 3. G2 -  spanning tree of the complete graph
     G2 = G1.spanning_tree(weights)
-    G3 = ig.Graph(len(G2.vs))
+    # G3 is a new graph that contains all shortest paths comprised by the weights
+    G3 = ig.Graph()
     for edge in G2.es:
-        # remove the edge, add the path
-        G3.add_vertex()
-        pass
-    for start, shortest_paths in paths.items():
-        for end, path in enumerate(shortest_paths):
-            all_path_nodes.update(path)
-    subgraph = G.induced_subgraph(all_path_nodes)
-    spanning_tree = subgraph.spanning_tree()
+        prev_node = None
+        for n in edge['path']:
+            name = G.vs[n]['name']
+            if len(G3.vs) == 0 or len(G3.vs.select(name=name)) == 0:
+                G3.add_vertex(name)
+            new_node = G3.vs.find(name=name)
+            if prev_node is not None:
+                # add edge
+                G3.add_edge(prev_node.index, new_node.index)
+            prev_node = new_node
+    # G4 is the spanning tree of G3
+    G4 = G3.spanning_tree()
     # prune leaves that don't belong to the terminal nodes
     has_nonterminal_leaf = True
     while has_nonterminal_leaf:
         has_nonterminal_leaf = False
         to_prune = []
-        for v in spanning_tree.vs:
-            if len(spanning_tree.neighbors(v.index))==1 and v['name'] not in all_terminals:
+        for v in G4.vs:
+            if len(G4.neighbors(v.index))==1 and v['name'] not in all_terminals:
                 to_prune.append(v.index)
                 has_nonterminal_leaf = True
         if has_nonterminal_leaf:
-            spanning_tree.delete_vertices(to_prune)
-    return spanning_tree
+            G4.delete_vertices(to_prune)
+    return G4
 
 def shortest_paths_steiner_tree(G, terminal_nodes):
     """

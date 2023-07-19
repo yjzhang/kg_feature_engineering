@@ -8,6 +8,7 @@ import kgfe
 df = kgfe.load_graph('reactome_genes_chems.csv.gz')
 t = time.time()
 graph = kgfe.df_to_graph(df)
+graph.simplify()
 print('igraph graph from df time:', time.time() - t)
 # timing: 12s
 topic_ids = ['NCBIGene::5972',
@@ -17,6 +18,7 @@ topic_ids = ['NCBIGene::5972',
 t = time.time()
 pr_results, top_nodes = kgfe.explanations.topic_pagerank(graph, topic_ids)
 print('igraph pagerank time:', time.time() - t)
+base_pr_results, base_top_nodes = kgfe.explanations.topic_pagerank(graph)
 # timing for pr: 76 ms (also includes postprocessing)
 
 # %prun pr_results, top_nodes = kgfe.explanations.topic_pagerank(graph, topic_ids)
@@ -58,8 +60,20 @@ print('nodes in steiner tree (Takahashi method):', len(st.vs))
 
 for node in topic_ids:
     assert(st.vs.find(name=node))
-    assert(len(st.vs.find(name=node).neighbors()) == 1)
+    assert(len(st.vs.find(name=node).neighbors()) > 0)
 assert(st.is_tree())
+
+t = time.time()
+st_sp = kgfe.explanations.steiner_tree(graph, topic_ids, method='shortest_paths')
+print('time for steiner tree (Shortest paths method):', time.time() - t)
+print('nodes in steiner tree (Shortest paths method):', len(st.vs))
+# time: 3ms
+
+for node in topic_ids:
+    assert(st_sp.vs.find(name=node))
+    assert(len(st_sp.vs.find(name=node).neighbors()) > 0)
+assert(st_sp.is_tree())
+
 
 t = time.time()
 st_mehlhorn = kgfe.explanations.steiner_tree(graph, topic_ids, method='mehlhorn')
@@ -69,17 +83,40 @@ print('nodes in steiner tree (Mehlhorn method):', len(st.vs))
 
 for node in topic_ids:
     assert(st_mehlhorn.vs.find(name=node))
-    assert(len(st_mehlhorn.vs.find(name=node).neighbors()) == 1)
+    assert(len(st_mehlhorn.vs.find(name=node).neighbors()) > 0)
 assert(st_mehlhorn.is_tree())
 
 # TODO: compare the size of different steiner tree methods
 # takahashi, mehlhorn, shortest paths
+takahashi_sizes = []
+shortest_path_sizes = []
+mehlhorn_sizes = []
+takahashi_times = []
+shortest_path_times = []
+mehlhorn_times = []
 for i in range(50):
-    topic_ids = kgfe.graph_info.random_nodes(graph, 10)
-    # TODO: compare
-    st1 = kgfe.explanations.steiner_tree(graph, topic_ids, method='takahashi')
-    st2 = kgfe.explanations.steiner_tree(graph, topic_ids, method='shortest_paths')
-    st3 = kgfe.explanations.steiner_tree(graph, topic_ids, method='mehlhorn')
+    rand_topic_ids = kgfe.graph_info.random_nodes(graph, 20)
+    t0 = time.time()
+    st1 = kgfe.explanations.steiner_tree(graph, rand_topic_ids, method='takahashi')
+    takahashi_sizes.append(len(st1.vs))
+    takahashi_times.append(time.time() - t0)
+    t0 = time.time()
+    st2 = kgfe.explanations.steiner_tree(graph, rand_topic_ids, method='shortest_paths')
+    shortest_path_sizes.append(len(st2.vs))
+    shortest_path_times.append(time.time() - t0)
+    t0 = time.time()
+    st3 = kgfe.explanations.steiner_tree(graph, rand_topic_ids, method='mehlhorn')
+    mehlhorn_sizes.append(len(st3.vs))
+    mehlhorn_times.append(time.time() - t0)
+print()
+print('steiner tree approximation stats with 20 randomly selected nodes:')
+print('mean size of takahashi steiner tree:', sum(takahashi_sizes)/50.)
+print('mean size of shortest paths steiner tree:', sum(shortest_path_sizes)/50.)
+print('mean size of mehlhorn steiner tree:', sum(mehlhorn_sizes)/50.)
+
+print('mean running time of takahashi steiner tree:', sum(takahashi_times)/50.)
+print('mean running time of shortest paths steiner tree:', sum(shortest_path_times)/50.)
+print('mean running time of mehlhorn steiner tree:', sum(mehlhorn_times)/50.)
 
 print()
 
@@ -92,9 +129,46 @@ print('nx graph from df time:', time.time() - t)
 # note: networkx by default does not have duplicate edges between nodes (requres nx.MultiGraph class to have that)
 
 t = time.time()
-nx_pr_results = nx.pagerank(nx_graph, personalization={i: 1 for i in topic_ids})
+nx_pr_results = nx.pagerank(nx_graph, personalization={i: 1 for i in topic_ids}, alpha=0.7)
 print('nx pagerank time:', time.time() - t)
+nx_base_pr_results = nx.pagerank(nx_graph, alpha=0.7)
 # timing for pr: 372 ms (does not include postprocessing)
+
+# compare pr results
+pr_diff_sum = 0
+for k, v in pr_results.items():
+    diff = v - nx_pr_results[k]
+    pr_diff_sum += diff**2
+print('sum of squared differences in personalized PR results between networkx and igraph:', pr_diff_sum)
+
+base_pr_diff_sum = 0
+for k, v in base_pr_results.items():
+    diff = v - nx_base_pr_results[k]
+    base_pr_diff_sum += diff**2
+print('sum of squared differences in base PR results between networkx and igraph:', base_pr_diff_sum)
+
+
+
+# rank correlation?
+top_pr_node_names = [x['name'] for x in top_nodes]
+ig_node_names = set(top_pr_node_names)
+top_nx_pr_nodes = sorted(nx_pr_results.items(), key=lambda x: x[1], reverse=True)
+top_nx_pr_node_names = [x[0] for x in top_nx_pr_nodes if x[0] in ig_node_names]
+from scipy.stats import spearmanr
+print('rank correlation between ig and nx personalized pagerank results: ', spearmanr(top_pr_node_names, top_nx_pr_node_names))
+
+top_base_pr_node_names = [x['name'] for x in base_top_nodes]
+base_ig_node_names = set(top_base_pr_node_names)
+top_nx_base_pr_nodes = sorted(nx_base_pr_results.items(), key=lambda x: x[1], reverse=True)
+top_nx_base_pr_node_names = [x[0] for x in top_nx_base_pr_nodes if x[0] in base_ig_node_names]
+print('rank correlation between ig and nx base pagerank results: ', spearmanr(top_base_pr_node_names, top_nx_base_pr_node_names))
+
+
+print('rank correlation between personalized and base pagerank results for igraph:', spearmanr(top_pr_node_names, [x for x in top_base_pr_node_names if x in ig_node_names]))
+print('rank correlation between personalized and base pagerank results for nx:', spearmanr(top_nx_pr_node_names, [x for x in top_nx_base_pr_node_names if x in ig_node_names]))
+
+print()
+
 
 t0 = time.time()
 for i in range(20000):
@@ -103,12 +177,6 @@ for i in range(20000):
 print('nx random access time (20000 iterations):', time.time() - t0)
 # time: 59ms
 
-# compare pr results
-pr_diff_sum = 0
-for k, v in pr_results.items():
-    diff = v - nx_pr_results[k]
-    pr_diff_sum += diff**2
-print('sum of squared differences in PR results between networkx and igraph:', pr_diff_sum)
 
 t = time.time()
 nx_hypergeom_scores = kgfe.explanations.hypergeom_test_networkx(nx_graph, topic_ids, query_category='Gene')

@@ -7,7 +7,7 @@ import igraph as ig
 from scipy.stats import hypergeom
 
 
-def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
+def topic_pagerank(graph, topic_ids=None, topic_category=None, topic_weights=None,
         topic_id_prefix=None,
         alpha=0.7, max_iter=50, nstart=None):
     """
@@ -22,8 +22,12 @@ def topic_pagerank(graph, topic_ids, topic_category=None, topic_weights=None,
     """
     # alpha is set to 0.7 based on https://academic.oup.com/bioinformatics/article/35/3/497/5055408
     # all random restarts go to the topic nodes.
-    graph_ids = [graph.vs.find(name=t).index for t in topic_ids]
-    pr_results = graph.personalized_pagerank(reset_vertices=graph_ids, damping=alpha)
+    if topic_ids is None:
+        topic_ids = set()
+        pr_results = graph.pagerank(damping=alpha)
+    else:
+        graph_ids = [graph.vs.find(name=t).index for t in topic_ids]
+        pr_results = graph.personalized_pagerank(reset_vertices=graph_ids, damping=alpha)
     # postprocessing
     top_nodes = []
     ids_set = set(topic_ids)
@@ -62,11 +66,16 @@ def steiner_tree(graph, ids, method='takahashi', **params):
 
 def steiner_tree_subgraph(graph, ids, method='takahashi'):
     """
-    Returns a steiner tree as well as a subgraph.
+    Returns a steiner tree as well as an subgraph, where the subgraph has the property "in_query" if the node is part of the query.
     """
     tree = steiner_tree(graph, ids, method)
-    # TODO: get the induced subgraph
-    return tree
+    subgraph = graph.induced_subgraph([n['name'] for n in tree.vs])
+    for n in subgraph.vs:
+        if n['name'] in ids:
+            n['in_query'] = 1
+        else:
+            n['in_query'] = 0
+    return tree, subgraph
 
 
 def create_shortest_path_lengths_cached(graph):
