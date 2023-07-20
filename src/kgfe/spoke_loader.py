@@ -357,7 +357,7 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
     elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
         nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
     # use igraph.graph.DictList
-    edge_list = [{'source': str(v[0]), 'target': str(v[1]), 'type': e} for v, e in edges.items()]
+    edge_list = [{'source': str(v[0]), 'target': str(v[1]), 'type': edge_types[e]} for v, e in edges.items()]
     # set node attributes
     node_list = []
     # convert the node id to a string, bc

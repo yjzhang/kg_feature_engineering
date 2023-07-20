@@ -3,8 +3,6 @@
 
 from collections import Counter
 
-import igraph as ig
-from scipy.stats import hypergeom
 
 
 def topic_pagerank(graph, topic_ids=None, topic_category=None, topic_weights=None,
@@ -12,7 +10,7 @@ def topic_pagerank(graph, topic_ids=None, topic_category=None, topic_weights=Non
         alpha=0.7, max_iter=50, nstart=None):
     """
     Params:
-        graph - a networkx graph
+        graph - an igraph graph
         topic_ids - a list of topics for personalization (random restart in pagerank) - use None for regular PR
         topic_category: 'Gene', 'Drug', 'SmallMolecule', 'Pathway'
         topic_weights - a dict of topic_id : weight TODO: not implemented
@@ -256,6 +254,7 @@ def hypergeom_test(graph, query_ids, query_category, query_universe=None):
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
     """
+    from scipy.stats import hypergeom
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
@@ -300,6 +299,7 @@ def hypergeom_test_networkx(graph, query_ids, query_category, query_universe=Non
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
     """
+    from scipy.stats import hypergeom
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
