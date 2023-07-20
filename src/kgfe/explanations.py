@@ -100,7 +100,7 @@ def create_shortest_paths_cached_networkx(graph):
 
 def graph_node_stats(graph, ids, target_nodes=None,
         shortest_paths_cached_function=None,
-        metrics=None):
+        metrics=None, method='get_shortest_paths'):
     """
     This works with igraph graphs. Currently, this only gets average pairwise distance (I wasn't really using any of the other statistics.)
 
@@ -110,6 +110,7 @@ def graph_node_stats(graph, ids, target_nodes=None,
         - target_nodes - a list of nodes of interest that we want to find the distances to.
         - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
         - metrics - default: pairwise only
+        - method - One of 'get_shortest_paths' or 'distances'. This determines whether to use graph.get_shortest_paths or graph.distances, which have arcane performance trade-offs in different circumstances.
 
     Gets some summary statistics for a set of nodes:
     - average pairwise distance
@@ -117,18 +118,25 @@ def graph_node_stats(graph, ids, target_nodes=None,
     """
     # average pairwise distance
     all_path_lengths = []
-    if not shortest_paths_cached_function:
-        shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
-    for i, n1 in enumerate(ids[:-1]):
-        paths = graph.get_shortest_paths(n1, ids[i+1:])
-        all_path_lengths.extend(len(x) - 1 for x in paths)
+    #if not shortest_paths_cached_function:
+    #    shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
+    # TODO: if the number of nodes is greater than a certain number, or if the graph is greater than a certain size, switch to distances.
+    if method == 'get_shortest_paths':
+        for i, n1 in enumerate(ids[:-1]):
+            paths = graph.get_shortest_paths(n1, ids[i+1:])
+            all_path_lengths.extend(len(x) - 1 for x in paths)
+    else:
+        distances = graph.distances(ids, ids)
+        for i in range(len(ids)-1):
+            all_path_lengths.extend(distances[i][i+1:])
     average_pairwise_distance = sum(all_path_lengths)/(len(all_path_lengths))
     # should jaccard similarity or clustering coefficient be included?
     if target_nodes is not None:
         target_node_distances = []
         for n1 in ids:
             for n2 in target_nodes:
-                target_node_distances.append(shortest_paths_cached_function(n1, n2))
+                path = graph.get_shortest_path(n1, n2)
+                target_node_distances.append(len(path) - 1)
         average_target_distance = sum(target_node_distances)/len(target_node_distances)
         return {'average_pairwise_distance': average_pairwise_distance,
                 'average_target_distance': average_target_distance,
@@ -184,9 +192,11 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
             'average_jaccard': average_jaccard,
             }
 
-def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None):
+def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use_degree_sampling=False, degree_mean=0, degree_std=0, **kwargs):
     """
     This generates node set statistics for n_samples random sets of nodes of size n_ids, where all nodes are either belonging to category, or are part of the ids_subset (if provided)
+
+    Calls graph_node_stats on the node.
 
     Args:
         graph: an igraph graph
@@ -201,12 +211,11 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None):
     import random
     from .graph_info import nodes_in_category
     if ids_subset is None:
-        ids_subset = [x['name'] for x in nodes_in_category(graph, category)]
+        ids_subset = [x.index for x in nodes_in_category(graph, category)]
     all_stats = []
-    shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
     for _ in range(n_samples):
         id_sample = random.sample(ids_subset, n_ids)
-        stats = graph_node_stats(graph, id_sample, shortest_paths_cached_function=shortest_paths_cached_function)
+        stats = graph_node_stats(graph, id_sample, **kwargs)
         all_stats.append(stats)
     return all_stats
 

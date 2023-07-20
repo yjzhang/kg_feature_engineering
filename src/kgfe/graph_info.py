@@ -166,6 +166,13 @@ def get_names_to_ids(graph):
         names_to_ids[v['feature_name']] = v['name']
     return names_to_ids
 
+def get_names_to_ids_networkx(graph):
+    """Returns a dict mapping node names to IDs (ignoring prefixes and categories so on)"""
+    names_to_ids = {}
+    for n, attrs in graph.nodes.items():
+        names_to_ids[attrs['name']] = n
+    return names_to_ids
+
 def get_spoke_categories(graph):
     return set(attrs['category'] for attrs in graph.vs)
 
@@ -185,6 +192,20 @@ def spoke_identifiers_to_ids(graph, category, source=None):
         if 'category' in attrs and attrs['category'] == category:
             if source is None or ('source' in attrs and attrs['source'] == source):
                 identifiers_to_ids[attrs['identifier']] = v['name']
+    return identifiers_to_ids
+
+def spoke_identifiers_to_ids_networkx(graph, category, source=None):
+    """
+    Returns a mapping from SPOKE identifiers to IDs.
+
+    category: 'Protein', 'Gene', 'Compound', 'Disease', etc
+    source: 'KEGG', ...
+    """
+    identifiers_to_ids = {}
+    for n, attrs in graph.nodes.items():
+        if 'category' in attrs and attrs['category'] == category:
+            if source is None or ('source' in attrs and attrs['source'] == source):
+                identifiers_to_ids[attrs['identifier']] = n
     return identifiers_to_ids
 
 def get_category_ids_to_nodes(graph, category):
@@ -244,6 +265,13 @@ def random_nodes_in_category_networkx(graph, category, n_nodes):
 
 
 # TODO: random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
+def degree_sample(graph, node_set, degree_mean, degree_std):
+    """
+    Degree-based node sampling, to sample nodes such that they match the given degree distribution.
+    Using a normal approximation bc that's what's simplest.
+    Weight the nodes by the normal pdf.
+    """
+
 # subgraph
 # randomize the graph... randomly shuffle the nodes/edges?
 # shuffle the edges in the network, look at the set again and again. preserve the degree...
