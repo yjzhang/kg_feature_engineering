@@ -347,28 +347,45 @@ def load_spoke_networkx(filename='spoke.csv', edges_to_include=None, remove_unus
     nx.set_edge_attributes(graph, edge_attributes)
     return graph
 
-def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, **kwargs):
+def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, verbose=False, low_memory=False, **kwargs):
     """
     Imports the spoke file as an igraph. The file can be a csv or json/jsonl export from neo4j, and it can be gzipped. The spoke IDs are converted to strings because igraph is very slow if the ids are ints.
     """
     import igraph as ig
     if filename.endswith('.csv') or filename.endswith('.csv.gz'):
-        nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+        nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, verbose=verbose, **kwargs)
     elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
-        nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+        nodes, edges, node_types, edge_types = import_spoke_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, verbose=verbose, **kwargs)
+    else:
+        raise ValueError('File has to be a csv, csv.gz, json, json.gz file')
+    if verbose:
+        print('Done loading data, creating edge list')
     # use igraph.graph.DictList
-    edge_list = [{'source': str(v[0]), 'target': str(v[1]), 'type': edge_types[e]} for v, e in edges.items()]
+    if low_memory:
+        edge_list = ({'source': str(v[0]), 'target': str(v[1])} for v in edges.keys())
+    else:
+        edge_list = ({'source': str(v[0]), 'target': str(v[1]), 'type': edge_types[e]} for v, e in edges.items())
+    if verbose:
+        print('creating node list')
     # set node attributes
-    node_list = []
     # convert the node id to a string, bc
-    for n in nodes:
-        node_list.append({
+    if low_memory:
+        node_list = ({
+             'name': str(n[0]),
+             'feature_name':  n[1],
+             'category': node_types[n[2]],
+             'identifier': n[3],
+            } for n in nodes)
+    else:
+        node_list = ({
                 'name': str(n[0]),
                 'feature_name':  n[1],
                 'category': node_types[n[2]],
                 'identifier': n[3],
                 'source': n[4],
-        })
+        } for n in nodes)
+    if verbose:
+        print('calling igraph.Graph.DictList')
     graph = ig.Graph.DictList(node_list, edge_list, directed=directed)
     return graph
 

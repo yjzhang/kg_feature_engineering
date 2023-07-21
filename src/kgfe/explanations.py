@@ -2,7 +2,9 @@
 # how?
 
 from collections import Counter
+import functools
 
+from scipy.stats import hypergeom
 
 
 def topic_pagerank(graph, topic_ids=None, topic_category=None, topic_weights=None,
@@ -77,21 +79,17 @@ def steiner_tree_subgraph(graph, ids, method='takahashi'):
 
 
 def create_shortest_path_lengths_cached(graph):
-    import functools
-    @functools.cache
     def shortest_paths(n1, n2):
         return len(graph.get_shortest_paths(n1, n2)[0]) - 1
     return shortest_paths
 
 def create_shortest_paths_cached(graph):
-    import functools
     @functools.cache
     def shortest_paths(n1, n2):
         return graph.get_shortest_paths(n1, n2)
     return shortest_paths
 
 def create_shortest_paths_cached_networkx(graph):
-    import functools
     import networkx as nx
     @functools.cache
     def shortest_paths(n1, n2):
@@ -100,7 +98,7 @@ def create_shortest_paths_cached_networkx(graph):
 
 def graph_node_stats(graph, ids, target_nodes=None,
         shortest_paths_cached_function=None,
-        metrics=None, method='get_shortest_paths'):
+        metrics=None, method=None):
     """
     This works with igraph graphs. Currently, this only gets average pairwise distance (I wasn't really using any of the other statistics.)
 
@@ -108,19 +106,24 @@ def graph_node_stats(graph, ids, target_nodes=None,
         - graph - an igraph.Graph
         - ids - a list of graph node ids
         - target_nodes - a list of nodes of interest that we want to find the distances to.
-        - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph)
-        - metrics - default: pairwise only
-        - method - One of 'get_shortest_paths' or 'distances'. This determines whether to use graph.get_shortest_paths or graph.distances, which have arcane performance trade-offs in different circumstances.
+        - shortest_paths_cached_function - the output of create_shortest_paths_cached(graph) - NOT IMPLEMENTED
+        - metrics - default: pairwise only - NOT IMPLEMENTED
+        - method - None, or one of 'get_shortest_paths' or 'distances'. This determines whether to use graph.get_shortest_paths or graph.distances, which have arcane performance trade-offs in different circumstances. If this is None, then get_shortest_paths is used when the number of ids is less than 20, and distances is used otherwise.
 
     Gets some summary statistics for a set of nodes:
     - average pairwise distance
     - average distance from a node in the set to target node(s)
     """
+    # lol i have no idea what this is doing
+    if method is None:
+        if len(ids) < 20:
+            method = 'get_shortest_paths'
+        else:
+            method = 'distances'
     # average pairwise distance
     all_path_lengths = []
     #if not shortest_paths_cached_function:
     #    shortest_paths_cached_function = create_shortest_path_lengths_cached(graph)
-    # TODO: if the number of nodes is greater than a certain number, or if the graph is greater than a certain size, switch to distances.
     if method == 'get_shortest_paths':
         for i, n1 in enumerate(ids[:-1]):
             paths = graph.get_shortest_paths(n1, ids[i+1:])
@@ -263,7 +266,6 @@ def hypergeom_test(graph, query_ids, query_category, query_universe=None):
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
     """
-    from scipy.stats import hypergeom
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score
@@ -308,7 +310,6 @@ def hypergeom_test_networkx(graph, query_ids, query_category, query_universe=Non
     Returns:
         either a dict of hypergeometric p-values for node ids, or a list of dicts of hypergeometric p-values.
     """
-    from scipy.stats import hypergeom
     # 1. get all nodes of the query category in the graph
     # 2. get all nodes in the graph that are connected to nodes in the query set
     # 2. compute the overlaps and the hypergeometric score

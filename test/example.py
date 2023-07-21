@@ -47,9 +47,14 @@ print('time for node stats:', time.time() - t)
 
 # null graph statistics
 t = time.time()
-null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100)
-print('time for null stats:', time.time() - t)
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='shortest_paths')
+print('time for null stats (shortest_paths method):', time.time() - t)
 # time: 1.4s
+
+t = time.time()
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='distances')
+print('time for null stats (distances method):', time.time() - t)
+# time: 1.4s (about the same)
 
 # steiner tree
 t = time.time()

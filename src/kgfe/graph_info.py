@@ -1,5 +1,6 @@
 # TODO: get info on available graphs
 import os
+import random
 import zipfile
 
 import igraph as ig
@@ -236,7 +237,6 @@ def random_nodes_in_category(graph, category, n_nodes):
     """
     Returns a list of random node ids in the given category.
     """
-    import random
     nodes_in_category = []
     for v in graph.vs:
         attrs = v.attributes()
@@ -248,7 +248,6 @@ def random_nodes(graph, n_nodes):
     """
     Returns a list of random node ids.
     """
-    import random
     return random.sample([v['name'] for v in graph.vs], n_nodes)
 
 
@@ -256,7 +255,6 @@ def random_nodes_in_category_networkx(graph, category, n_nodes):
     """
     Returns a list of random spoke ids in the given category.
     """
-    import random
     nodes_in_category = []
     for n, attrs in graph.nodes.items():
         if 'category' in attrs and attrs['category'] == category:
@@ -265,12 +263,30 @@ def random_nodes_in_category_networkx(graph, category, n_nodes):
 
 
 # TODO: random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
-def degree_sample(graph, node_set, degree_mean, degree_std):
+def degree_sample(graph, node_list, n_samples, degree_mean, degree_std):
     """
-    Degree-based node sampling, to sample nodes such that they match the given degree distribution.
+    Degree-based node sampling, to sample nodes such that they approximately match the given degree distribution.
     Using a normal approximation bc that's what's simplest.
-    Weight the nodes by the normal pdf.
+    Weight the nodes by the normal pdf of their degrees.
+
+    Args:
+        graph - an igraph.Graph
+        node_set - a list of vertices
     """
+    import numpy as np
+    from scipy.stats import norm
+    prob_vals = []
+    for node in node_list:
+        degree = graph.degree(node)
+        prob_vals.append(norm.pdf(degree, degree_mean, degree_std))
+    prob_vals = np.array(prob_vals)
+    prob_vals = prob_vals/prob_vals.sum()
+    sampled_nodes = set([])
+    while len(sampled_nodes) < n_samples:
+        node = random.choices(node_list, prob_vals)[0]
+        if node not in sampled_nodes:
+            sampled_nodes.add(node)
+    return sampled_nodes
 
 # subgraph
 # randomize the graph... randomly shuffle the nodes/edges?
@@ -287,7 +303,6 @@ def randomize_graph(G):
     Returns:
     networkx.Graph: Randomized graph.
     """
-    import random
     G_rand = G.copy()
     edges = list(G_rand.edges)
     nodes = list(G_rand.nodes)
