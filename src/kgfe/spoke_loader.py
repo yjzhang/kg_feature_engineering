@@ -43,7 +43,7 @@ def import_spoke_csv(csv_filename, edges_to_include=None, remove_unused_nodes=Fa
         f = open(csv_filename)
     dr = csv.DictReader(f, dialect='unix')
     for i, row in enumerate(dr):
-        if verbose and i % 10000 == 0:
+        if verbose and i % 100000 == 0:
             print(i, 'nodes: ', len(node_index), 'edges: ', len(edges))
         # if this is a node
         if row['_id']:
@@ -128,7 +128,7 @@ def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True
     i = 0
     while line:
         row = json.loads(line)
-        if verbose and i % 10000 == 0:
+        if verbose and i % 100000 == 0:
             print(i, 'nodes: ', len(node_index), 'edges: ', len(edges))
         # if this is a node
         if row['type'] == 'node':
@@ -237,7 +237,7 @@ def import_ckg_jsonl(filename, edges_to_include=None, remove_unused_nodes=False,
     ne = 0
     while line:
         row = json.loads(line)
-        if verbose and i % 10000 == 0:
+        if verbose and i % 100000 == 0:
             print(i, 'nodes: ', len(node_index), 'edges: ', ne)
         # if this is a node
         if row['type'] == 'node':
