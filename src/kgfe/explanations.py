@@ -140,6 +140,8 @@ def graph_node_stats(graph, ids, target_nodes=None,
     degrees = np.array(graph.degree(ids))
     output['degree_mean'] = np.mean(degrees)
     output['degree_std'] = np.std(degrees)
+    # get clustering coefficient 
+    output['clustering'] = np.mean(graph.transitivity_local_undirected(ids))
     # should jaccard similarity or clustering coefficient be included?
     if target_nodes is not None:
         target_node_distances = []
