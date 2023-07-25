@@ -1,4 +1,5 @@
 # TODO: get info on available graphs
+from collections import Counter
 import os
 import random
 import zipfile
@@ -211,13 +212,29 @@ def spoke_identifiers_to_ids_networkx(graph, category, source=None):
 
 def get_category_ids_to_nodes(graph, category):
     """
-    Returns a dict that maps from identifiers in the specified category to graph node IDs.
+    Returns a dict that maps from identifiers in the specified category to graph node IDs, for graphs that are not SPOKE.
+    NOT IMPLEMENTED
     """
     # TODO
     identifiers_to_ids = {}
     return identifiers_to_ids
 
+def largest_component(graph):
+    "Returns a subgraph containing the largest connected component of the given graph."
+    components = graph.connected_components()
+    sizes = components.sizes()
+    largest_component = 0
+    largest_component_size = 0
+    for i, c in enumerate(sizes):
+        if c > largest_component_size:
+            largest_component_size = c
+            largest_component = i
+    subgraph = components.subgraph(largest_component)
+    return subgraph
+
+
 def nodes_in_category(graph, category, attr_name='category'):
+    "Returns all nodes that are within a given category, as a list of igraph.Vertex objects."
     nodes_in_category = []
     for v in graph.vs:
         attrs = v.attributes()
@@ -262,7 +279,7 @@ def random_nodes_in_category_networkx(graph, category, n_nodes):
     return random.sample(nodes_in_category, n_nodes)
 
 
-# TODO: random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
+# random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
 def degree_sample(graph, node_list, n_samples, degree_mean, degree_std):
     """
     Degree-based node sampling, to sample nodes such that they approximately match the given degree distribution.

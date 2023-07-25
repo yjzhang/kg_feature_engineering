@@ -9,30 +9,35 @@ spoke_graph = kgfe.spoke_loader.load_spoke_igraph('../../graph_utils/spoke_2021.
 print('time for loading spoke from jsonl with igraph:', time.time() - t)
 # time for loading spoke from jsonl with igraph: 138s - 147s on desktop
 # laptop: 161.52715277671814
+t = time.time()
+spoke_subgraph = kgfe.graph_info.largest_component(spoke_graph)
+print('time for getting the largest connected component:', time.time() - t)
+# desktop: 6.39
+print('nodes in connected component:', len(spoke_subgraph.vs))
 
 proteins = kgfe.graph_info.nodes_in_category(spoke_graph, 'Protein')
 
 # time null model
 t = time.time()
-kgfe.explanations.null_graph_stats(spoke_graph, 'Protein', 20, 100, method='distances')
+kgfe.explanations.null_graph_stats(spoke_subgraph, 'Protein', 20, 100, method='distances')
 print('time for null model with 20 random proteins (distances method):', time.time() - t)
 # desktop: 170.5931851863861
 # laptop: 171.632248878479
 
 t = time.time()
-kgfe.explanations.null_graph_stats(spoke_graph, 'Protein', 30, 100, method='distances')
+kgfe.explanations.null_graph_stats(spoke_subgraph, 'Protein', 30, 100, method='distances')
 print('time for null model with 30 random proteins (distances method):', time.time() - t)
-# desktop:250 
+# desktop: 250 
 # laptop: 237.89269495010376
 
 t = time.time()
-kgfe.explanations.null_graph_stats(spoke_graph, 'Protein', 20, 100, method='get_shortest_paths')
+#kgfe.explanations.null_graph_stats(spoke_graph, 'Protein', 20, 100, method='get_shortest_paths')
 print('time for null model with 20 random proteins (get_shortest_paths method):', time.time() - t)
-# desktop: 
+# desktop: 573.2834143638611
 # laptop: 544.4069104194641
 
 t = time.time()
-kgfe.explanations.null_graph_stats(spoke_graph, 'Protein', 30, 100, method='get_shortest_paths')
+#kgfe.explanations.null_graph_stats(spoke_graph, 'Protein', 30, 100, method='get_shortest_paths')
 print('time for null model with 30 random proteins (get_shortest_paths method):', time.time() - t)
-# desktop: 
+# desktop: 926
 # laptop: 898.4321784973145

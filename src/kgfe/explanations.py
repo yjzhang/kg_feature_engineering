@@ -4,6 +4,7 @@
 from collections import Counter
 import functools
 
+import numpy as np
 from scipy.stats import hypergeom
 
 
@@ -114,7 +115,8 @@ def graph_node_stats(graph, ids, target_nodes=None,
     - average pairwise distance
     - average distance from a node in the set to target node(s)
     """
-    # lol i have no idea what this is doing
+    ids = list(set(ids))
+    # lol i don't really know why this choice is made, or how to justify it...
     if method is None:
         if len(ids) < 20:
             method = 'get_shortest_paths'
@@ -133,6 +135,11 @@ def graph_node_stats(graph, ids, target_nodes=None,
         for i in range(len(ids)-1):
             all_path_lengths.extend(distances[i][i+1:])
     average_pairwise_distance = sum(all_path_lengths)/(len(all_path_lengths))
+    output = {'average_pairwise_distance': average_pairwise_distance}
+    # get degree distributions as well
+    degrees = np.array(graph.degree(ids))
+    output['degree_mean'] = np.mean(degrees)
+    output['degree_std'] = np.std(degrees)
     # should jaccard similarity or clustering coefficient be included?
     if target_nodes is not None:
         target_node_distances = []
@@ -141,11 +148,8 @@ def graph_node_stats(graph, ids, target_nodes=None,
                 path = graph.get_shortest_path(n1, n2)
                 target_node_distances.append(len(path) - 1)
         average_target_distance = sum(target_node_distances)/len(target_node_distances)
-        return {'average_pairwise_distance': average_pairwise_distance,
-                'average_target_distance': average_target_distance,
-                }
-    return {'average_pairwise_distance': average_pairwise_distance,
-            }
+        output['average_target_distance'] = average_target_distance
+    return output
 
 
 def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cached_function=None):
