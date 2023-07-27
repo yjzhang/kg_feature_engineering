@@ -6,6 +6,20 @@ def get_feature_pairs(graph, ids, category='Gene'):
     """
     Returns a list of feature pairs within the ids with their specific interactions.
     """
+    graph_node_ids = set(v['name'] for v in graph.vs)
+    node_ids = {graph.vs.find(i).index for i in ids if i in graph_node_ids}
+    edges = []
+    for i in node_ids:
+        for n in graph.neighbors(i):
+            if n in node_ids:
+                edge_id = graph.get_eid(i, n)
+                edges.append((i, n, graph.es[edge_id]))
+    return edges
+
+def get_feature_pairs_networkx(graph, ids, category='Gene'):
+    """
+    Returns a list of feature pairs within the ids with their specific interactions.
+    """
     node_ids = {i for i in ids if i in graph.nodes}
     edges = []
     for i in node_ids:
