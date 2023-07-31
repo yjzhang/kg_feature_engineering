@@ -222,6 +222,10 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use
     if ids_subset is None:
         ids_subset = [x.index for x in nodes_in_category(graph, category)]
     all_stats = []
+    if use_degree_sampling and degree_mean == 0:
+        degrees = np.array(graph.degree(input_id_set))
+        degree_mean = np.mean(degrees)
+        degree_std = np.std(degrees)
     # TODO: parallel?
     if parallel:
         pass
