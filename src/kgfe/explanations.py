@@ -201,7 +201,7 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
             'average_jaccard': average_jaccard,
             }
 
-def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use_degree_sampling=False, input_id_set=None, degree_mean=0, degree_std=0, parallel=False, n_threads=None,**kwargs):
+def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use_degree_sampling=False, input_id_set=None, parallel=False, n_threads=None,**kwargs):
     """
     This generates node set statistics for n_samples random sets of nodes of size n_ids, where all nodes are either belonging to category, or are part of the ids_subset (if provided)
 
@@ -213,27 +213,44 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use
         n_ids: the number of nodes to be selected in each sample.
         n_samples: the number of random samples.
         ids_subset: If this is not None, then category will not be used.
+        use_degree_sampling: if true, then this tries to sample nodes with a similar degree distribution as the input_id_set
+        input_id_set: a collection of ids to be used in degree sampling.
+        parallel: if true, this uses multiprocessing.Pool. WARNING: parallel does not work in ipython/jupyter/interactive environments.
 
     Returns:
         all_stats - a list of dicts as returned by graph_node_stats
     """
     import random
+    import scipy.stats
     from .graph_info import nodes_in_category, degree_sample
     if ids_subset is None:
         ids_subset = [x.index for x in nodes_in_category(graph, category)]
     all_stats = []
-    if use_degree_sampling and degree_mean == 0:
+    dist = None
+    if use_degree_sampling:
         degrees = np.array(graph.degree(input_id_set))
-        degree_mean = np.mean(degrees)
-        degree_std = np.std(degrees)
-    # TODO: parallel?
+        dist = scipy.stats.gaussian_kde(degrees)
+    # parallel?
     if parallel:
-        pass
+        import multiprocessing as mp
+        import os
+        if n_threads is None:
+            n_threads = os.cpu_count()
+        all_id_samples = []
+        for _ in range(n_samples):
+            if use_degree_sampling:
+                id_sample = degree_sample(graph, ids_subset, n_ids, dist)
+            else:
+                id_sample = random.sample(ids_subset, n_ids)
+            all_id_samples.append((graph, id_sample))
+        pool = mp.Pool()
+        all_stats = list(pool.starmap(graph_node_stats, all_id_samples, int(n_samples/n_threads)))
+        pool.close()
     else:
         for _ in range(n_samples):
             # node sampling by degree distribution
             if use_degree_sampling:
-                id_sample = degree_sample(graph, ids_subset, degree_mean, degree_std)
+                id_sample = degree_sample(graph, ids_subset, n_ids, dist)
             else:
                 id_sample = random.sample(ids_subset, n_ids)
             stats = graph_node_stats(graph, id_sample, **kwargs)

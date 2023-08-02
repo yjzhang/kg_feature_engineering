@@ -280,22 +280,25 @@ def random_nodes_in_category_networkx(graph, category, n_nodes):
 
 
 # random nodes with similar degree distributions? investigative bias - constrain null model to be similar to the problem. We could select random nodes among the nodes that are in the general set...
-def degree_sample(graph, node_list, n_samples, degree_mean, degree_std):
+def degree_sample(graph, node_list, n_samples, dist):
     """
     Degree-based node sampling, to sample nodes such that they approximately match the given degree distribution.
     Using a normal approximation bc that's what's simplest.
     Weight the nodes by the normal pdf of their degrees.
 
+    # TODO: use a kernel density estimation rather than a normal?
+
     Args:
         graph - an igraph.Graph
-        node_set - a list of vertices
+        node_list - a list of vertices to be sampled from
+        n_samples - the number of points to sample
+        dist - a distribution that has a pdf function
     """
     import numpy as np
-    from scipy.stats import norm
     prob_vals = []
     for node in node_list:
         degree = graph.degree(node)
-        prob_vals.append(norm.pdf(degree, degree_mean, degree_std))
+        prob_vals.append(dist.pdf(degree)[0])
     prob_vals = np.array(prob_vals)
     prob_vals = prob_vals/prob_vals.sum()
     sampled_nodes = set([])

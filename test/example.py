@@ -23,6 +23,14 @@ base_pr_results, base_top_nodes = kgfe.explanations.topic_pagerank(graph)
 
 # %prun pr_results, top_nodes = kgfe.explanations.topic_pagerank(graph, topic_ids)
 
+# test degree sampling
+import scipy.stats
+degrees = graph.degree(topic_ids)
+dist = scipy.stats.gaussian_kde(degrees)
+nodes = [x.index for x in kgfe.graph_info.nodes_in_category(graph, 'Gene')]
+samples = kgfe.graph_info.degree_sample(graph, nodes, 10, dist)
+print(samples)
+
 # TODO: time for random node id access
 t0 = time.time()
 for i in range(20000):
