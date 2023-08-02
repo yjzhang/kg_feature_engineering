@@ -5,6 +5,25 @@ import numpy as np
 from scipy import sparse
 
 # TODO: rewrite in igraph, parallel
+def random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
+    """
+    Random walk starting from all nodes.
+    r = number of walks per node
+    l = length of walk
+    p and q are probs
+    """
+    graph.random_walk()
+    pass
+
+def biased_random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
+    """
+    Random walk starting from all nodes.
+    r = number of walks per node
+    l = length of walk
+    p and q are probs
+    """
+    graph.random_walk()
+    pass
 
 def random_walks(adj_list, r, l, p=1, q=1, verbose=False):
     """
