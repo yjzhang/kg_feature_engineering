@@ -212,11 +212,12 @@ def spoke_identifiers_to_ids_networkx(graph, category, source=None):
 
 def get_category_ids_to_nodes(graph, category):
     """
-    Returns a dict that maps from identifiers in the specified category to graph node IDs, for graphs that are not SPOKE.
-    NOT IMPLEMENTED
+    Returns a dict that maps from identifiers in the specified category to graph node indices, for graphs that are not SPOKE.
     """
-    # TODO
     identifiers_to_ids = {}
+    for v in graph.vs:
+        if v['category'] == category:
+            identifiers_to_ids[v['id']] = v.index 
     return identifiers_to_ids
 
 def largest_component(graph):
@@ -283,16 +284,12 @@ def random_nodes_in_category_networkx(graph, category, n_nodes):
 def degree_sample(graph, node_list, n_samples, dist):
     """
     Degree-based node sampling, to sample nodes such that they approximately match the given degree distribution.
-    Using a normal approximation bc that's what's simplest.
-    Weight the nodes by the normal pdf of their degrees.
-
-    # TODO: use a kernel density estimation rather than a normal?
 
     Args:
         graph - an igraph.Graph
         node_list - a list of vertices to be sampled from
         n_samples - the number of points to sample
-        dist - a distribution that has a pdf function
+        dist - a distribution that has a pdf function (could probably use a kernel density estimation)
     """
     import numpy as np
     prob_vals = []
