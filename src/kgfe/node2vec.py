@@ -1,19 +1,27 @@
 import functools
+import multiprocessing as mp
 
 #from numba import jit
 import numpy as np
-from scipy import sparse
 
 # TODO: rewrite in igraph, parallel
-def random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
+def random_walks_igraph(graph, r, l, verbose=False, parallel=False):
     """
-    Random walk starting from all nodes.
+    Random walks starting from all nodes in the input graph.
     r = number of walks per node
     l = length of walk
-    p and q are probs
+
+    Returns a list of lists of node IDs.
     """
-    graph.random_walk()
-    pass
+    walks = []
+    for i, v in enumerate(graph.vs):
+        if verbose:
+            if i % 10000 == 0:
+                print('nodes walked:', i)
+        for _ in range(r):
+            walk = graph.random_walk(v, l)
+            walks.append(walk)
+    return walks
 
 def biased_random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
     """
@@ -22,8 +30,15 @@ def biased_random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
     l = length of walk
     p and q are probs
     """
-    graph.random_walk()
-    pass
+    walks = []
+    for i, v in enumerate(graph.vs):
+        if verbose:
+            if i % 10000 == 0:
+                print('nodes walked:', i)
+        for _ in range(r):
+            walk = graph.random_walk(v, l)
+            walks.append(walk)
+    return walks
 
 def random_walks(adj_list, r, l, p=1, q=1, verbose=False):
     """
@@ -85,33 +100,3 @@ def run_word2vec(walks, k=10, d=64):
     model = gensim.models.Word2Vec(sentences=walks, vector_size=d,
             window=k)
     return model
-
-
-if __name__ == '__main__':
-    # TODO: try this with a smaller graph?
-    import spoke_loader
-    import scipy.io
-    import umap
-    # load graph
-    nodes, edges, node_types, edge_types, edge_matrix = spoke_loader.load_spoke('spoke.csv', remove_unused_nodes=True)
-    edge_matrix = scipy.io.mmread('spoke.mtx')
-    print('matrix loaded')
-    edge_matrix = spoke_loader.symmetrize_matrix(edge_matrix)
-    edge_matrix = sparse.lil_matrix(edge_matrix)
-    print('calculating random walks...')
-    walks = random_walks(edge_matrix.rows, r=10, l=50, verbose=True)
-    n2v_model = run_word2vec(walks, 8, 50)
-    n2v_model.save('spoke_node2vec_gensim_50')
-    um = umap.UMAP()
-    um.fit_transform(n2v_model.wv.vectors)
-    np.savetxt('spoke_umap.txt', um.embedding_)
-    # make a 2d plot of spoke nodes, colored by type
-    nodes_types = [n[2] for n in nodes]
-    # plot using plotly?
-    import plotly.express as px
-    fig = px.scatter(x=um.embedding_[:, 0], y=um.embedding_[:,1], hover_data=[[(n[1], node_types[n[2]]) for n in nodes]], color=[node_types[n[2]] for n in nodes])
-    fig.update_traces(marker=dict(size=1))
-    html = fig.to_html()
-    with open('spoke.html', 'w') as f:
-        f.write(html)
-    np.savetxt('spoke_small_nodes.txt', np.array([[str(x) for x in n] for n in nodes]), fmt='%s', delimiter='\t')
