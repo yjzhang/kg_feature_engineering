@@ -2,3 +2,5 @@ from .graph_info import get_available_graphs, load_graph, df_to_graph, get_nodes
 from . import spoke_loader
 from . import explanations
 from . import feature_engineering
+from . import ot_distance
+from . import node2vec

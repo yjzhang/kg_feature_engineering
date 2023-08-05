@@ -1,11 +1,11 @@
 import functools
 import multiprocessing as mp
+import os
 
 #from numba import jit
 import numpy as np
 
-# TODO: rewrite in igraph, parallel
-def random_walks_igraph(graph, r, l, verbose=False, parallel=False):
+def random_walks_igraph(graph, r, l, verbose=False, parallel=False, n_threads=None):
     """
     Random walks starting from all nodes in the input graph.
     r = number of walks per node
@@ -13,6 +13,8 @@ def random_walks_igraph(graph, r, l, verbose=False, parallel=False):
 
     Returns a list of lists of node IDs.
     """
+    if parallel:
+        return random_walks_igraph_parallel(graph, r, l, n_threads)
     walks = []
     for i, v in enumerate(graph.vs):
         if verbose:
@@ -22,6 +24,28 @@ def random_walks_igraph(graph, r, l, verbose=False, parallel=False):
             walk = graph.random_walk(v, l)
             walks.append(walk)
     return walks
+
+def _random_walks_node(graph, v, r, l):
+    "Do r random walks of length l at node v."
+    walks = []
+    for _ in range(r):
+        walk = graph.random_walk(v, l)
+        walks.append(walk)
+    return walks
+
+def random_walks_igraph_parallel(graph, r, l, n_threads=None):
+    """
+    Parallel random walks using multiprocessing.
+    """
+    if n_threads is None:
+        n_threads = os.cpu_count()
+    n_nodes = len(graph.vs)
+    args = zip([graph]*n_nodes, (v.index for v in graph.vs), [r]*n_nodes, [l]*n_nodes)
+    pool = mp.Pool(n_threads)
+    walks = list(pool.starmap(_random_walks_node, args, int(n_nodes/n_threads)))
+    walks = [i for x in walks for i in x]
+    return walks
+    
 
 def biased_random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
     """
