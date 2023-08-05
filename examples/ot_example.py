@@ -29,3 +29,4 @@ for i in range(50):
     ot_distances.append(emd)
 print('time for 50 OT distance calculations:', time.time() - t)
 print('mean EMD between two randomly selected lists of 10 genes, 50 iterations:', np.mean(ot_distances)) 
+# time: 3.5, mean distance: 36.52

@@ -49,13 +49,15 @@ t = time.time()
 result = run_mp(n_ids=20, n_samples=100)
 print('time for multiprocessing null graph stats:', time.time() - t)
 print('num samples:', len(result))
+# 0.69s
 
 t = time.time()
 null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100)
 print('time for single-process null graph stats:', time.time() - t)
+# 1.77s
 
 t = time.time()
 null_stats_p = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, parallel=True)
 print('time for multiprocessing pool null graph stats:', time.time() - t)
 print(len(null_stats_p))
-
+# 1.19s

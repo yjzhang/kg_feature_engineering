@@ -1,7 +1,5 @@
 import time
 
-import numpy as np
-
 import kgfe
 
 # node2vec - start out by computing random walks, and then running word2vec
@@ -25,13 +23,18 @@ t = time.time()
 random_walks = kgfe.node2vec.random_walks_igraph(graph, 10, 25)
 print('time for random walks:', time.time() - t)
 print(len(random_walks), len(random_walks[0]))
+# 4.2s
 
 t = time.time()
 random_walks_parallel = kgfe.node2vec.random_walks_igraph_parallel(graph, 10, 25)
 print('time for parallel random walks:', time.time() - t)
 print(len(random_walks_parallel), len(random_walks_parallel[0]))
+# 1.8s
 
 # use word2vec to generate the actual embeddings
 t = time.time()
 model1 = kgfe.node2vec.run_word2vec(random_walks)
 print('time for word2vec:', time.time() - t)
+# 8.8s
+
+vectors = model1.wv.vectors
