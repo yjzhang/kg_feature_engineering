@@ -142,13 +142,12 @@ def graph_node_stats(graph, ids, target_nodes=None,
     output['degree_std'] = np.std(degrees)
     # get clustering coefficient 
     output['clustering'] = np.mean(graph.transitivity_local_undirected(ids))
-    # should jaccard similarity or clustering coefficient be included?
+    # should jaccard similarity be included?
     if target_nodes is not None:
         target_node_distances = []
-        for n1 in ids:
-            for n2 in target_nodes:
-                path = graph.get_shortest_path(n1, n2)
-                target_node_distances.append(len(path) - 1)
+        for n1 in target_nodes:
+            paths = graph.get_shortest_paths(n1, ids, mode='in')
+            target_node_distances.extend(len(p) - 1 for p in paths)
         average_target_distance = sum(target_node_distances)/len(target_node_distances)
         output['average_target_distance'] = average_target_distance
     return output
@@ -201,7 +200,7 @@ def graph_node_stats_networkx(graph, ids, target_nodes=None, shortest_paths_cach
             'average_jaccard': average_jaccard,
             }
 
-def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use_degree_sampling=False, input_id_set=None, parallel=False, n_threads=None,**kwargs):
+def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use_degree_sampling=False, input_id_set=None, parallel=False, n_threads=None, **kwargs):
     """
     This generates node set statistics for n_samples random sets of nodes of size n_ids, where all nodes are either belonging to category, or are part of the ids_subset (if provided)
 

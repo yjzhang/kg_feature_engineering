@@ -56,18 +56,18 @@ print('time for node stats:', time.time() - t)
 
 # null graph statistics
 t = time.time()
-null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='shortest_paths')
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='shortest_paths', target_nodes=[1])
 print('time for null stats (shortest_paths method):', time.time() - t)
 # time: 1.4s
 
 # test null model degree sampling
 t = time.time()
 null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100,
-        use_degree_sampling=True, input_id_set=topic_ids)
+        use_degree_sampling=True, input_id_set=topic_ids, target_nodes=[1])
 print('time for null stats (distances method), degree sampling:', time.time() - t)
 
 t = time.time()
-null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='distances')
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='distances', target_nodes=[1])
 print('time for null stats (distances method):', time.time() - t)
 # time: 1.4s (about the same)
 
