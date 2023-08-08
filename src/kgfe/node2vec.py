@@ -54,6 +54,7 @@ def biased_random_walks_igraph(graph, r, l, p=1, q=1, verbose=False):
     l = length of walk
     p and q are probs
     """
+    # TODO: this doesn't work yet
     walks = []
     for i, v in enumerate(graph.vs):
         if verbose:

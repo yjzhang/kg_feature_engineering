@@ -31,6 +31,7 @@ nodes = [x.index for x in kgfe.graph_info.nodes_in_category(graph, 'Gene')]
 samples = kgfe.graph_info.degree_sample(graph, nodes, 10, dist)
 print(samples)
 
+
 # TODO: time for random node id access
 t0 = time.time()
 for i in range(20000):
@@ -58,6 +59,12 @@ t = time.time()
 null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='shortest_paths')
 print('time for null stats (shortest_paths method):', time.time() - t)
 # time: 1.4s
+
+# test null model degree sampling
+t = time.time()
+null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100,
+        use_degree_sampling=True, input_id_set=topic_ids)
+print('time for null stats (distances method), degree sampling:', time.time() - t)
 
 t = time.time()
 null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='distances')

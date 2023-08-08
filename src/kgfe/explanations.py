@@ -226,10 +226,16 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use
     if ids_subset is None:
         ids_subset = [x.index for x in nodes_in_category(graph, category)]
     all_stats = []
-    dist = None
+    prob_vals = None
     if use_degree_sampling:
-        degrees = np.array(graph.degree(input_id_set))
-        dist = scipy.stats.gaussian_kde(degrees)
+        input_degrees = np.array(graph.degree(input_id_set))
+        ids_degrees = np.array(graph.degree(ids_subset))
+        dist = scipy.stats.gaussian_kde(input_degrees)
+        base_dist = scipy.stats.gaussian_kde(ids_degrees)
+        prob_vals = dist.pdf(ids_degrees)
+        base_prob_vals = base_dist.pdf(ids_degrees)
+        prob_vals = prob_vals/base_prob_vals
+        prob_vals /= prob_vals.sum()
     # parallel?
     if parallel:
         import multiprocessing as mp
@@ -239,7 +245,7 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use
         all_id_samples = []
         for _ in range(n_samples):
             if use_degree_sampling:
-                id_sample = degree_sample(graph, ids_subset, n_ids, dist)
+                id_sample = degree_sample(graph, ids_subset, n_ids, prob_vals)
             else:
                 id_sample = random.sample(ids_subset, n_ids)
             all_id_samples.append((graph, id_sample))
@@ -250,7 +256,7 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use
         for _ in range(n_samples):
             # node sampling by degree distribution
             if use_degree_sampling:
-                id_sample = degree_sample(graph, ids_subset, n_ids, dist)
+                id_sample = degree_sample(graph, ids_subset, n_ids, prob_vals)
             else:
                 id_sample = random.sample(ids_subset, n_ids)
             stats = graph_node_stats(graph, id_sample, **kwargs)
