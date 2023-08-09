@@ -1,10 +1,10 @@
 # TODO: get info on available graphs
-from collections import Counter
 import os
 import random
 import zipfile
 
 import igraph as ig
+import numpy as np
 import pandas as pd
 
 PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -291,23 +291,16 @@ def degree_sample(graph, node_list, n_samples, dist_or_probs):
         n_samples - the number of points to sample
         dist_or_probs - Either a scipy.stats distribution that has a pdf function (could probably use a kernel density estimation), or a list/array of probabilities over node_list
     """
-    import numpy as np
     prob_vals = []
     # lol 
     if hasattr(dist_or_probs, '__getitem__'):
         prob_vals = dist_or_probs
     else:
         dist = dist_or_probs
-        for node in node_list:
-            degree = graph.degree(node)
-            prob_vals.append(dist.pdf(degree)[0])
+        prob_vals = dist.pdf(graph.degree(node_list))
         prob_vals = np.array(prob_vals)
         prob_vals = prob_vals/prob_vals.sum()
-    sampled_nodes = set([])
-    while len(sampled_nodes) < n_samples:
-        node = random.choices(node_list, prob_vals)[0]
-        if node not in sampled_nodes:
-            sampled_nodes.add(node)
+    sampled_nodes = np.random.choice(node_list, size=n_samples, replace=False, p=prob_vals)
     return sampled_nodes
 
 # subgraph

@@ -226,13 +226,15 @@ def null_graph_stats(graph, category, n_ids, n_samples=100, ids_subset=None, use
         ids_subset = [x.index for x in nodes_in_category(graph, category)]
     all_stats = []
     prob_vals = None
+    # TODO: the KDE over-weighs high-outlier degree nodes for the input_id_set, leading to higher-than-expected counts of high-degree nodes.
     if use_degree_sampling:
         input_degrees = np.array(graph.degree(input_id_set))
         ids_degrees = np.array(graph.degree(ids_subset))
         dist = scipy.stats.gaussian_kde(input_degrees)
-        base_dist = scipy.stats.gaussian_kde(ids_degrees)
         prob_vals = dist.pdf(ids_degrees)
-        base_prob_vals = base_dist.pdf(ids_degrees)
+        # should we use an empirical distribution, a binned histogram distribution, or a KDE for the base distribution?
+        degree_counts = Counter(ids_degrees)
+        base_prob_vals = np.array([degree_counts[d]/len(ids_degrees) for d in ids_degrees.astype(float)])
         prob_vals = prob_vals/base_prob_vals
         prob_vals /= prob_vals.sum()
     # parallel?

@@ -1,6 +1,9 @@
 # basic usage example for kgfe
 import time
 
+import numpy as np
+import pandas as pd
+
 import kgfe
 
 # timing ran on intel i7-9700 CPU @ 3.00GHz with 64gb memory
@@ -62,9 +65,12 @@ print('time for null stats (shortest_paths method):', time.time() - t)
 
 # test null model degree sampling
 t = time.time()
-null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100,
+null_stats_degree_sample = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100,
         use_degree_sampling=True, input_id_set=topic_ids, target_nodes=[1])
 print('time for null stats (distances method), degree sampling:', time.time() - t)
+null_stats_degree_sample = pd.DataFrame(null_stats_degree_sample)
+print('mean degree (with degree sampling):', null_stats_degree_sample.degree_mean.mean())
+print('mean degree for topic ids:', np.mean(graph.degree(topic_ids)))
 
 t = time.time()
 null_stats = kgfe.explanations.null_graph_stats(graph, 'Gene', 20, 100, method='distances', target_nodes=[1])
@@ -221,7 +227,6 @@ nx_null_stats = kgfe.explanations.null_graph_stats_networkx(nx_graph, 'Gene', 20
 print('time for null stats networkx:', time.time() - t)
 # time: 6.6s
 
-import pandas as pd
 null_stats = pd.DataFrame(null_stats)
 nx_null_stats = pd.DataFrame(nx_null_stats)
 print('ig average pairwise distance for random genes:', null_stats.average_pairwise_distance.mean())
