@@ -7469,7 +7469,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Unified-Arivale-T2D-protein-set-analysis">Unified Arivale T2D protein set analysis<a class="anchor-link" href="#Unified-Arivale-T2D-protein-set-analysis">¶</a></h1><p>Target protein sets: for T2D, they might come from:</p>
+<h1 id="Unified-Arivale-T2D-protein-set-analysis">Unified Arivale T2D protein set analysis<a class="anchor-link" href="#Unified-Arivale-T2D-protein-set-analysis">¶</a></h1><p><strong>Goal</strong>: given a set of proteins, chemicals, genes, etc., are they more similar to each other than a similarly sized set of random proteins? Do they form a coherent "grouping" in a knowledge graph?</p>
+<p>A problem here is that we have two unknowns: the graph null model (unvalidated), and the protein sets. We can fix the protein sets by selecting known associates of T2D, or known gene sets.</p>
+<p><strong>Target protein sets</strong>: for T2D, they might come from:</p>
 <ol>
 <li>Most common outliers among T2D samples</li>
 <li>Most common outliers among high-HbA1C samples</li>
@@ -7482,14 +7484,14 @@ a.anchor-link {
 <li>KEGG type 2 diabetes: <a href="https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/KEGG_TYPE_II_DIABETES_MELLITUS.html">https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/KEGG_TYPE_II_DIABETES_MELLITUS.html</a></li>
 <li>Wikipathways type 2 diabetes: <a href="https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/WP_TYPE_II_DIABETES_MELLITUS.html">https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/WP_TYPE_II_DIABETES_MELLITUS.html</a></li>
 </ul>
-<p>Problems:</p>
+<p><strong>Problems</strong>:</p>
 <ul>
 <li>These are gene sets, not protein sets (simple enough, just translate them to uniprot)</li>
 <li>What if these gene sets are themselves components of SPOKE? So there will be an automatic shortcut. Potential solution: use biological spoke (spoke_2021_b_biological_objects.jsonl.gz)</li>
 </ul>
-<p>Knowledge graphs - SPOKE-2021, SPOKE-2021-bio, SPOKE-2023-human</p>
-<p>Sampling strategy for the permutation test: All proteins in the graph, all Arivale-measured proteins (does not scale to other experimental methods?), all proteins with degree distribution matched to the target proteins (call this matched-degree)</p>
-<p>Metrics: currently, this is just the pairwise shortest path distance for all pairs within the protein set. Maybe we could add community detection? Maybe we could use node embeddings? Like, do the nodes have similar node embeddings to each other? Also, we could try to use "shortest path to T2D node" as another metric?</p>
+<p><strong>Knowledge graphs</strong> - SPOKE-2021, SPOKE-2021-bio, SPOKE-2023-human. This notebook is only using SPOKE-2021.</p>
+<p><strong>Sampling strategy for the permutation test</strong>: All proteins in the graph, all Arivale-measured proteins (does not scale to other experimental methods?), all proteins with degree distribution matched to the target proteins (call this matched-degree)</p>
+<p><strong>Metrics</strong>: currently, this is just the pairwise shortest path distance for all pairs within the protein set. Maybe we could add community detection? Maybe we could use node embeddings? Like, do the nodes have similar node embeddings to each other? Also, we could try to use "shortest path to T2D node" as another metric?</p>
 </div>
 </div>
 </div>
@@ -8339,7 +8341,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">matplotlib_venn</span><span class="o">.</span><span class="n">venn3</span><span class="p">([</span><span class="nb">set</span><span class="p">(</span><span class="n">prots_hba1c_outliers_spoke_ids</span><span class="p">),</span> 
                        <span class="nb">set</span><span class="p">(</span><span class="n">kegg_t2d_spoke_ids</span><span class="p">),</span>
-                       <span class="nb">set</span><span class="p">(</span><span class="n">wp_t2d_spoke_ids</span><span class="p">)],</span> <span class="p">[</span><span class="s1">'Arivale high-HbA1C'</span><span class="p">,</span> <span class="s1">'KEGG T2D'</span><span class="p">,</span> <span class="s1">'WikiPathways T2D'</span><span class="p">])</span>
+                       <span class="nb">set</span><span class="p">(</span><span class="n">wp_t2d_spoke_ids</span><span class="p">)],</span> <span class="p">[</span><span class="s1">'HbA1C Outliers'</span><span class="p">,</span> <span class="s1">'KEGG T2D'</span><span class="p">,</span> <span class="s1">'WikiPathways T2D'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -9242,17 +9244,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3e5c991f-986f-4a95-a61d-71ecd5f873f5">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c343eb35-3909-4454-a2d7-81c523754512">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">¶</a></h2><ul>
+<li>The Arivale differential-expression-derived protein sets seemed to all form coherent groups, based on the graph permutation/null model test. They were closer to each other than random proteins from Arivale, and they were also closer to the T2D node in SPOKE than random proteins from Arivale. They also very heavily overlapped with each other.</li>
+<li>The LassoCV-identified proteins appeared to be basically the same as random subsets of proteins from Arivale. They had very little overlap with the differential-expression-derived protein sets.</li>
+<li>The KEGG/WP gene sets were interesting. They did not appear to have close graph interactions (they were all further apart than randomly chosen nodes of similar degree distribution). But on the other hand they were significantly closer to the T2D node than random .</li>
+</ul>
 </div>
 </div>
 </div>
