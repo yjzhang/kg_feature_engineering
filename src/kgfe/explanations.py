@@ -63,6 +63,12 @@ def steiner_tree(graph, ids, method='takahashi', **params):
         tree = steiner_tree.mehlhorn_steiner_tree(graph, indices)
     else:
         raise ValueError('Error: method must be one of "takahashi", "mehlhorn", or "shortest_paths"')
+    ids_set = set(ids)
+    for n in tree.vs:
+        if n['name'] in ids_set:
+            n['in_query'] = 1
+        else:
+            n['in_query'] = 0
     return tree
 
 def steiner_tree_subgraph(graph, ids, method='takahashi'):
