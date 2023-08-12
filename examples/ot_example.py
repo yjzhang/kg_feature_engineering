@@ -30,3 +30,20 @@ for i in range(50):
 print('time for 50 OT distance calculations:', time.time() - t)
 print('mean EMD between two randomly selected lists of 10 genes, 50 iterations:', np.mean(ot_distances)) 
 # time: 3.5, mean distance: 36.52
+
+t = time.time()
+ot_distances = []
+for i in range(50):
+    genes_1 = kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 10)
+    genes_2 = kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20)
+    emd = kgfe.ot_distance.ot_sinkhorn_unbalanced_cost(graph, genes_1, genes_2)
+    ot_distances.append(emd)
+print('time for 50 unbalanced OT-sinkhorn distance calculations:', time.time() - t)
+print('mean EMD between two randomly selected lists of 10 genes and 20 genes, 50 iterations:', np.mean(ot_distances)) 
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_sinkhorn_distance_matrix(graph, gene_lists, verbose=True)
+print('time for OT distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+
