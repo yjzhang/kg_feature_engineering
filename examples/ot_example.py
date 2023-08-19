@@ -40,10 +40,62 @@ for i in range(50):
     ot_distances.append(emd)
 print('time for 50 unbalanced OT-sinkhorn distance calculations:', time.time() - t)
 print('mean EMD between two randomly selected lists of 10 genes and 20 genes, 50 iterations:', np.mean(ot_distances)) 
+# time: 2.5s
 
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
 distance_matrix = kgfe.ot_distance.ot_sinkhorn_distance_matrix(graph, gene_lists, verbose=True)
-print('time for OT distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
+print('time for OT unbalanced Sinkhorn distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
 print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 32s
+# EMD: 7.12
 
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True)
+print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=1:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 26s
+# EMD: 3.02
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.1)
+print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.1:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 603s
+# EMD: 2.41
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.5)
+print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.5:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 40s
+# EMD: 2.66
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.25)
+print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.25:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 109s
+# EMD: 2.48
+
+"""
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, method='greenkhorn')
+print('time for OT balanced Greenkhorn distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 130s
+# EMD: 3.02
+
+# TODO: Screenkhorn is not implemented
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, method='screenkhorn')
+print('time for OT balanced Screenkhorn distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+"""

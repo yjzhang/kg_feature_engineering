@@ -71,7 +71,7 @@ def ot_sinkhorn_unbalanced_cost(graph, nodes_1, nodes_2, **sinkhorn_params):
     cost = ot.unbalanced.sinkhorn_unbalanced2(a/a.sum(), b/b.sum(), shortest_paths_table, reg, reg_m, **sinkhorn_params)[0]
     return cost
 
-def ot_sinkhorn_unbalanced_cost_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn_params):
+def ot_unbalanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn_params):
     "Returns the unbalanced sinkhorn cost between two node lists, assuming that we have a dict that maps node pairs to distances."
     import ot
     if len(nodes_1) == 0 or len(nodes_2) == 0:
@@ -95,7 +95,7 @@ def ot_sinkhorn_unbalanced_cost_distance_dict(graph, nodes_1, nodes_2, distance_
     cost = ot.unbalanced.sinkhorn_unbalanced2(a/a.sum(), b/b.sum(), shortest_paths_table, reg, reg_m, **sinkhorn_params)
     return cost[0]
 
-def ot_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn_params):
+def ot_balanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn_params):
     "Returns the balanced sinkhorn cost between two node lists, assuming that we have a dict that maps node pairs to distances."
     import ot
     if len(nodes_1) == 0 or len(nodes_2) == 0:
@@ -107,12 +107,13 @@ def ot_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn
     a = np.ones(len(nodes_1))
     b = np.ones(len(nodes_2))
     if 'reg' not in sinkhorn_params:
-        reg = 0.1
+        reg = 1.0
     else:
         reg = sinkhorn_params['reg']
         del sinkhorn_params['reg']
-    cost = ot.sinkhorn2(a/a.sum(), b/b.sum(), shortest_paths_table, reg, **sinkhorn_params)
-    return cost[0]
+    res = ot.sinkhorn(a/a.sum(), b/b.sum(), shortest_paths_table, reg, **sinkhorn_params)
+    cost = np.sum(shortest_paths_table * res)
+    return cost
 
 def ot_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, verbose=False, parallel=False, **sinkhorn_params):
     """
@@ -136,7 +137,7 @@ def ot_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, verbose=F
     for i, n1 in enumerate(node_lists):
         for j in range(i+1, len(node_lists)):
             n2 = node_lists[j]
-            distance_matrix[i, j] = ot_sinkhorn_unbalanced_cost_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
+            distance_matrix[i, j] = ot_unbalanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
         if verbose and i%10 == 0:
             print('Nodes computed:', i)
     # convert matrix to full
@@ -166,7 +167,7 @@ def ot_balanced_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, 
     for i, n1 in enumerate(node_lists):
         for j in range(i+1, len(node_lists)):
             n2 = node_lists[j]
-            distance_matrix[i, j] = ot_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
+            distance_matrix[i, j] = ot_balanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
         if verbose and i%10 == 0:
             print('Nodes computed:', i)
     # convert matrix to full
