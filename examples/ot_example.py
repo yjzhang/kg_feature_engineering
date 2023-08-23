@@ -61,14 +61,6 @@ print('mean EMD between gene sets:', np.mean(distance_matrix))
 
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
-distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.1)
-print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.1:', time.time() - t)
-print('mean EMD between gene sets:', np.mean(distance_matrix)) 
-# timing: 603s
-# EMD: 2.41
-
-t = time.time()
-gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
 distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.5)
 print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.5:', time.time() - t)
 print('mean EMD between gene sets:', np.mean(distance_matrix)) 
@@ -83,14 +75,23 @@ print('mean EMD between gene sets:', np.mean(distance_matrix))
 # timing: 109s
 # EMD: 2.48
 
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, method='greenkhorn', reg=0.25)
+print('time for OT balanced Greenkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.25:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# timing: 381s
+# EMD: 2.45
+
 """
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
-distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, method='greenkhorn')
-print('time for OT balanced Greenkhorn distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
+distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.1)
+print('time for OT balanced Sinkhorn distance matrix calculation for 200 lists of 20 genes, reg=0.1:', time.time() - t)
 print('mean EMD between gene sets:', np.mean(distance_matrix)) 
-# timing: 130s
-# EMD: 3.02
+# timing: 603s
+# EMD: 2.41
+
 
 # TODO: Screenkhorn is not implemented
 t = time.time()
