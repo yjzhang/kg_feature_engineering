@@ -44,6 +44,16 @@ print('mean EMD between two randomly selected lists of 10 genes and 20 genes, 50
 
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_emd_distance_matrix(graph, gene_lists, verbose=True)
+print('time for OT exact-EMD distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# time: 17.7s
+# EMD mean: 2.442875
+
+
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
 distance_matrix = kgfe.ot_distance.ot_sinkhorn_distance_matrix(graph, gene_lists, verbose=True)
 print('time for OT unbalanced Sinkhorn distance matrix calculation for 200 lists of 20 genes:', time.time() - t)
 print('mean EMD between gene sets:', np.mean(distance_matrix)) 
@@ -59,6 +69,8 @@ print('mean EMD between gene sets:', np.mean(distance_matrix))
 # timing: 26s
 # EMD: 3.02
 
+
+"""
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
 distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.5)
@@ -83,7 +95,6 @@ print('mean EMD between gene sets:', np.mean(distance_matrix))
 # timing: 381s
 # EMD: 2.45
 
-"""
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
 distance_matrix = kgfe.ot_distance.ot_balanced_sinkhorn_distance_matrix(graph, gene_lists, verbose=True, reg=0.1)
