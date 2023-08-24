@@ -79,7 +79,7 @@ def _get_shortest_paths_table(nodes_1, nodes_2, distance_dict):
             shortest_paths_table[i, j] = distance_dict[n1, n2]
     return shortest_paths_table
 
-def ot_unbalanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn_params):
+def ot_unbalanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, nodes_1_weights=None, nodes_2_weights=None, **sinkhorn_params):
     "Returns the unbalanced sinkhorn cost between two node lists, assuming that we have a dict that maps node pairs to distances."
     import ot
     if len(nodes_1) == 0 or len(nodes_2) == 0:
@@ -87,6 +87,12 @@ def ot_unbalanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict,
     shortest_paths_table = _get_shortest_paths_table(nodes_1, nodes_2, distance_dict)
     a = np.ones(len(nodes_1))
     b = np.ones(len(nodes_2))
+    if nodes_1_weights is not None:
+        b = np.abs(nodes_1_weights)
+    a = a/a.sum()
+    if nodes_2_weights is not None:
+        b = np.abs(nodes_2_weights)
+    b = b/b.sum()
     if 'reg' not in sinkhorn_params:
         reg = 1
     else:
@@ -97,10 +103,10 @@ def ot_unbalanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict,
     else:
         reg_m = sinkhorn_params['reg_m']
         del sinkhorn_params['reg_m']
-    cost = ot.unbalanced.sinkhorn_unbalanced2(a/a.sum(), b/b.sum(), shortest_paths_table, reg, reg_m, **sinkhorn_params)
+    cost = ot.unbalanced.sinkhorn_unbalanced2(a, b, shortest_paths_table, reg, reg_m, **sinkhorn_params)
     return cost[0]
 
-def ot_balanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, **sinkhorn_params):
+def ot_balanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, nodes_1_weights=None, nodes_2_weights=None, **sinkhorn_params):
     "Returns the balanced sinkhorn cost between two node lists, assuming that we have a dict that maps node pairs to distances."
     import ot
     if len(nodes_1) == 0 or len(nodes_2) == 0:
@@ -113,11 +119,19 @@ def ot_balanced_sinkhorn_distance_dict(graph, nodes_1, nodes_2, distance_dict, *
     else:
         reg = sinkhorn_params['reg']
         del sinkhorn_params['reg']
-    res = ot.sinkhorn(a/a.sum(), b/b.sum(), shortest_paths_table, reg, **sinkhorn_params)
+    a = np.ones(len(nodes_1))
+    b = np.ones(len(nodes_2))
+    if nodes_1_weights is not None:
+        b = np.abs(nodes_1_weights)
+    a = a/a.sum()
+    if nodes_2_weights is not None:
+        b = np.abs(nodes_2_weights)
+    b = b/b.sum()
+    res = ot.sinkhorn(a, b, shortest_paths_table, reg, **sinkhorn_params)
     cost = np.sum(shortest_paths_table * res)
     return cost
 
-def ot_balanced_exact_distance_dict(graph, nodes_1, nodes_2, distance_dict, **emd_params):
+def ot_balanced_exact_distance_dict(graph, nodes_1, nodes_2, distance_dict, nodes_1_weights=None, nodes_2_weights=None, **emd_params):
     "Uses the exact EMD solver to calculate the EMD between two node sets on a graph."
     import ot
     if len(nodes_1) == 0 or len(nodes_2) == 0:
@@ -125,11 +139,17 @@ def ot_balanced_exact_distance_dict(graph, nodes_1, nodes_2, distance_dict, **em
     shortest_paths_table = _get_shortest_paths_table(nodes_1, nodes_2, distance_dict)
     a = np.ones(len(nodes_1))
     b = np.ones(len(nodes_2))
-    res = ot.emd(a/a.sum(), b/b.sum(), shortest_paths_table)
+    if nodes_1_weights is not None:
+        b = np.abs(nodes_1_weights)
+    a = a/a.sum()
+    if nodes_2_weights is not None:
+        b = np.abs(nodes_2_weights)
+    b = b/b.sum()
+    res = ot.emd(a, b, shortest_paths_table)
     cost = np.sum(shortest_paths_table * res)
     return cost
 
-def ot_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, verbose=False, parallel=False, **sinkhorn_params):
+def ot_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, node_weights=None, verbose=False, parallel=False, **sinkhorn_params):
     """
     This creates a distance matrix between all pairs of node lists in node_lists, using unbalanced sinkhorn.
 
@@ -151,14 +171,17 @@ def ot_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, verbose=F
     for i, n1 in enumerate(node_lists):
         for j in range(i+1, len(node_lists)):
             n2 = node_lists[j]
-            distance_matrix[i, j] = ot_unbalanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
+            if node_weights is not None:
+                distance_matrix[i, j] = ot_unbalanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, nodes_1_weights=node_weights[i], nodes_2_weights=node_weights[j], **sinkhorn_params)
+            else:
+                distance_matrix[i, j] = ot_unbalanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
         if verbose and i%10 == 0:
             print('Nodes computed:', i)
     # convert matrix to full
     return distance_matrix + distance_matrix.T
 
 
-def ot_balanced_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, verbose=False, parallel=False, **sinkhorn_params):
+def ot_balanced_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, node_weights=None, verbose=False, parallel=False, **sinkhorn_params):
     """
     Assumes that all node lists in node_lists have the same number of nodes.
     This creates a distance matrix between all pairs of node lists in node_lists, using balanced sinkhorn.
@@ -181,14 +204,17 @@ def ot_balanced_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, 
     for i, n1 in enumerate(node_lists):
         for j in range(i+1, len(node_lists)):
             n2 = node_lists[j]
-            distance_matrix[i, j] = ot_balanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
+            if node_weights is not None:
+                distance_matrix[i, j] = ot_balanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, nodes_1_weights=node_weights[i], nodes_2_weights=node_weights[j], **sinkhorn_params)
+            else:
+                distance_matrix[i, j] = ot_balanced_sinkhorn_distance_dict(graph, n1, n2, distance_dict, **sinkhorn_params)
         if verbose and i%10 == 0:
             print('Nodes computed:', i)
     # convert matrix to full
     return distance_matrix + distance_matrix.T
 
 
-def ot_balanced_emd_distance_matrix(graph, node_lists, distance_dict=None, verbose=False, parallel=False, **emd_params):
+def ot_balanced_emd_distance_matrix(graph, node_lists, distance_dict=None, node_weights=None, verbose=False, parallel=False, **emd_params):
     """
     Assumes that all node lists in node_lists have the same number of nodes.
     This creates a distance matrix between all pairs of node lists in node_lists, using the exact EMD algorithm.
@@ -211,7 +237,10 @@ def ot_balanced_emd_distance_matrix(graph, node_lists, distance_dict=None, verbo
     for i, n1 in enumerate(node_lists):
         for j in range(i+1, len(node_lists)):
             n2 = node_lists[j]
-            distance_matrix[i, j] = ot_balanced_exact_distance_dict(graph, n1, n2, distance_dict, **emd_params)
+            if node_weights is not None:
+                distance_matrix[i, j] = ot_balanced_exact_distance_dict(graph, n1, n2, distance_dict, nodes_1_weights=node_weights[i], nodes_2_weights=node_weights[j], **emd_params)
+            else:
+                distance_matrix[i, j] = ot_balanced_exact_distance_dict(graph, n1, n2, distance_dict, **emd_params)
         if verbose and i%10 == 0:
             print('Nodes computed:', i)
     # convert matrix to full
