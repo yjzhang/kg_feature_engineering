@@ -19,7 +19,6 @@ topic_ids = ['NCBIGene::5972',
         'NCBIGene::958',
         'NCBIGene::100', 'NCBIGene::8797', 'NCBIGene::26762']
 
-# TODO: get some known sets of genes/outliers, and get some randomly chosen groups of genes as well
 t = time.time()
 ot_distances = []
 for i in range(50):
@@ -42,6 +41,20 @@ print('time for 50 unbalanced OT-sinkhorn distance calculations:', time.time() -
 print('mean EMD between two randomly selected lists of 10 genes and 20 genes, 50 iterations:', np.mean(ot_distances)) 
 # time: 2.5s
 
+
+# TODO: try using data-based distances
+t = time.time()
+gene_set = kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20)
+data_matrix = np.random.rand(200, 20)
+distance_matrix = kgfe.ot_distance.ot_data_distance_matrix(graph, data_matrix, gene_set, verbose=True)
+print('time for OT data-based distance calculation:', time.time() - t)
+print('mean EMD between data sets:', np.mean(distance_matrix)) 
+# time: 
+# EMD mean: 
+
+
+
+
 t = time.time()
 gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', 20) for i in range(200)]
 distance_matrix = kgfe.ot_distance.ot_balanced_emd_distance_matrix(graph, gene_lists, verbose=True)
@@ -49,6 +62,16 @@ print('time for OT exact-EMD distance matrix calculation for 200 lists of 20 gen
 print('mean EMD between gene sets:', np.mean(distance_matrix)) 
 # time: 17.7s
 # EMD mean: 2.442875
+
+t = time.time()
+gene_lists = [kgfe.graph_info.random_nodes_in_category(graph, 'Gene', np.random.randint(10, 21)) for i in range(200)]
+distance_matrix = kgfe.ot_distance.ot_balanced_emd_distance_matrix(graph, gene_lists, verbose=True)
+print('time for OT exact-EMD distance matrix calculation for 200 lists of genes of random size, between 10 and 21:', time.time() - t)
+print('mean EMD between gene sets:', np.mean(distance_matrix)) 
+# time: 14.5s
+# EMD mean: 2.5638124544023224
+
+
 
 
 
