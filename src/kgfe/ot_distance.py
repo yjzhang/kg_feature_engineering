@@ -166,6 +166,22 @@ def ot_balanced_exact_distance(nodes_1_weights, nodes_2_weights, distances, **em
     cost = np.sum(distances * res)
     return cost
 
+def ot_balanced_sinkhorn_distance(nodes_1_weights, nodes_2_weights, distances, **emd_params):
+    "Uses the Sinkhorn solver to calculate the EMD between two node sets on a graph."
+    import ot
+    if 'reg' not in emd_params:
+        reg = 1.0
+    else:
+        reg = emd_params['reg']
+        del emd_params['reg']
+    a = np.abs(nodes_1_weights)
+    a = a/a.sum()
+    b = np.abs(nodes_2_weights)
+    b = b/b.sum()
+    res = ot.sinkhorn(a, b, distances, reg, **emd_params)
+    cost = np.sum(distances * res)
+    return cost
+
 def ot_sinkhorn_distance_matrix(graph, node_lists, distance_dict=None, node_weights=None, verbose=False, parallel=False, **sinkhorn_params):
     """
     This creates a distance matrix between all pairs of node lists in node_lists, using unbalanced sinkhorn.
@@ -264,7 +280,7 @@ def ot_balanced_emd_distance_matrix(graph, node_lists, distance_dict=None, node_
     return distance_matrix + distance_matrix.T
 
 
-def ot_data_distance_matrix(graph, data, nodes, distances=None, node_weights=None, verbose=False, parallel=False, **emd_params):
+def ot_data_distance_matrix(graph, data, nodes, distances=None, method='exact', verbose=False, parallel=False, **emd_params):
     """
     Calculates a distance matrix using OT on a dataset using a distance matrix.
 
@@ -272,7 +288,7 @@ def ot_data_distance_matrix(graph, data, nodes, distances=None, node_weights=Non
         graph: an igraph graph
         data: a n x k numpy array
         nodes: a list of node ids
-
+        method: one of 'exact', 'sinkhorn'
     """
     if distances is None:
         distances = precompute_shortest_paths_matrix(graph, nodes)
@@ -283,7 +299,10 @@ def ot_data_distance_matrix(graph, data, nodes, distances=None, node_weights=Non
         n1 = data[i, :]
         for j in range(i+1, data.shape[0]):
             n2 = data[j, :]
-            distance_matrix[i, j] = ot_balanced_exact_distance(n1, n2, distances, **emd_params)
+            if method == 'exact':
+                distance_matrix[i, j] = ot_balanced_exact_distance(n1, n2, distances, **emd_params)
+            elif method == 'sinkhorn':
+                distance_matrix[i, j] = ot_balanced_sinkhorn_distance(n1, n2, distances, **emd_params)
         if verbose and i%10 == 0:
             print('Nodes computed:', i)
     # convert matrix to full
