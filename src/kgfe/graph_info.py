@@ -161,17 +161,21 @@ def get_nodes_table(graph):
         rows.append(row)
     return pd.DataFrame(rows)
 
-def get_names_to_ids(graph):
+def get_names_to_ids(graph, category=None):
     """Returns a dict mapping node names to IDs (ignoring prefixes and categories so on)"""
     names_to_ids = {}
     for v in graph.vs:
+        if category is not None and v['category'] != category:
+            continue
         names_to_ids[v['feature_name']] = v['name']
     return names_to_ids
 
-def get_names_to_ids_networkx(graph):
+def get_names_to_ids_networkx(graph, category=None):
     """Returns a dict mapping node names to IDs (ignoring prefixes and categories so on)"""
     names_to_ids = {}
     for n, attrs in graph.nodes.items():
+        if category is not None and attrs['category'] != category:
+            continue
         names_to_ids[attrs['name']] = n
     return names_to_ids
 
