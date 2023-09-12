@@ -118,10 +118,15 @@ def run_word2vec(walks, k=10, d=64):
     """
     Uses gensim to run word2vec.
     walks = list of random walks, returned by random_walks.
-    k = context size (word2vec parameter)
-    d = output dimensionality
+    k = context size (word2vec parameter), default: 10
+    d = output dimensionality, default: 64
     """
     import gensim.models
     model = gensim.models.Word2Vec(sentences=walks, vector_size=d,
             window=k)
+    return model
+
+def load_word2vec(filename):
+    import gensim
+    model = gensim.models.Word2Vec.load(filename)
     return model
