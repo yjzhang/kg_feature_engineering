@@ -5,6 +5,7 @@ import os
 base_dir = os.path.dirname(os.path.abspath(__file__))
 ID_TO_SYMBOL = {}
 SYMBOL_TO_ID = {}
+SYMBOL_TO_UNIPROT = {}
 
 
 def _load_gene_info():
@@ -39,3 +40,7 @@ def get_ids(gene_symbols):
 
 def get_id(gene_symbol):
     return SYMBOL_TO_ID[gene_symbol]
+
+# TODO: convert genes to uniprot.
+def gene_symbols_to_uniprot(gene_symbols):
+    pass
