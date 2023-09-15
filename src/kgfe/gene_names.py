@@ -44,7 +44,7 @@ def _load_ensembl_info():
 
 _load_gene_info()
     
-def convert(source, dest, ids, ignore_errors=True):
+def convert(source, dest, ids, ignore_missing=True):
     """
     General conversion function.
 
@@ -54,37 +54,37 @@ def convert(source, dest, ids, ignore_errors=True):
     if source == 'ncbi' or source == 'geneid':
         gene_ids = ids
     elif source == 'symbol':
-        gene_ids = get_ids(ids, ignore_errors=ignore_errors)
+        gene_ids = get_ids(ids, ignore_missing=ignore_missing)
     elif source == 'uniprot':
-        gene_ids = uniprot_to_gene_ids(ids, ignore_errors=ignore_errors)
+        gene_ids = uniprot_to_gene_ids(ids, ignore_missing=ignore_missing)
     elif source == 'ensembl':
-        gene_ids = ensembl_to_gene_ids(ids, ignore_errors=ignore_errors)
+        gene_ids = ensembl_to_gene_ids(ids, ignore_missing=ignore_missing)
     if dest == 'ncbi' or dest == 'geneid':
         return gene_ids
     elif dest == 'symbol':
-        return get_symbols(gene_ids, ignore_errors=ignore_errors)
+        return get_symbols(gene_ids, ignore_missing=ignore_missing)
     elif dest == 'uniprot':
-        return gene_ids_to_uniprot(gene_ids, ignore_errors=ignore_errors)
+        return gene_ids_to_uniprot(gene_ids, ignore_missing=ignore_missing)
     elif dest == 'ensembl':
-        return gene_ids_to_ensembl(gene_ids, ignore_errors=ignore_errors)
+        return gene_ids_to_ensembl(gene_ids, ignore_missing=ignore_missing)
 
-def get_symbols(gene_ids, ignore_errors=True):
+def get_symbols(gene_ids, ignore_missing=True):
     """
     Get symbols given a list of gene ids.
     """
     gene_ids = [int(x) for x in gene_ids]
-    if ignore_errors:
+    if ignore_missing:
         return [ID_TO_SYMBOL[x] for x in gene_ids if x in ID_TO_SYMBOL]
     return [ID_TO_SYMBOL[x] for x in gene_ids]
 
 def get_symbol(gene_id):
     return ID_TO_SYMBOL[int(gene_id)]
 
-def get_ids(gene_symbols, ignore_errors=True):
+def get_ids(gene_symbols, ignore_missing=True):
     """
     Get ids given a list of gene symbols.
     """
-    if ignore_errors:
+    if ignore_missing:
         return [SYMBOL_TO_ID[x] for x in gene_symbols if x in SYMBOL_TO_ID]
     return [SYMBOL_TO_ID[x] for x in gene_symbols]
 
@@ -92,36 +92,36 @@ def get_id(gene_symbol):
     return SYMBOL_TO_ID[gene_symbol]
 
 
-def gene_ids_to_uniprot(gene_ids, ignore_errors=True):
+def gene_ids_to_uniprot(gene_ids, ignore_missing=True):
     if len(ID_TO_UNIPROT) == 0:
         _load_uniprot_info()
     gene_ids = [int(x) for x in gene_ids]
-    if ignore_errors:
+    if ignore_missing:
         return [ID_TO_UNIPROT[x] for x in gene_ids if x in ID_TO_UNIPROT]
     return [ID_TO_UNIPROT[x] for x in gene_ids]
 
 
-def uniprot_to_gene_ids(uniprot_ids, ignore_errors=True):
+def uniprot_to_gene_ids(uniprot_ids, ignore_missing=True):
     if len(ID_TO_UNIPROT) == 0:
         _load_uniprot_info()
-    if ignore_errors:
+    if ignore_missing:
         return [UNIPROT_TO_ID[x] for x in uniprot_ids if x in UNIPROT_TO_ID]
     return [UNIPROT_TO_ID[x] for x in uniprot_ids]
 
 
 
-def gene_ids_to_ensembl(gene_ids, ignore_errors=True):
+def gene_ids_to_ensembl(gene_ids, ignore_missing=True):
     if len(ID_TO_ENSEMBL) == 0:
         _load_ensembl_info()
     gene_ids = [int(x) for x in gene_ids]
-    if ignore_errors:
+    if ignore_missing:
         return [ID_TO_ENSEMBL[x] for x in gene_ids if x in ID_TO_ENSEMBL]
     return [ID_TO_ENSEMBL[x] for x in gene_ids]
 
 
-def ensembl_to_gene_ids(ensembl_ids, ignore_errors=True):
+def ensembl_to_gene_ids(ensembl_ids, ignore_missing=True):
     if len(ID_TO_ENSEMBL) == 0:
         _load_ensembl_info()
-    if ignore_errors:
+    if ignore_missing:
         return [ENSEMBL_TO_ID[x] for x in ensembl_ids if x in ENSEMBL_TO_ID]
     return [ENSEMBL_TO_ID[x] for x in ensembl_ids]
