@@ -1,0 +1,8 @@
+Subject,Object,Predicate,Infores
+PUBCHEM.COMPOUND:49846579,NCBIGene:7157,biolink:affects,infores:text-mining-provider-targeted
+PUBCHEM.COMPOUND:49846579,NCBIGene:7157,biolink:interacts_with,infores:dgidb
+PUBCHEM.COMPOUND:49846579,NCBIGene:7157,biolink:occurs_together_in_literature_with,infores:pfocr
+NCBIGene:960,NCBIGene:7157,biolink:regulates,infores:text-mining-provider-targeted
+NCBIGene:960,NCBIGene:7157,biolink:regulated_by,infores:text-mining-provider-targeted
+NCBIGene:960,NCBIGene:7157,biolink:regulates,infores:lincs
+NCBIGene:960,NCBIGene:7157,biolink:interacts_with,infores:automat-biolink
