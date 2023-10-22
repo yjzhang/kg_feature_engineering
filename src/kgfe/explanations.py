@@ -84,6 +84,36 @@ def steiner_tree_subgraph(graph, ids, method='takahashi'):
             n['in_query'] = 0
     return tree, subgraph
 
+def shortest_paths_subgraph(graph, ids, target_id):
+    """
+    Returns a tree that contains all of the shortest paths from the ids to the given target_id.
+    """
+    indices = [graph.vs.find(name=i).index for i in ids]
+    target_index = graph.vs.find(name=target_id)
+    shortest_paths = graph.get_shortest_paths(target_index, indices)
+    shortest_path_nodes = [x for path in shortest_paths for x in path]
+    subgraph = graph.induced_subgraph(shortest_path_nodes)
+    for n in subgraph.vs:
+        if n['name'] in ids:
+            n['in_query'] = 1
+        else:
+            n['in_query'] = 0
+    paths_subgraph = subgraph.copy()
+    all_edges = set()
+    for path in shortest_paths:
+        for i in range(len(path) - 1):
+            start = graph.vs[path[i]]['name']
+            end = graph.vs[path[i+1]]['name']
+            all_edges.add((start, end))
+    edges_to_delete = []
+    for i, edge in enumerate(subgraph.es):
+        if (edge['source'], edge['target']) in all_edges or (edge['target'], edge['source']) in all_edges:
+            continue
+        else:
+            edges_to_delete.append(edge)
+    paths_subgraph.delete_edges(edges_to_delete)
+    return paths_subgraph, subgraph
+
 
 def create_shortest_path_lengths_cached(graph):
     def shortest_paths(n1, n2):
