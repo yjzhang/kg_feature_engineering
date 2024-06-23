@@ -93,7 +93,7 @@ def import_spoke_csv(csv_filename, edges_to_include=None, remove_unused_nodes=Fa
     return nodes, edges, node_types, edge_types
 
 # TODO: multiple edges between two nodes?
-def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True, use_edge_types=True, use_node_types=True, verbose=True, reindex_edges=True):
+def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True, use_edge_types=True, use_node_types=True, verbose=True, reindex_edges=True, use_edge_properties=False):
     """
     Imports a jsonl file.
     Args:
@@ -176,6 +176,14 @@ def import_spoke_jsonl(filename, edges_to_include=None, remove_unused_nodes=True
                         edge_types[edge_type] = len(edge_types) + 1
                 else:
                     edges[(node1, node2)] = True
+                if use_edge_properties:
+                    if 'properties' in row:
+                        edge_properties = row['properties']
+                    else:
+                        edge_properties = {}
+                    edge_properties['type'] = edge_type
+                    edge_properties['id'] = int(row['id'])
+                    edges[(node1, node2)] = edge_properties
         line = f.readline()
         i += 1
     if remove_unused_nodes:
@@ -352,6 +360,8 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
     Imports the spoke file as an igraph. The file can be a csv or json/jsonl export from neo4j, and it can be gzipped. The spoke IDs are converted to strings because igraph is very slow if the ids are ints.
     """
     import igraph as ig
+    if low_memory:
+        kwargs['use_edge_properties'] = False
     if filename.endswith('.csv') or filename.endswith('.csv.gz'):
         nodes, edges, node_types, edge_types = import_spoke_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, verbose=verbose, **kwargs)
     elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
@@ -364,7 +374,15 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
     if low_memory:
         edge_list = ({'source': str(v[0]), 'target': str(v[1])} for v in edges.keys())
     else:
-        edge_list = ({'source': str(v[0]), 'target': str(v[1]), 'type': edge_types[e]} for v, e in edges.items())
+        if 'use_edge_properties' in kwargs and kwargs['use_edge_properties'] == True:
+            # igraph doesn't allow lists as edge properties, so we are converting them to a string.
+            for v, e in edges.items():
+                for key, value in e.copy().items():
+                    if isinstance(value, list) or isinstance(value, dict):
+                        e[key] = str(value)
+            edge_list = ({'starting_node': str(v[0]), 'ending_node': str(v[1]), **e} for v, e in edges.items())
+        else:
+            edge_list = ({'starting_node': str(v[0]), 'ending_node': str(v[1]), 'type': edge_types[e]} for v, e in edges.items())
     if verbose:
         print('creating node list')
     # set node attributes
@@ -386,7 +404,9 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
         } for n in nodes)
     if verbose:
         print('calling igraph.Graph.DictList')
-    graph = ig.Graph.DictList(node_list, edge_list, directed=directed)
+    graph = ig.Graph.DictList(node_list, edge_list, directed=directed,
+            edge_foreign_keys=('starting_node', 'ending_node'),
+            iterative=low_memory)
     return graph
 
 
