@@ -71,6 +71,25 @@ def steiner_tree(graph, ids, method='takahashi', **params):
             n['in_query'] = 0
     return tree
 
+
+def multi_steiner_tree(graph, ids):
+    """
+    Returns a set of Steiner trees, starting from every node in the graph.
+    """
+    from . import steiner_tree
+    indices = [graph.vs.find(name=i).index for i in ids]
+    all_trees = []
+    for initial_terminal in range(len(ids)):
+        tree = steiner_tree.takahashi_matsuyama_steiner_tree(graph, indices, initial_terminal)
+        ids_set = set(ids)
+        for n in tree.vs:
+            if n['name'] in ids_set:
+                n['in_query'] = 1
+            else:
+                n['in_query'] = 0
+        all_trees.append(tree)
+    return all_trees
+
 def steiner_tree_subgraph(graph, ids, method='takahashi'):
     """
     Returns a steiner tree as well as an subgraph, where the subgraph has the property "in_query" if the node is part of the query.
@@ -83,6 +102,22 @@ def steiner_tree_subgraph(graph, ids, method='takahashi'):
         else:
             n['in_query'] = 0
     return tree, subgraph
+
+def multi_steiner_tree_subgraph(graph, ids):
+    """
+    Returns a set of Steiner subgraphs, starting from every node in ids.
+    """
+    trees = multi_steiner_tree(graph, ids)
+    subgraphs = []
+    for tree in trees:
+        subgraph = graph.induced_subgraph([n['name'] for n in tree.vs])
+        for n in subgraph.vs:
+            if n['name'] in ids:
+                n['in_query'] = 1
+            else:
+                n['in_query'] = 0
+        subgraphs.append(subgraph)
+    return trees, subgraphs
 
 def shortest_paths_subgraph(graph, ids, target_id):
     """
