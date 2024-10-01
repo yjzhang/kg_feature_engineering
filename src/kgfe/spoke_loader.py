@@ -372,7 +372,8 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
         print('Done loading data, creating edge list')
     # use igraph.graph.DictList
     if low_memory:
-        edge_list = ({'source': str(v[0]), 'target': str(v[1])} for v in edges.keys())
+        edge_list = ({'s': str(v[0]), 't': str(v[1])} for v in edges.keys())
+        del edges
     else:
         if 'use_edge_properties' in kwargs and kwargs['use_edge_properties'] == True:
             # igraph doesn't allow lists as edge properties, so we are converting them to a string.
@@ -380,9 +381,9 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
                 for key, value in e.copy().items():
                     if isinstance(value, list) or isinstance(value, dict):
                         e[key] = str(value)
-            edge_list = ({'starting_node': str(v[0]), 'ending_node': str(v[1]), **e} for v, e in edges.items())
+            edge_list = ({'source': str(v[0]), 'target': str(v[1]), **e} for v, e in edges.items())
         else:
-            edge_list = ({'starting_node': str(v[0]), 'ending_node': str(v[1]), 'type': edge_types[e]} for v, e in edges.items())
+            edge_list = ({'source': str(v[0]), 'target': str(v[1]), 'type': edge_types[e]} for v, e in edges.items())
     if verbose:
         print('creating node list')
     # set node attributes
@@ -394,6 +395,7 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
              'category': node_types[n[2]],
              'identifier': n[3],
             } for n in nodes)
+        del nodes
     else:
         node_list = ({
                 'name': str(n[0]),
@@ -404,9 +406,14 @@ def load_spoke_igraph(filename='spoke.csv', edges_to_include=None, remove_unused
         } for n in nodes)
     if verbose:
         print('calling igraph.Graph.DictList')
-    graph = ig.Graph.DictList(node_list, edge_list, directed=directed,
-            edge_foreign_keys=('starting_node', 'ending_node'),
-            iterative=low_memory)
+    if low_memory:
+        graph = ig.Graph.DictList(node_list, edge_list, directed=directed,
+                edge_foreign_keys=('s', 't'),
+                iterative=False)
+    else:
+        graph = ig.Graph.DictList(node_list, edge_list, directed=directed,
+                edge_foreign_keys=('source', 'target'),
+                iterative=False)
     return graph
 
 
