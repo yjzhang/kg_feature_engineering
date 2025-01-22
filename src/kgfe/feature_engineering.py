@@ -109,3 +109,8 @@ def generate_gene_set_features(df, graph, is_name=True,
 def get_repressor_features(graph, ids):
     """
     """
+
+# TODO
+def generate_binarized_features(df):
+    """
+    """

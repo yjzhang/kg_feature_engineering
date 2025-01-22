@@ -31,13 +31,16 @@ def _load_uniprot_info():
         for row in f.readlines():
             row = row.split()
             gene_id = int(row[0])
-            ID_TO_UNIPROT[gene_id] = row[1]
-            UNIPROT_TO_ID[row[1]] = gene_id
+            if gene_id not in ID_TO_UNIPROT:
+                ID_TO_UNIPROT[gene_id] = row[1]
+            if row[1] not in UNIPROT_TO_ID:
+                UNIPROT_TO_ID[row[1]] = gene_id
     with open(os.path.join(base_dir, 'uniprot_genes.txt')) as f:
         for row in f.readlines():
             row = row.strip().split()
             gene_id = int(row[1])
-            UNIPROT_TO_ID[row[0]] = gene_id
+            if row[0] not in UNIPROT_TO_ID:
+                UNIPROT_TO_ID[row[0]] = gene_id
 
 def _load_ensembl_info():
     with open(os.path.join(base_dir, 'geneid_ensembl.txt')) as f:

@@ -1,3 +1,55 @@
 # building a boolean network
 
 # TODO: given a KG subset, can we construct a boolean network?
+from . import graph_info
+from . import explanations
+from . import gene_names
+
+# try using signor
+def load_signor_network(gene_list, input_format="symbol", joiner='&'):
+    """
+    Creates a boolean network from SigNOR using all of the provided genes. Tries to build a connected Steiner subgraph...
+
+    Args:
+        gene_list - list of gene symbols, gene ids, or uniprot ids.
+        input_format - "symbol", "id", or "uniprot"
+        joiner - "&" or "|"
+    """
+    input_format = input_format.lower()
+    filename = 'SIGNOR_formated.tsv'
+    graph_table = graph_info.load_graph(filename)
+    graph = graph_info.df_to_graph(graph_table, False)
+    digraph = graph_info.df_to_graph(graph_table, True)
+    # get a graph subset
+    # signor names are uniprot, of the format UNIPROT::[uniprot ID]
+    # feature_name is the gene name
+    uniprot_list = []
+    if input_format == 'symbol':
+        id_list = gene_names.get_ids(gene_list)
+        uniprot_list = gene_names.gene_ids_to_uniprot(id_list)
+    elif input_format == 'id' or input_format == 'gene_id':
+        uniprot_list = gene_names.gene_ids_to_uniprot(gene_list)
+    else:
+        uniprot_list = gene_list
+    # Steiner subgraph - get a tree using a connected thing...
+    tree = explanations.steiner_tree(graph, uniprot_list)
+    subgraph = digraph.induced_subgraph([n['name'] for n in tree.vs])
+    # use the subgraph to build a connected thing
+    # TODO: figure out the rule for combining inputs
+    bn_lines = []
+    # get all input edges
+    for n in subgraph.vs:
+        gene_name = n.attributes()['feature_name']
+        in_edges = subgraph.incident(n, mode='in')
+        input_nodes = []
+        for e in in_edges:
+            in_node = subgraph.vs[e.source].attributes()['feature_name']
+            predicate = e.attributes()['predicate']
+            if 'down-regulates' in predicate:
+                input_nodes.append(f'(! {in_node})')
+            elif 'up-regulates' in predicate:
+                input_nodes.append(f'({in_node})')
+        input_nodes_string = joiner.join(input_nodes)
+        output_string = f'{gene_name} = {input_nodes_string}'
+        bn_lines.append(output_string)
+    return '\n'.join(bn_lines)
