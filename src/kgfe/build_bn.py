@@ -15,6 +15,8 @@ def load_signor_network(gene_list, input_format="symbol", joiner='&'):
         input_format - "symbol", "id", or "uniprot"
         joiner - "&" or "|"
     """
+    if ' ' not in joiner:
+        joiner = ' ' + joiner + ' '
     input_format = input_format.lower()
     filename = 'SIGNOR_formated.tsv'
     graph_table = graph_info.load_graph(filename)
@@ -39,17 +41,24 @@ def load_signor_network(gene_list, input_format="symbol", joiner='&'):
     bn_lines = []
     # get all input edges
     for n in subgraph.vs:
+        incoming_genes = set()
         gene_name = n.attributes()['feature_name']
         in_edges = subgraph.incident(n, mode='in')
         input_nodes = []
         for e in in_edges:
+            e = subgraph.es[e]
             in_node = subgraph.vs[e.source].attributes()['feature_name']
+            if in_node in incoming_genes:
+                continue
+            incoming_genes.add(in_node)
             predicate = e.attributes()['predicate']
             if 'down-regulates' in predicate:
                 input_nodes.append(f'(! {in_node})')
             elif 'up-regulates' in predicate:
                 input_nodes.append(f'({in_node})')
         input_nodes_string = joiner.join(input_nodes)
+        if len(input_nodes) == 0:
+            input_nodes_string = gene_name
         output_string = f'{gene_name} = {input_nodes_string}'
         bn_lines.append(output_string)
     return '\n'.join(bn_lines)
