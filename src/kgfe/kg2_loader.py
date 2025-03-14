@@ -96,12 +96,13 @@ def import_kg2_csv(csv_filename, edges_to_include=None, remove_unused_nodes=Fals
     return nodes, edges, node_types, edge_types
 
 
-def import_kg2_jsonl(filename, edges_to_include=None, remove_unused_nodes=True, use_edge_types=True, use_node_types=True, verbose=True, reindex_edges=True, use_edge_properties=False):
+def import_kg2_jsonl(node_filename, edge_filename=None, edges_to_include=None, remove_unused_nodes=True, use_edge_types=True, use_node_types=True, verbose=True, reindex_edges=True, use_edge_properties=False):
     """
     Imports a jsonl file that contains nodes and edges.
 
     Args:
-        filename: name of jsonl file
+        node_filename: name of jsonl file containing nodes, or both nodes and edges.
+        edge_filename: name of jsonl file containing edges. Can be None if all nodes and edges are in node_filename.
         edges_to_include: set of edge types
         remove_unused_nodes: True if nodes with no in- or out-edges are to be removed.
         reindex_edges: whether or not to use indices or original IDs in the edge list.
@@ -123,11 +124,11 @@ def import_kg2_jsonl(filename, edges_to_include=None, remove_unused_nodes=True, 
     edge_types = {}
     # sets of nodes that have in-edges or out-edges (to use when deciding whether to remove nodes)
     node_has_edge = set()
-    if filename.endswith('.gz'):
+    if node_filename.endswith('.gz'):
         # handle gzip
-        f = gzip.open(filename, 'rt')
+        f = gzip.open(node_filename, 'rt')
     else:
-        f = open(filename)
+        f = open(node_filename)
     line = f.readline()
     i = 0
     while line:
