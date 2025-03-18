@@ -10,7 +10,7 @@ from scipy import sparse, io
 
 
 # TODO: multiple edges between two nodes?
-def import_kg2_csv(node_filename, edge_filename, edges_to_include=None, remove_unused_nodes=False, verbose=True, reindex_edges=True):
+def import_kg2_csv(node_filename, edge_filename, edges_to_include=None, remove_unused_nodes=False, verbose=True, reindex_edges=True, use_node_types=True, use_edge_types=True, use_edge_properties=False):
     """
     Args:
         csv_filename: name of csv file (could be csv or tsv, or csv.gz or tsv.gz)
@@ -78,17 +78,29 @@ def import_kg2_csv(node_filename, edge_filename, edges_to_include=None, remove_u
     dr = csv.DictReader(f, dialect='unix', delimiter=delimiter)
     for i, row in enumerate(dr):
         # if this row is an edge
-        edge_type = row['_type']
-        if edges_to_include is None or edge_type in edges_to_include:
-            node1 = int(row['_start'])
-            node2 = int(row['_end'])
-            node_has_edge.add(node1)
-            node_has_edge.add(node2)
-            if edge_type in edge_types:
-                edges[(node1, node2)] = edge_types[edge_type]
-            else:
-                edges[(node1, node2)] = len(edge_types) + 1
-                edge_types[row['_type']] = len(edge_types) + 1
+            edge_type = row['predicate']
+            if edges_to_include is None or edge_type in edges_to_include:
+                node1 = row['subject']
+                node2 = row['object']
+                node_has_edge.add(node1)
+                node_has_edge.add(node2)
+                if use_edge_types:
+                    if edge_type in edge_types:
+                        edges[(node1, node2)] = edge_types[edge_type]
+                    else:
+                        edges[(node1, node2)] = len(edge_types) + 1
+                        edge_types[edge_type] = len(edge_types) + 1
+                else:
+                    edges[(node1, node2)] = True
+                if use_edge_properties:
+                    if 'properties' in row:
+                        edge_properties = row['properties']
+                    else:
+                        edge_properties = {}
+                    if 'primary_knowledge_source' in row:
+                        edge_properties['primary_knowledge_source'] = row['primary_knowledge_source']
+                    edge_properties['id'] = int(row['id'])
+                    edges[(node1, node2)] = edge_properties
     if remove_unused_nodes:
         # remove all nodes that don't have edges
         to_remove = set(node_index.keys()).difference(node_has_edge)
