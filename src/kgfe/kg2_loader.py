@@ -10,7 +10,7 @@ from scipy import sparse, io
 
 
 # TODO: multiple edges between two nodes?
-def import_kg2_csv(csv_filename, edges_to_include=None, remove_unused_nodes=False, verbose=True, reindex_edges=True):
+def import_kg2_csv(node_filename, edge_filename, edges_to_include=None, remove_unused_nodes=False, verbose=True, reindex_edges=True):
     """
     Args:
         csv_filename: name of csv file (could be csv or tsv, or csv.gz or tsv.gz)
@@ -36,46 +36,59 @@ def import_kg2_csv(csv_filename, edges_to_include=None, remove_unused_nodes=Fals
     # sets of nodes that have in-edges or out-edges (to use when deciding whether to remove nodes)
     node_has_edge = set()
     csv.field_size_limit(99999999)
-    if csv_filename.endswith('.gz'):
+    if node_filename.endswith('.gz'):
         # handle gzip
-        f = gzip.open(csv_filename, 'rt')
+        f = gzip.open(node_filename, 'rt')
     else:
-        f = open(csv_filename)
+        f = open(node_filename)
     delimiter = ','
-    if 'tsv' in csv_filename:
+    if 'tsv' in node_filename:
         delimiter = '\t'
     dr = csv.DictReader(f, dialect='unix', delimiter=delimiter)
     for i, row in enumerate(dr):
         if verbose and i % 100000 == 0:
             print(i, 'nodes: ', len(node_index), 'edges: ', len(edges))
         # if this is a node
-        if row['_id']:
-            print(row['license'])
-            if row['name']:
-                row_name = row['name']
-                print(row_name)
-            else:
-                row_name = row['pref_name']
-            if row['_labels'] in node_types:
-                nodes.append((int(row['_id']), row_name, node_types[row['_labels']]))
-            else:
-                nodes.append((int(row['_id']), row_name, len(node_types) + 1))
-                node_types[row['_labels']] = len(node_types) + 1
-            node_index[int(row['_id'])] = n_nodes 
-            n_nodes += 1
-        # if this row is an edge
+        row_name = ''
+        row_identifier = row['id']
+        if 'name' not in row:
+            row_name = row_identifier
         else:
-            edge_type = row['_type']
-            if edges_to_include is None or edge_type in edges_to_include:
-                node1 = int(row['_start'])
-                node2 = int(row['_end'])
-                node_has_edge.add(node1)
-                node_has_edge.add(node2)
-                if edge_type in edge_types:
-                    edges[(node1, node2)] = edge_types[edge_type]
-                else:
-                    edges[(node1, node2)] = len(edge_types) + 1
-                    edge_types[row['_type']] = len(edge_types) + 1
+            row_name = row['name']
+        row_source = row['category']
+        row_label = row['category']
+        if use_node_types:
+            if row_label in node_types:
+                nodes.append((row['id'], row_name, node_types[row_label], row_identifier, row_source))
+            else:
+                nodes.append((row['id'], row_name, len(node_types) + 1, row_identifier, row_source))
+                node_types[row_label] = len(node_types) + 1
+        else:
+            nodes.append((row['id'], row_name, True, row_identifier, row_source))
+        node_index[row['id']] = n_nodes 
+        n_nodes += 1
+    if edge_filename.endswith('.gz'):
+        # handle gzip
+        f = gzip.open(edge_filename, 'rt')
+    else:
+        f = open(edge_filename)
+    delimiter = ','
+    if 'tsv' in edge_filename:
+        delimiter = '\t'
+    dr = csv.DictReader(f, dialect='unix', delimiter=delimiter)
+    for i, row in enumerate(dr):
+        # if this row is an edge
+        edge_type = row['_type']
+        if edges_to_include is None or edge_type in edges_to_include:
+            node1 = int(row['_start'])
+            node2 = int(row['_end'])
+            node_has_edge.add(node1)
+            node_has_edge.add(node2)
+            if edge_type in edge_types:
+                edges[(node1, node2)] = edge_types[edge_type]
+            else:
+                edges[(node1, node2)] = len(edge_types) + 1
+                edge_types[row['_type']] = len(edge_types) + 1
     if remove_unused_nodes:
         # remove all nodes that don't have edges
         to_remove = set(node_index.keys()).difference(node_has_edge)
@@ -96,7 +109,7 @@ def import_kg2_csv(csv_filename, edges_to_include=None, remove_unused_nodes=Fals
     return nodes, edges, node_types, edge_types
 
 
-def import_kg2_jsonl(node_filename, edge_filename=None, edges_to_include=None, remove_unused_nodes=True, use_edge_types=True, use_node_types=True, verbose=True, reindex_edges=True, use_edge_properties=False):
+def import_kg2_jsonl(node_filename, edge_filename, edges_to_include=None, remove_unused_nodes=True, use_edge_types=True, use_node_types=True, verbose=True, reindex_edges=True, use_edge_properties=False):
     """
     Imports a jsonl file that contains nodes and edges.
 
@@ -131,17 +144,20 @@ def import_kg2_jsonl(node_filename, edge_filename=None, edges_to_include=None, r
         f = open(node_filename)
     line = f.readline()
     i = 0
+    using_edge_file = False
     while line:
         row = json.loads(line)
         if verbose and i % 100000 == 0:
             print(i, 'nodes: ', len(node_index), 'edges: ', len(edges))
             print(row)
         # if this is a node
-        if 'id' in row and 'category' in row and 'name' in row:
+        if 'id' in row and 'category' in row and 'subject' not in row and 'object' not in row:
             row_name = ''
             row_identifier = row['id']
-            row_source = ''
-            row_name = row['name']
+            if 'name' not in row:
+                row_name = row_identifier
+            else:
+                row_name = row['name']
             row_source = row['category']
             row_label = row['category']
             if use_node_types:
@@ -156,8 +172,7 @@ def import_kg2_jsonl(node_filename, edge_filename=None, edges_to_include=None, r
             n_nodes += 1
         # if this row is an edge
         else:
-            # TODO
-            edge_type = row['label']
+            edge_type = row['predicate']
             if edges_to_include is None or edge_type in edges_to_include:
                 node1 = row['subject']
                 node2 = row['object']
@@ -176,10 +191,21 @@ def import_kg2_jsonl(node_filename, edge_filename=None, edges_to_include=None, r
                         edge_properties = row['properties']
                     else:
                         edge_properties = {}
-                    edge_properties['type'] = edge_type
+                    if 'primary_knowledge_source' in row:
+                        edge_properties['primary_knowledge_source'] = row['primary_knowledge_source']
                     edge_properties['id'] = int(row['id'])
                     edges[(node1, node2)] = edge_properties
         line = f.readline()
+        if not line and not using_edge_file and edge_filename is not None:
+            f.close()
+            print('Opening edge file', edge_filename)
+            if edge_filename.endswith('.gz'):
+                # handle gzip
+                f = gzip.open(edge_filename, 'rt')
+            else:
+                f = open(edge_filename)
+            line = f.readline()
+            using_edge_file = True
         i += 1
     if remove_unused_nodes:
         # remove all nodes that don't have edges
