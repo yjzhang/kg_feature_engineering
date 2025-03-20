@@ -270,52 +270,11 @@ def load_kg2(filename='kg2.csv', edges_to_include=None, remove_unused_nodes=Fals
     return nodes, edges, node_types, edge_types, edge_matrix
 
 
-def load_kg2_networkx(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, **kwargs):
-    import networkx as nx
-    if filename.endswith('.csv') or filename.endswith('.csv.gz') or filename.endswith('.tsv') or filename.endswith('.tsv.gz'):
-        nodes, edges, node_types, edge_types = import_kg2_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
-    elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
-        nodes, edges, node_types, edge_types = import_kg2_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
-    else:
-        raise Exception('Filename should be a csv, tsv, json, or jsonl.')
-    edge_list = edges.keys()
-    if directed:
-        graph = nx.from_edgelist(edge_list, nx.DiGraph)
-    else:
-        graph = nx.from_edgelist(edge_list)
-    # set node attributes
-    node_attributes = {}
-    # TODO: get all IDs, not just names
-    for n in nodes:
-        node_attributes[n[0]] = {
-                'name':  n[1],
-                'category': node_types[n[2]],
-                'identifier': n[3],
-                'source': n[4],
-        }
-    nx.set_node_attributes(graph, node_attributes)
-    # set edge attributes
-    edge_attributes = {k: {'type': edge_types[v]} for k, v in edges.items()}
-    nx.set_edge_attributes(graph, edge_attributes)
-    return graph
-
-
-def load_kg2_igraph(filename='graph.jsonl.gz', edges_to_include=None, remove_unused_nodes=True, directed=False, verbose=False, low_memory=False, **kwargs):
+def load_kg2_igraph_from_data(nodes, edges, node_types, edge_types, remove_unused_nodes=True, directed=False, verbose=False, low_memory=False, **kwargs):
     """
-    Imports the file as an igraph. The file can be a json/jsonl export from neo4j, and it can be gzipped. The spoke IDs are converted to strings because igraph is very slow if the ids are ints.
+    Uses the output of import_kg2_csv or import_kg2_jsonl
     """
     import igraph as ig
-    if low_memory:
-        kwargs['use_edge_properties'] = False
-    if filename.endswith('.csv') or filename.endswith('.csv.gz') or filename.endswith('.tsv') or filename.endswith('.tsv.gz'):
-        nodes, edges, node_types, edge_types = import_kg2_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
-    elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
-        nodes, edges, node_types, edge_types = import_kg2_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
-    else:
-        raise Exception('Filename should be a csv, tsv, json, or jsonl.')
-    if verbose:
-        print('Done loading data, creating edge list')
-    # use igraph.graph.DictList
     if low_memory:
         edge_list = ({'s': str(v[0]), 't': str(v[1])} for v in edges.keys())
         del edges
@@ -361,6 +320,55 @@ def load_kg2_igraph(filename='graph.jsonl.gz', edges_to_include=None, remove_unu
                 iterative=False)
     return graph
 
+
+    pass
+
+def load_kg2_networkx(filename='spoke.csv', edges_to_include=None, remove_unused_nodes=True, directed=False, **kwargs):
+    import networkx as nx
+    if filename.endswith('.csv') or filename.endswith('.csv.gz') or filename.endswith('.tsv') or filename.endswith('.tsv.gz'):
+        nodes, edges, node_types, edge_types = import_kg2_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+    elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
+        nodes, edges, node_types, edge_types = import_kg2_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+    else:
+        raise Exception('Filename should be a csv, tsv, json, or jsonl.')
+    edge_list = edges.keys()
+    if directed:
+        graph = nx.from_edgelist(edge_list, nx.DiGraph)
+    else:
+        graph = nx.from_edgelist(edge_list)
+    # set node attributes
+    node_attributes = {}
+    # TODO: get all IDs, not just names
+    for n in nodes:
+        node_attributes[n[0]] = {
+                'name':  n[1],
+                'category': node_types[n[2]],
+                'identifier': n[3],
+                'source': n[4],
+        }
+    nx.set_node_attributes(graph, node_attributes)
+    # set edge attributes
+    edge_attributes = {k: {'type': edge_types[v]} for k, v in edges.items()}
+    nx.set_edge_attributes(graph, edge_attributes)
+    return graph
+
+
+def load_kg2_igraph(filename='graph.jsonl.gz', edges_to_include=None, remove_unused_nodes=True, directed=False, verbose=False, low_memory=False, **kwargs):
+    """
+    Imports the file as an igraph. The file can be a json/jsonl export from neo4j, and it can be gzipped. The spoke IDs are converted to strings because igraph is very slow if the ids are ints.
+    """
+    if low_memory:
+        kwargs['use_edge_properties'] = False
+    if filename.endswith('.csv') or filename.endswith('.csv.gz') or filename.endswith('.tsv') or filename.endswith('.tsv.gz'):
+        nodes, edges, node_types, edge_types = import_kg2_csv(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+    elif filename.endswith('.json') or filename.endswith('.json.gz') or filename.endswith('.jsonl') or filename.endswith('.jsonl.gz'):
+        nodes, edges, node_types, edge_types = import_kg2_jsonl(filename, edges_to_include, remove_unused_nodes, reindex_edges=False, **kwargs)
+    else:
+        raise Exception('Filename should be a csv, tsv, json, or jsonl.')
+    if verbose:
+        print('Done loading data, creating edge list')
+    return load_kg2_igraph_from_data(nodes, edges, node_types, edge_types, remove_unused_nodes, directed, verbose, low_memory, **kwargs)
+    # use igraph.graph.DictList
 
 
 def symmetrize_matrix(matrix):
