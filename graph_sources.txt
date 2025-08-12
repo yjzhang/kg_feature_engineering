@@ -18,3 +18,7 @@ Gene2pubmed: https://ftp.ncbi.nih.gov/gene/DATA/gene2pubmed.gz
 PubMed: 
 
 PubChem: https://ftp.ncbi.nlm.nih.gov/pubchem/RDF/reference/
+
+...
+
+SigNOR raw, SIGNOR_2025_08_12.tsv: https://signor.uniroma2.it/downloads.php
