@@ -112,14 +112,29 @@ for node in topic_ids:
     assert(len(st_mehlhorn.vs.find(name=node).neighbors()) > 0)
 assert(st_mehlhorn.is_tree())
 
+t = time.time()
+st = kgfe.explanations.steiner_tree(graph, topic_ids, method='takahashi_multi_start')
+print('time for steiner tree (Takahashi Multi-start method):', time.time() - t)
+print('nodes in steiner tree (Takahashi Multi-start method):', len(st.vs))
+# time: 3ms
+
+for node in topic_ids:
+    assert(st.vs.find(name=node))
+    assert(len(st.vs.find(name=node).neighbors()) > 0)
+assert(st.is_tree())
+
+
+
 # TODO: compare the size of different steiner tree methods
 # takahashi, mehlhorn, shortest paths
 takahashi_sizes = []
 shortest_path_sizes = []
 mehlhorn_sizes = []
+takahashi_ms_sizes = []
 takahashi_times = []
 shortest_path_times = []
 mehlhorn_times = []
+takahashi_ms_times = []
 for i in range(50):
     rand_topic_ids = kgfe.graph_info.random_nodes(graph, 20)
     t0 = time.time()
@@ -134,15 +149,22 @@ for i in range(50):
     st3 = kgfe.explanations.steiner_tree(graph, rand_topic_ids, method='mehlhorn')
     mehlhorn_sizes.append(len(st3.vs))
     mehlhorn_times.append(time.time() - t0)
+    t0 = time.time()
+    st1 = kgfe.explanations.steiner_tree(graph, rand_topic_ids, method='takahashi_multi_start')
+    takahashi_ms_sizes.append(len(st1.vs))
+    takahashi_ms_times.append(time.time() - t0)
+    t0 = time.time()
 print()
 print('steiner tree approximation stats with 20 randomly selected nodes:')
 print('mean size of takahashi steiner tree:', sum(takahashi_sizes)/50.)
 print('mean size of shortest paths steiner tree:', sum(shortest_path_sizes)/50.)
 print('mean size of mehlhorn steiner tree:', sum(mehlhorn_sizes)/50.)
+print('mean size of takahashi multistart steiner tree:', sum(takahashi_ms_sizes)/50.)
 
 print('mean running time of takahashi steiner tree:', sum(takahashi_times)/50.)
 print('mean running time of shortest paths steiner tree:', sum(shortest_path_times)/50.)
 print('mean running time of mehlhorn steiner tree:', sum(mehlhorn_times)/50.)
+print('mean running time of takahashi multistart steiner tree:', sum(takahashi_ms_times)/50.)
 
 print()
 

@@ -57,6 +57,15 @@ def steiner_tree(graph, ids, method='takahashi', **params):
     indices = [graph.vs.find(name=i).index for i in ids]
     if method == 'takahashi':
         tree = steiner_tree.takahashi_matsuyama_steiner_tree(graph, indices)
+    elif method == 'takahashi_multi_start':
+        min_tree_size = len(graph.vs)
+        best_tree = None
+        for i in range(len(ids)):
+            tree = steiner_tree.takahashi_matsuyama_steiner_tree(graph, indices, initial_terminal=i)
+            if len(tree.vs) < min_tree_size:
+                best_tree = tree
+                min_tree_size = len(tree.vs)
+        tree = best_tree
     elif method == 'shortest_paths':
         tree = steiner_tree.shortest_paths_steiner_tree(graph, indices)
     elif method == 'mehlhorn':

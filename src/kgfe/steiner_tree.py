@@ -15,6 +15,15 @@ def steiner_tree(G, source_nodes, method='takahashi'):
     indices = [G.vs.find(name=i).index for i in source_nodes]
     if method == 'takahashi':
         tree = takahashi_matsuyama_steiner_tree(G, indices)
+    elif method == 'takahashi_multi_start':
+        min_tree_size = len(G.vs)
+        best_tree = None
+        for i in range(len(source_nodes)):
+            tree = takahashi_matsuyama_steiner_tree(G, indices, initial_terminal=i)
+            if len(tree.vs) < min_tree_size:
+                best_tree = tree
+                min_tree_size = len(tree.vs)
+        tree = best_tree
     elif method == 'shortest_paths':
         tree = shortest_paths_steiner_tree(G, indices)
     elif method == 'mehlhorn':
